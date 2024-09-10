@@ -13,18 +13,22 @@ import * as Plugin from "./quartz/plugins"
 const config: QuartzConfig = {
   configuration: {
 <<<<<<< HEAD
+<<<<<<< HEAD
     pageTitle: "Quartz 4",
     pageTitleSuffix: "",
 =======
     pageTitle: "🪴 Quartz 4.0",
 >>>>>>> 02f2423 (Initial commit)
+=======
+    pageTitle: "Kerem's Notes",
+>>>>>>> a5382d1 (First run)
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
+    baseUrl: "notes.valentinus.dev",
     ignorePatterns: ["private", "templates", ".obsidian"],
 <<<<<<< HEAD
     defaultDateType: "modified",
@@ -52,13 +56,13 @@ const config: QuartzConfig = {
           textHighlight: "#fff23688",
         },
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
-          gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
+          light: "#121212",
+          lightgray: "#2c2c2c",
+          gray: "#d6b460",
+          darkgray: "#9b7n28",
+          dark: "#e7d3a2",
+          secondary: "#d4b158",
+          tertiary: "#d4b25a",
           highlight: "rgba(143, 159, 169, 0.15)",
           textHighlight: "#b3aa0288",
         },
