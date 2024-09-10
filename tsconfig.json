@@ -11,8 +11,11 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
+<<<<<<< HEAD
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+=======
+>>>>>>> 02f2423 (Initial commit)
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "jsxImportSource": "preact"

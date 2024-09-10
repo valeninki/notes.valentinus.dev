@@ -29,9 +29,12 @@ export default {
       lightMode: "Lichte modus",
       darkMode: "Donkere modus",
     },
+<<<<<<< HEAD
     readerMode: {
       title: "Leesmodus",
     },
+=======
+>>>>>>> 02f2423 (Initial commit)
     explorer: {
       title: "Verkenner",
     },

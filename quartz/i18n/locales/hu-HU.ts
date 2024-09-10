@@ -29,9 +29,12 @@ export default {
       lightMode: "Világos mód",
       darkMode: "Sötét mód",
     },
+<<<<<<< HEAD
     readerMode: {
       title: "Olvasó mód",
     },
+=======
+>>>>>>> 02f2423 (Initial commit)
     explorer: {
       title: "Fájlböngésző",
     },

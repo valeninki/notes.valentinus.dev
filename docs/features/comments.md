@@ -45,8 +45,11 @@ afterBody: [
       category: 'Announcements',
       // from data-category-id
       categoryId: 'DIC_kwDOFxRnmM4B-Xg6',
+<<<<<<< HEAD
       // from data-lang
       lang: 'en'
+=======
+>>>>>>> 02f2423 (Initial commit)
     }
   }),
 ],
@@ -65,6 +68,7 @@ type Options = {
     category: string
     categoryId: string
 
+<<<<<<< HEAD
     // Url to folder with custom themes
     // defaults to 'https://${cfg.baseUrl}/static/giscus'
     themeUrl?: string
@@ -77,6 +81,8 @@ type Options = {
     // defaults to 'dark'
     darkTheme?: string
 
+=======
+>>>>>>> 02f2423 (Initial commit)
     // how to map pages -> discussions
     // defaults to 'url'
     mapping?: "url" | "title" | "og:title" | "specific" | "number" | "pathname"
@@ -92,6 +98,7 @@ type Options = {
     // where to put the comment input box relative to the comments
     // defaults to 'bottom'
     inputPosition?: "top" | "bottom"
+<<<<<<< HEAD
 
     // set your preference language here
     // defaults to 'en'
@@ -131,3 +138,8 @@ title: Comments disabled here!
 comments: false
 ---
 ```
+=======
+  }
+}
+```
+>>>>>>> 02f2423 (Initial commit)

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import FlexSearch, { DefaultDocumentSearchResults } from "flexsearch"
+=======
+import FlexSearch from "flexsearch"
+>>>>>>> 02f2423 (Initial commit)
 import { ContentDetails } from "../../plugins/emitters/contentIndex"
 import { registerEscapeHandler, removeAllChildren } from "./util"
 import { FullSlug, normalizeRelativeURLs, resolveRelative } from "../../util/path"
@@ -9,13 +13,17 @@ interface Item {
   title: string
   content: string
   tags: string[]
+<<<<<<< HEAD
   [key: string]: any
+=======
+>>>>>>> 02f2423 (Initial commit)
 }
 
 // Can be expanded with things like "term" in the future
 type SearchType = "basic" | "tags"
 let searchType: SearchType = "basic"
 let currentSearchTerm: string = ""
+<<<<<<< HEAD
 const encoder = (str: string) => {
   return str
     .toLowerCase()
@@ -24,6 +32,11 @@ const encoder = (str: string) => {
 }
 
 let index = new FlexSearch.Document<Item>({
+=======
+const encoder = (str: string) => str.toLowerCase().split(/([^a-z]|[^\x00-\x7F])/)
+let index = new FlexSearch.Document<Item>({
+  charset: "latin:extra",
+>>>>>>> 02f2423 (Initial commit)
   encode: encoder,
   document: {
     id: "id",
@@ -149,6 +162,7 @@ function highlightHTML(searchTerm: string, el: HTMLElement) {
   return html.body
 }
 
+<<<<<<< HEAD
 async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: ContentIndex) {
   const container = searchElement.querySelector(".search-container") as HTMLElement
   if (!container) return
@@ -174,15 +188,43 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   let previewInner: HTMLDivElement | undefined = undefined
   const results = document.createElement("div")
   results.className = "results-container"
+=======
+document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
+  const currentSlug = e.detail.url
+  const data = await fetchData
+  const container = document.getElementById("search-container")
+  const sidebar = container?.closest(".sidebar") as HTMLElement
+  const searchButton = document.getElementById("search-button")
+  const searchBar = document.getElementById("search-bar") as HTMLInputElement | null
+  const searchLayout = document.getElementById("search-layout")
+  const idDataMap = Object.keys(data) as FullSlug[]
+
+  const appendLayout = (el: HTMLElement) => {
+    if (searchLayout?.querySelector(`#${el.id}`) === null) {
+      searchLayout?.appendChild(el)
+    }
+  }
+
+  const enablePreview = searchLayout?.dataset?.preview === "true"
+  let preview: HTMLDivElement | undefined = undefined
+  let previewInner: HTMLDivElement | undefined = undefined
+  const results = document.createElement("div")
+  results.id = "results-container"
+>>>>>>> 02f2423 (Initial commit)
   appendLayout(results)
 
   if (enablePreview) {
     preview = document.createElement("div")
+<<<<<<< HEAD
     preview.className = "preview-container"
+=======
+    preview.id = "preview-container"
+>>>>>>> 02f2423 (Initial commit)
     appendLayout(preview)
   }
 
   function hideSearch() {
+<<<<<<< HEAD
     container.classList.remove("active")
     searchBar.value = "" // clear the input when we dismiss the search
     if (sidebar) sidebar.style.zIndex = ""
@@ -193,10 +235,33 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     searchLayout.classList.remove("display-results")
     searchType = "basic" // reset search type after closing
     searchButton.focus()
+=======
+    container?.classList.remove("active")
+    if (searchBar) {
+      searchBar.value = "" // clear the input when we dismiss the search
+    }
+    if (sidebar) {
+      sidebar.style.zIndex = "unset"
+    }
+    if (results) {
+      removeAllChildren(results)
+    }
+    if (preview) {
+      removeAllChildren(preview)
+    }
+    if (searchLayout) {
+      searchLayout.classList.remove("display-results")
+    }
+
+    searchType = "basic" // reset search type after closing
+
+    searchButton?.focus()
+>>>>>>> 02f2423 (Initial commit)
   }
 
   function showSearch(searchTypeNew: SearchType) {
     searchType = searchTypeNew
+<<<<<<< HEAD
     if (sidebar) sidebar.style.zIndex = "1"
     container.classList.add("active")
     searchBar.focus()
@@ -207,16 +272,39 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     if (e.key === "k" && (e.ctrlKey || e.metaKey) && !e.shiftKey) {
       e.preventDefault()
       const searchBarOpen = container.classList.contains("active")
+=======
+    if (sidebar) {
+      sidebar.style.zIndex = "1"
+    }
+    container?.classList.add("active")
+    searchBar?.focus()
+  }
+
+  let currentHover: HTMLInputElement | null = null
+
+  async function shortcutHandler(e: HTMLElementEventMap["keydown"]) {
+    if (e.key === "k" && (e.ctrlKey || e.metaKey) && !e.shiftKey) {
+      e.preventDefault()
+      const searchBarOpen = container?.classList.contains("active")
+>>>>>>> 02f2423 (Initial commit)
       searchBarOpen ? hideSearch() : showSearch("basic")
       return
     } else if (e.shiftKey && (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
       // Hotkey to open tag search
       e.preventDefault()
+<<<<<<< HEAD
       const searchBarOpen = container.classList.contains("active")
       searchBarOpen ? hideSearch() : showSearch("tags")
 
       // add "#" prefix for tag search
       searchBar.value = "#"
+=======
+      const searchBarOpen = container?.classList.contains("active")
+      searchBarOpen ? hideSearch() : showSearch("tags")
+
+      // add "#" prefix for tag search
+      if (searchBar) searchBar.value = "#"
+>>>>>>> 02f2423 (Initial commit)
       return
     }
 
@@ -225,23 +313,38 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     }
 
     // If search is active, then we will render the first result and display accordingly
+<<<<<<< HEAD
     if (!container.classList.contains("active")) return
     if (e.key === "Enter" && !e.isComposing) {
       // If result has focus, navigate to that one, otherwise pick first result
       if (results.contains(document.activeElement)) {
+=======
+    if (!container?.classList.contains("active")) return
+    if (e.key === "Enter") {
+      // If result has focus, navigate to that one, otherwise pick first result
+      if (results?.contains(document.activeElement)) {
+>>>>>>> 02f2423 (Initial commit)
         const active = document.activeElement as HTMLInputElement
         if (active.classList.contains("no-match")) return
         await displayPreview(active)
         active.click()
       } else {
         const anchor = document.getElementsByClassName("result-card")[0] as HTMLInputElement | null
+<<<<<<< HEAD
         if (!anchor || anchor.classList.contains("no-match")) return
+=======
+        if (!anchor || anchor?.classList.contains("no-match")) return
+>>>>>>> 02f2423 (Initial commit)
         await displayPreview(anchor)
         anchor.click()
       }
     } else if (e.key === "ArrowUp" || (e.shiftKey && e.key === "Tab")) {
       e.preventDefault()
+<<<<<<< HEAD
       if (results.contains(document.activeElement)) {
+=======
+      if (results?.contains(document.activeElement)) {
+>>>>>>> 02f2423 (Initial commit)
         // If an element in results-container already has focus, focus previous one
         const currentResult = currentHover
           ? currentHover
@@ -306,11 +409,17 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     itemTile.classList.add("result-card")
     itemTile.id = slug
     itemTile.href = resolveUrl(slug).toString()
+<<<<<<< HEAD
     itemTile.innerHTML = `
       <h3 class="card-title">${title}</h3>
       ${htmlTags}
       <p class="card-description">${content}</p>
     `
+=======
+    itemTile.innerHTML = `<h3>${title}</h3>${htmlTags}${
+      enablePreview && window.innerWidth > 600 ? "" : `<p>${content}</p>`
+    }`
+>>>>>>> 02f2423 (Initial commit)
     itemTile.addEventListener("click", (event) => {
       if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
       hideSearch()
@@ -336,6 +445,11 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   }
 
   async function displayResults(finalResults: Item[]) {
+<<<<<<< HEAD
+=======
+    if (!results) return
+
+>>>>>>> 02f2423 (Initial commit)
     removeAllChildren(results)
     if (finalResults.length === 0) {
       results.innerHTML = `<a class="result-card no-match">
@@ -391,7 +505,11 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     preview.replaceChildren(previewInner)
 
     // scroll to longest
+<<<<<<< HEAD
     const highlights = [...preview.getElementsByClassName("highlight")].sort(
+=======
+    const highlights = [...preview.querySelectorAll(".highlight")].sort(
+>>>>>>> 02f2423 (Initial commit)
       (a, b) => b.innerHTML.length - a.innerHTML.length,
     )
     highlights[0]?.scrollIntoView({ block: "start" })
@@ -403,7 +521,11 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     searchLayout.classList.toggle("display-results", currentSearchTerm !== "")
     searchType = currentSearchTerm.startsWith("#") ? "tags" : "basic"
 
+<<<<<<< HEAD
     let searchResults: DefaultDocumentSearchResults<Item>
+=======
+    let searchResults: FlexSearch.SimpleDocumentSearchResultSetUnit[]
+>>>>>>> 02f2423 (Initial commit)
     if (searchType === "tags") {
       currentSearchTerm = currentSearchTerm.substring(1).trim()
       const separatorIndex = currentSearchTerm.indexOf(" ")
@@ -416,7 +538,11 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
           // return at least 10000 documents, so it is enough to filter them by tag (implemented in flexsearch)
           limit: Math.max(numSearchResults, 10000),
           index: ["title", "content"],
+<<<<<<< HEAD
           tag: { tags: tag },
+=======
+          tag: tag,
+>>>>>>> 02f2423 (Initial commit)
         })
         for (let searchResult of searchResults) {
           searchResult.result = searchResult.result.slice(0, numSearchResults)
@@ -457,6 +583,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
 
   document.addEventListener("keydown", shortcutHandler)
   window.addCleanup(() => document.removeEventListener("keydown", shortcutHandler))
+<<<<<<< HEAD
   searchButton.addEventListener("click", () => showSearch("basic"))
   window.addCleanup(() => searchButton.removeEventListener("click", () => showSearch("basic")))
   searchBar.addEventListener("input", onType)
@@ -465,15 +592,29 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   registerEscapeHandler(container, hideSearch)
   await fillDocument(data)
 }
+=======
+  searchButton?.addEventListener("click", () => showSearch("basic"))
+  window.addCleanup(() => searchButton?.removeEventListener("click", () => showSearch("basic")))
+  searchBar?.addEventListener("input", onType)
+  window.addCleanup(() => searchBar?.removeEventListener("input", onType))
+
+  registerEscapeHandler(container, hideSearch)
+  await fillDocument(data)
+})
+>>>>>>> 02f2423 (Initial commit)
 
 /**
  * Fills flexsearch document with data
  * @param index index to fill
  * @param data data to fill index with
  */
+<<<<<<< HEAD
 let indexPopulated = false
 async function fillDocument(data: ContentIndex) {
   if (indexPopulated) return
+=======
+async function fillDocument(data: { [key: FullSlug]: ContentDetails }) {
+>>>>>>> 02f2423 (Initial commit)
   let id = 0
   const promises: Array<Promise<unknown>> = []
   for (const [slug, fileData] of Object.entries<ContentDetails>(data)) {
@@ -488,6 +629,7 @@ async function fillDocument(data: ContentIndex) {
     )
   }
 
+<<<<<<< HEAD
   await Promise.all(promises)
   indexPopulated = true
 }
@@ -500,3 +642,7 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
     await setupSearch(element, currentSlug, data)
   }
 })
+=======
+  return await Promise.all(promises)
+}
+>>>>>>> 02f2423 (Initial commit)

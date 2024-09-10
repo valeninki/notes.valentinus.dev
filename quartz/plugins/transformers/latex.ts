@@ -1,6 +1,7 @@
 import remarkMath from "remark-math"
 import rehypeKatex from "rehype-katex"
 import rehypeMathjax from "rehype-mathjax/svg"
+<<<<<<< HEAD
 //@ts-ignore
 import rehypeTypst from "@myriaddreamin/rehype-typst"
 import { QuartzTransformerPlugin } from "../types"
@@ -15,6 +16,13 @@ interface Options {
   katexOptions: Omit<KatexOptions, "macros" | "output">
   mathJaxOptions: Omit<MathjaxOptions, "macros">
   typstOptions: TypstOptions
+=======
+import { QuartzTransformerPlugin } from "../types"
+
+interface Options {
+  renderEngine: "katex" | "mathjax"
+  customMacros: MacroType
+>>>>>>> 02f2423 (Initial commit)
 }
 
 interface MacroType {
@@ -30,6 +38,7 @@ export const Latex: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
       return [remarkMath]
     },
     htmlPlugins() {
+<<<<<<< HEAD
       switch (engine) {
         case "katex": {
           return [[rehypeKatex, { output: "html", macros, ...(opts?.katexOptions ?? {}) }]]
@@ -59,6 +68,32 @@ export const Latex: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
               },
             ],
           }
+=======
+      if (engine === "katex") {
+        return [[rehypeKatex, { output: "html", macros }]]
+      } else {
+        return [[rehypeMathjax, { macros }]]
+      }
+    },
+    externalResources() {
+      if (engine === "katex") {
+        return {
+          css: [
+            // base css
+            "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css",
+          ],
+          js: [
+            {
+              // fix copy behaviour: https://github.com/KaTeX/KaTeX/blob/main/contrib/copy-tex/README.md
+              src: "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js",
+              loadTime: "afterDOMReady",
+              contentType: "external",
+            },
+          ],
+        }
+      } else {
+        return {}
+>>>>>>> 02f2423 (Initial commit)
       }
     },
   }

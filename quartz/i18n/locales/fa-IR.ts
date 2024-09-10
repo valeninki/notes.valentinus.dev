@@ -5,7 +5,10 @@ export default {
     title: "بدون عنوان",
     description: "توضیح خاصی اضافه نشده است",
   },
+<<<<<<< HEAD
   direction: "rtl" as const,
+=======
+>>>>>>> 02f2423 (Initial commit)
   components: {
     callout: {
       note: "یادداشت",
@@ -30,9 +33,12 @@ export default {
       lightMode: "حالت روشن",
       darkMode: "حالت تاریک",
     },
+<<<<<<< HEAD
     readerMode: {
       title: "حالت خواندن",
     },
+=======
+>>>>>>> 02f2423 (Initial commit)
     explorer: {
       title: "مطالب",
     },

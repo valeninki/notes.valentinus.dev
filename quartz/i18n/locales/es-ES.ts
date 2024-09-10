@@ -29,9 +29,12 @@ export default {
       lightMode: "Modo claro",
       darkMode: "Modo oscuro",
     },
+<<<<<<< HEAD
     readerMode: {
       title: "Modo lector",
     },
+=======
+>>>>>>> 02f2423 (Initial commit)
     explorer: {
       title: "Explorador",
     },

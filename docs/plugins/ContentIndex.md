@@ -17,7 +17,10 @@ This plugin accepts the following configuration options:
 - `enableRSS`: If `true` (default), produces an RSS feed (`index.xml`) with recent content updates.
 - `rssLimit`: Defines the maximum number of entries to include in the RSS feed, helping to focus on the most recent or relevant content. Defaults to `10`.
 - `rssFullHtml`: If `true`, the RSS feed includes full HTML content. Otherwise it includes just summaries.
+<<<<<<< HEAD
 - `rssSlug`: Slug to the generated RSS feed XML file. Defaults to `"index"`.
+=======
+>>>>>>> 02f2423 (Initial commit)
 - `includeEmptyFiles`: If `true` (default), content files with no body text are included in the generated index and resources.
 
 ## API

@@ -35,8 +35,11 @@ Some common frontmatter fields that are natively supported by Quartz:
 - `draft`: Whether to publish the page or not. This is one way to make [[private pages|pages private]] in Quartz.
 - `date`: A string representing the day the note was published. Normally uses `YYYY-MM-DD` format.
 
+<<<<<<< HEAD
 See [[Frontmatter]] for a complete list of frontmatter.
 
+=======
+>>>>>>> 02f2423 (Initial commit)
 ## Syncing your Content
 
 When your Quartz is at a point you're happy with, you can save your changes to GitHub.

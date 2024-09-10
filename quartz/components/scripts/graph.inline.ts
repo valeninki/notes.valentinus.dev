@@ -8,7 +8,10 @@ import {
   forceCenter,
   forceLink,
   forceCollide,
+<<<<<<< HEAD
   forceRadial,
+=======
+>>>>>>> 02f2423 (Initial commit)
   zoomIdentity,
   select,
   drag,
@@ -68,9 +71,17 @@ type TweenNode = {
   stop: () => void
 }
 
+<<<<<<< HEAD
 async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   const slug = simplifySlug(fullSlug)
   const visited = getVisited()
+=======
+async function renderGraph(container: string, fullSlug: FullSlug) {
+  const slug = simplifySlug(fullSlug)
+  const visited = getVisited()
+  const graph = document.getElementById(container)
+  if (!graph) return
+>>>>>>> 02f2423 (Initial commit)
   removeAllChildren(graph)
 
   let {
@@ -86,7 +97,10 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     removeTags,
     showTags,
     focusOnHover,
+<<<<<<< HEAD
     enableRadial,
+=======
+>>>>>>> 02f2423 (Initial commit)
   } = JSON.parse(graph.dataset["cfg"]!) as D3Config
 
   const data: Map<SimpleSlug, ContentDetails> = new Map(
@@ -161,9 +175,12 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       })),
   }
 
+<<<<<<< HEAD
   const width = graph.offsetWidth
   const height = Math.max(graph.offsetHeight, 250)
 
+=======
+>>>>>>> 02f2423 (Initial commit)
   // we virtualize the simulation and use pixi to actually render it
   const simulation: Simulation<NodeData, LinkData> = forceSimulation<NodeData>(graphData.nodes)
     .force("charge", forceManyBody().strength(-100 * repelForce))
@@ -171,8 +188,13 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     .force("link", forceLink(graphData.links).distance(linkDistance))
     .force("collide", forceCollide<NodeData>((n) => nodeRadius(n)).iterations(3))
 
+<<<<<<< HEAD
   const radius = (Math.min(width, height) / 2) * 0.8
   if (enableRadial) simulation.force("radial", forceRadial(radius).strength(0.2))
+=======
+  const width = graph.offsetWidth
+  const height = Math.max(graph.offsetHeight, 250)
+>>>>>>> 02f2423 (Initial commit)
 
   // precompute style prop strings as pixi doesn't support css variables
   const cssVars = [
@@ -366,9 +388,15 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   const stage = app.stage
   stage.interactive = false
 
+<<<<<<< HEAD
   const labelsContainer = new Container<Text>({ zIndex: 3, isRenderGroup: true })
   const nodesContainer = new Container<Graphics>({ zIndex: 2, isRenderGroup: true })
   const linkContainer = new Container<Graphics>({ zIndex: 1, isRenderGroup: true })
+=======
+  const labelsContainer = new Container<Text>({ zIndex: 3 })
+  const nodesContainer = new Container<Graphics>({ zIndex: 2 })
+  const linkContainer = new Container<Graphics>({ zIndex: 1 })
+>>>>>>> 02f2423 (Initial commit)
   stage.addChild(nodesContainer, labelsContainer, linkContainer)
 
   for (const n of graphData.nodes) {
@@ -400,6 +428,10 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     })
       .circle(0, 0, nodeRadius(n))
       .fill({ color: isTagNode ? computedStyleMap["--light"] : color(n) })
+<<<<<<< HEAD
+=======
+      .stroke({ width: isTagNode ? 2 : 0, color: color(n) })
+>>>>>>> 02f2423 (Initial commit)
       .on("pointerover", (e) => {
         updateHoverInfo(e.target.label)
         oldLabelOpacity = label.alpha
@@ -415,10 +447,13 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
         }
       })
 
+<<<<<<< HEAD
     if (isTagNode) {
       gfx.stroke({ width: 2, color: computedStyleMap["--tertiary"] })
     }
 
+=======
+>>>>>>> 02f2423 (Initial commit)
     nodesContainer.addChild(gfx)
     labelsContainer.addChild(label)
 
@@ -523,9 +558,13 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     )
   }
 
+<<<<<<< HEAD
   let stopAnimation = false
   function animate(time: number) {
     if (stopAnimation) return
+=======
+  function animate(time: number) {
+>>>>>>> 02f2423 (Initial commit)
     for (const n of nodeRenderData) {
       const { x, y } = n.simulationData
       if (!x || !y) continue
@@ -549,6 +588,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     requestAnimationFrame(animate)
   }
 
+<<<<<<< HEAD
   requestAnimationFrame(animate)
   return () => {
     stopAnimation = true
@@ -571,11 +611,16 @@ function cleanupGlobalGraphs() {
     cleanup()
   }
   globalGraphCleanups = []
+=======
+  const graphAnimationFrameHandle = requestAnimationFrame(animate)
+  window.addCleanup(() => cancelAnimationFrame(graphAnimationFrameHandle))
+>>>>>>> 02f2423 (Initial commit)
 }
 
 document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   const slug = e.detail.url
   addToVisited(simplifySlug(slug))
+<<<<<<< HEAD
 
   async function renderLocalGraph() {
     cleanupLocalGraphs()
@@ -591,10 +636,24 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   }
 
   document.addEventListener("themechange", handleThemeChange)
+=======
+  await renderGraph("graph-container", slug)
+
+  // Function to re-render the graph when the theme changes
+  const handleThemeChange = () => {
+    renderGraph("graph-container", slug)
+  }
+
+  // event listener for theme change
+  document.addEventListener("themechange", handleThemeChange)
+
+  // cleanup for the event listener
+>>>>>>> 02f2423 (Initial commit)
   window.addCleanup(() => {
     document.removeEventListener("themechange", handleThemeChange)
   })
 
+<<<<<<< HEAD
   const containers = [...document.getElementsByClassName("global-graph-outer")] as HTMLElement[]
   async function renderGlobalGraph() {
     const slug = getFullSlug(window)
@@ -621,12 +680,33 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
       if (sidebar) {
         sidebar.style.zIndex = ""
       }
+=======
+  const container = document.getElementById("global-graph-outer")
+  const sidebar = container?.closest(".sidebar") as HTMLElement
+
+  function renderGlobalGraph() {
+    const slug = getFullSlug(window)
+    container?.classList.add("active")
+    if (sidebar) {
+      sidebar.style.zIndex = "1"
+    }
+
+    renderGraph("global-graph-container", slug)
+    registerEscapeHandler(container, hideGlobalGraph)
+  }
+
+  function hideGlobalGraph() {
+    container?.classList.remove("active")
+    if (sidebar) {
+      sidebar.style.zIndex = "unset"
+>>>>>>> 02f2423 (Initial commit)
     }
   }
 
   async function shortcutHandler(e: HTMLElementEventMap["keydown"]) {
     if (e.key === "g" && (e.ctrlKey || e.metaKey) && !e.shiftKey) {
       e.preventDefault()
+<<<<<<< HEAD
       const anyGlobalGraphOpen = containers.some((container) =>
         container.classList.contains("active"),
       )
@@ -646,4 +726,17 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
     cleanupLocalGraphs()
     cleanupGlobalGraphs()
   })
+=======
+      const globalGraphOpen = container?.classList.contains("active")
+      globalGraphOpen ? hideGlobalGraph() : renderGlobalGraph()
+    }
+  }
+
+  const containerIcon = document.getElementById("global-graph-icon")
+  containerIcon?.addEventListener("click", renderGlobalGraph)
+  window.addCleanup(() => containerIcon?.removeEventListener("click", renderGlobalGraph))
+
+  document.addEventListener("keydown", shortcutHandler)
+  window.addCleanup(() => document.removeEventListener("keydown", shortcutHandler))
+>>>>>>> 02f2423 (Initial commit)
 })

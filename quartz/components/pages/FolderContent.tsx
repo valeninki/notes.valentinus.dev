@@ -1,4 +1,5 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "../types"
+<<<<<<< HEAD
 
 import style from "../styles/listPage.scss"
 import { PageList, SortFn } from "../PageList"
@@ -9,19 +10,35 @@ import { QuartzPluginData } from "../../plugins/vfile"
 import { ComponentChildren } from "preact"
 import { concatenateResources } from "../../util/resources"
 import { trieFromAllFiles } from "../../util/ctx"
+=======
+import path from "path"
+
+import style from "../styles/listPage.scss"
+import { PageList, SortFn } from "../PageList"
+import { stripSlashes, simplifySlug } from "../../util/path"
+import { Root } from "hast"
+import { htmlToJsx } from "../../util/jsx"
+import { i18n } from "../../i18n"
+>>>>>>> 02f2423 (Initial commit)
 
 interface FolderContentOptions {
   /**
    * Whether to display number of folders
    */
   showFolderCount: boolean
+<<<<<<< HEAD
   showSubfolders: boolean
+=======
+>>>>>>> 02f2423 (Initial commit)
   sort?: SortFn
 }
 
 const defaultOptions: FolderContentOptions = {
   showFolderCount: true,
+<<<<<<< HEAD
   showSubfolders: true,
+=======
+>>>>>>> 02f2423 (Initial commit)
 }
 
 export default ((opts?: Partial<FolderContentOptions>) => {
@@ -29,6 +46,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
 
   const FolderContent: QuartzComponent = (props: QuartzComponentProps) => {
     const { tree, fileData, allFiles, cfg } = props
+<<<<<<< HEAD
 
     const trie = (props.ctx.trie ??= trieFromAllFiles(allFiles))
     const folder = trie.findNode(fileData.slug!.split("/"))
@@ -90,12 +108,26 @@ export default ((opts?: Partial<FolderContentOptions>) => {
         .filter((page) => page !== undefined) ?? []
     const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
     const classes = cssClasses.join(" ")
+=======
+    const folderSlug = stripSlashes(simplifySlug(fileData.slug!))
+    const allPagesInFolder = allFiles.filter((file) => {
+      const fileSlug = stripSlashes(simplifySlug(file.slug!))
+      const prefixed = fileSlug.startsWith(folderSlug) && fileSlug !== folderSlug
+      const folderParts = folderSlug.split(path.posix.sep)
+      const fileParts = fileSlug.split(path.posix.sep)
+      const isDirectChild = fileParts.length === folderParts.length + 1
+      return prefixed && isDirectChild
+    })
+    const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
+    const classes = ["popover-hint", ...cssClasses].join(" ")
+>>>>>>> 02f2423 (Initial commit)
     const listProps = {
       ...props,
       sort: options.sort,
       allFiles: allPagesInFolder,
     }
 
+<<<<<<< HEAD
     const content = (
       (tree as Root).children.length === 0
         ? fileData.description
@@ -105,6 +137,16 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     return (
       <div class="popover-hint">
         <article class={classes}>{content}</article>
+=======
+    const content =
+      (tree as Root).children.length === 0
+        ? fileData.description
+        : htmlToJsx(fileData.filePath!, tree)
+
+    return (
+      <div class={classes}>
+        <article>{content}</article>
+>>>>>>> 02f2423 (Initial commit)
         <div class="page-listing">
           {options.showFolderCount && (
             <p>
@@ -121,6 +163,10 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     )
   }
 
+<<<<<<< HEAD
   FolderContent.css = concatenateResources(style, PageList.css)
+=======
+  FolderContent.css = style + PageList.css
+>>>>>>> 02f2423 (Initial commit)
   return FolderContent
 }) satisfies QuartzComponentConstructor

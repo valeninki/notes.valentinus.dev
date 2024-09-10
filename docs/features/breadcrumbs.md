@@ -19,6 +19,10 @@ Component.Breadcrumbs({
   spacerSymbol: "❯", // symbol between crumbs
   rootName: "Home", // name of first/root element
   resolveFrontmatterTitle: true, // whether to resolve folder names through frontmatter titles
+<<<<<<< HEAD
+=======
+  hideOnRoot: true, // whether to hide breadcrumbs on root `index.md` page
+>>>>>>> 02f2423 (Initial commit)
   showCurrentPage: true, // whether to display the current page in the breadcrumbs
 })
 ```

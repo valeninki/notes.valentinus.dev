@@ -1,8 +1,15 @@
 import fs from "fs"
+<<<<<<< HEAD
 import { Repository } from "@napi-rs/simple-git"
 import { QuartzTransformerPlugin } from "../types"
 import path from "path"
 import { styleText } from "util"
+=======
+import path from "path"
+import { Repository } from "@napi-rs/simple-git"
+import { QuartzTransformerPlugin } from "../types"
+import chalk from "chalk"
+>>>>>>> 02f2423 (Initial commit)
 
 export interface Options {
   priority: ("frontmatter" | "git" | "filesystem")[]
@@ -12,6 +19,7 @@ const defaultOptions: Options = {
   priority: ["frontmatter", "git", "filesystem"],
 }
 
+<<<<<<< HEAD
 // YYYY-MM-DD
 const iso8601DateOnlyRegex = /^\d{4}-\d{2}-\d{2}$/
 
@@ -23,12 +31,19 @@ function coerceDate(fp: string, d: any): Date {
     d = `${d}T00:00:00`
   }
 
+=======
+function coerceDate(fp: string, d: any): Date {
+>>>>>>> 02f2423 (Initial commit)
   const dt = new Date(d)
   const invalidDate = isNaN(dt.getTime()) || dt.getTime() === 0
   if (invalidDate && d !== undefined) {
     console.log(
+<<<<<<< HEAD
       styleText(
         "yellow",
+=======
+      chalk.yellow(
+>>>>>>> 02f2423 (Initial commit)
         `\nWarning: found invalid date "${d}" in \`${fp}\`. Supported formats: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format`,
       ),
     )
@@ -42,6 +57,7 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
   const opts = { ...defaultOptions, ...userOpts }
   return {
     name: "CreatedModifiedDate",
+<<<<<<< HEAD
     markdownPlugins(ctx) {
       return [
         () => {
@@ -61,19 +77,31 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
             }
           }
 
+=======
+    markdownPlugins() {
+      return [
+        () => {
+          let repo: Repository | undefined = undefined
+>>>>>>> 02f2423 (Initial commit)
           return async (_tree, file) => {
             let created: MaybeDate = undefined
             let modified: MaybeDate = undefined
             let published: MaybeDate = undefined
 
+<<<<<<< HEAD
             const fp = file.data.relativePath!
             const fullFp = file.data.filePath!
+=======
+            const fp = file.data.filePath!
+            const fullFp = path.isAbsolute(fp) ? fp : path.posix.join(file.cwd, fp)
+>>>>>>> 02f2423 (Initial commit)
             for (const source of opts.priority) {
               if (source === "filesystem") {
                 const st = await fs.promises.stat(fullFp)
                 created ||= st.birthtimeMs
                 modified ||= st.mtimeMs
               } else if (source === "frontmatter" && file.data.frontmatter) {
+<<<<<<< HEAD
                 created ||= file.data.frontmatter.created as MaybeDate
                 modified ||= file.data.frontmatter.modified as MaybeDate
                 published ||= file.data.frontmatter.published as MaybeDate
@@ -86,6 +114,28 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
                     styleText(
                       "yellow",
                       `\nWarning: ${file.data.filePath!} isn't yet tracked by git, dates will be inaccurate`,
+=======
+                created ||= file.data.frontmatter.date as MaybeDate
+                modified ||= file.data.frontmatter.lastmod as MaybeDate
+                modified ||= file.data.frontmatter.updated as MaybeDate
+                modified ||= file.data.frontmatter["last-modified"] as MaybeDate
+                published ||= file.data.frontmatter.publishDate as MaybeDate
+              } else if (source === "git") {
+                if (!repo) {
+                  // Get a reference to the main git repo.
+                  // It's either the same as the workdir,
+                  // or 1+ level higher in case of a submodule/subtree setup
+                  repo = Repository.discover(file.cwd)
+                }
+
+                try {
+                  modified ||= await repo.getFileLatestModifiedDateAsync(file.data.filePath!)
+                } catch {
+                  console.log(
+                    chalk.yellow(
+                      `\nWarning: ${file.data
+                        .filePath!} isn't yet tracked by git, last modification date is not available for this file`,
+>>>>>>> 02f2423 (Initial commit)
                     ),
                   )
                 }

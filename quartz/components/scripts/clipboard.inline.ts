@@ -8,9 +8,13 @@ document.addEventListener("nav", () => {
   for (let i = 0; i < els.length; i++) {
     const codeBlock = els[i].getElementsByTagName("code")[0]
     if (codeBlock) {
+<<<<<<< HEAD
       const source = (
         codeBlock.dataset.clipboard ? JSON.parse(codeBlock.dataset.clipboard) : codeBlock.innerText
       ).replace(/\n\n/g, "\n")
+=======
+      const source = codeBlock.innerText.replace(/\n\n/g, "\n")
+>>>>>>> 02f2423 (Initial commit)
       const button = document.createElement("button")
       button.className = "clipboard-button"
       button.type = "button"

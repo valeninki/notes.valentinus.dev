@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 @use "sass:map";
 
+=======
+>>>>>>> 02f2423 (Initial commit)
 @use "./variables.scss" as *;
 @use "./syntax.scss";
 @use "./callouts.scss";
@@ -11,8 +14,15 @@ html {
   width: 100vw;
 }
 
+<<<<<<< HEAD
 body {
   margin: 0;
+=======
+body,
+section {
+  margin: 0;
+  max-width: 100%;
+>>>>>>> 02f2423 (Initial commit)
   box-sizing: border-box;
   background-color: var(--light);
   font-family: var(--bodyFont);
@@ -39,6 +49,7 @@ li,
 ol,
 ul,
 .katex,
+<<<<<<< HEAD
 .math,
 .typst-doc,
 .typst-doc * {
@@ -46,6 +57,25 @@ ul,
   fill: var(--darkgray);
   overflow-wrap: break-word;
   text-wrap: pretty;
+=======
+.math {
+  color: var(--darkgray);
+  fill: var(--darkgray);
+  hyphens: auto;
+}
+
+p,
+ul,
+text,
+a,
+li,
+ol,
+ul,
+.katex,
+.math {
+  overflow-wrap: anywhere;
+  /* tr and td removed from list of selectors for overflow-wrap, allowing them to use default 'normal' property value */
+>>>>>>> 02f2423 (Initial commit)
 }
 
 .math {
@@ -54,6 +84,7 @@ ul,
   }
 }
 
+<<<<<<< HEAD
 article {
   > mjx-container.MathJax,
   blockquote > div > mjx-container.MathJax {
@@ -69,6 +100,8 @@ article {
   }
 }
 
+=======
+>>>>>>> 02f2423 (Initial commit)
 strong {
   font-weight: $semiBoldWeight;
 }
@@ -80,7 +113,11 @@ a {
   color: var(--secondary);
 
   &:hover {
+<<<<<<< HEAD
     color: var(--tertiary);
+=======
+    color: var(--tertiary) !important;
+>>>>>>> 02f2423 (Initial commit)
   }
 
   &.internal {
@@ -90,6 +127,7 @@ a {
     border-radius: 5px;
     line-height: 1.4rem;
 
+<<<<<<< HEAD
     &.broken {
       color: var(--secondary);
       opacity: 0.5;
@@ -101,6 +139,10 @@ a {
 
     &:has(> img) {
       background-color: transparent;
+=======
+    &:has(> img) {
+      background-color: none;
+>>>>>>> 02f2423 (Initial commit)
       border-radius: 0;
       padding: 0;
     }
@@ -121,6 +163,7 @@ a {
   }
 }
 
+<<<<<<< HEAD
 .flex-component {
   display: flex;
 }
@@ -134,12 +177,18 @@ a {
     &.flex-component {
       display: none;
     }
+=======
+.desktop-only {
+  display: initial;
+  @media all and (max-width: $fullPageWidth) {
+>>>>>>> 02f2423 (Initial commit)
     display: none;
   }
 }
 
 .mobile-only {
   display: none;
+<<<<<<< HEAD
   &.flex-component {
     display: none;
   }
@@ -147,13 +196,25 @@ a {
     &.flex-component {
       display: flex;
     }
+=======
+  @media all and (max-width: $fullPageWidth) {
+>>>>>>> 02f2423 (Initial commit)
     display: initial;
   }
 }
 
 .page {
+<<<<<<< HEAD
   max-width: calc(#{map.get($breakpoints, desktop)} + 300px);
   margin: 0 auto;
+=======
+  @media all and (max-width: $fullPageWidth) {
+    margin: 0 auto;
+    padding: 0 1rem;
+    max-width: $pageWidth;
+  }
+
+>>>>>>> 02f2423 (Initial commit)
   & article {
     & > h1 {
       font-size: 2rem;
@@ -181,6 +242,7 @@ a {
   }
 
   & > #quartz-body {
+<<<<<<< HEAD
     display: grid;
     grid-template-columns: #{map.get($desktopGrid, templateColumns)};
     grid-template-rows: #{map.get($desktopGrid, templateRows)};
@@ -218,10 +280,37 @@ a {
       display: flex;
       height: 100vh;
       position: sticky;
+=======
+    width: 100%;
+    display: flex;
+    @media all and (max-width: $fullPageWidth) {
+      flex-direction: column;
+    }
+
+    & .sidebar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      top: 0;
+      width: $sidePanelWidth;
+      margin-top: $topSpacing;
+      box-sizing: border-box;
+      padding: 0 4rem;
+      position: fixed;
+      @media all and (max-width: $fullPageWidth) {
+        position: initial;
+        flex-direction: row;
+        padding: 0;
+        width: initial;
+        margin-top: 2rem;
+      }
+>>>>>>> 02f2423 (Initial commit)
     }
 
     & .sidebar.left {
       z-index: 1;
+<<<<<<< HEAD
       grid-area: grid-sidebar-left;
       flex-direction: column;
       @media all and ($mobile) {
@@ -233,10 +322,17 @@ a {
         flex-direction: row;
         padding: 0;
         padding-top: 2rem;
+=======
+      left: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth);
+      @media all and (max-width: $fullPageWidth) {
+        gap: 0;
+        align-items: center;
+>>>>>>> 02f2423 (Initial commit)
       }
     }
 
     & .sidebar.right {
+<<<<<<< HEAD
       grid-area: grid-sidebar-right;
       margin-right: 0;
       flex-direction: column;
@@ -297,6 +393,45 @@ a {
     }
     & footer {
       margin-left: 0;
+=======
+      right: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth);
+      flex-wrap: wrap;
+      & > * {
+        @media all and (max-width: $fullPageWidth) {
+          flex: 1;
+          min-width: 140px;
+        }
+      }
+    }
+  }
+
+  & .page-header,
+  & .page-footer {
+    width: $pageWidth;
+    margin-top: 1rem;
+
+    @media all and (max-width: $fullPageWidth) {
+      width: initial;
+    }
+  }
+
+  & .page-header {
+    margin: $topSpacing auto 0 auto;
+    @media all and (max-width: $fullPageWidth) {
+      margin-top: 2rem;
+    }
+  }
+
+  & .center,
+  & footer {
+    margin-left: auto;
+    margin-right: auto;
+    width: $pageWidth;
+    @media all and (max-width: $fullPageWidth) {
+      width: initial;
+      margin-left: 0;
+      margin-right: 0;
+>>>>>>> 02f2423 (Initial commit)
     }
   }
 }
@@ -381,10 +516,13 @@ h6 {
   &[id]:hover > a {
     opacity: 1;
   }
+<<<<<<< HEAD
 
   &:not([id]) > a[role="anchor"] {
     display: none;
   }
+=======
+>>>>>>> 02f2423 (Initial commit)
 }
 
 // typography improvements
@@ -425,7 +563,11 @@ figure[data-rehype-pretty-code-figure] {
     font-size: 0.9rem;
     padding: 0.1rem 0.5rem;
     border: 1px solid var(--lightgray);
+<<<<<<< HEAD
     width: fit-content;
+=======
+    width: max-content;
+>>>>>>> 02f2423 (Initial commit)
     border-radius: 5px;
     margin-bottom: -0.5rem;
     color: var(--darkgray);
@@ -456,7 +598,11 @@ pre {
     counter-increment: line 0;
     display: grid;
     padding: 0.5rem 0;
+<<<<<<< HEAD
     overflow-x: auto;
+=======
+    overflow-x: scroll;
+>>>>>>> 02f2423 (Initial commit)
 
     & [data-highlighted-chars] {
       background-color: var(--highlight);
@@ -549,7 +695,10 @@ img {
   max-width: 100%;
   border-radius: 5px;
   margin: 1rem 0;
+<<<<<<< HEAD
   content-visibility: auto;
+=======
+>>>>>>> 02f2423 (Initial commit)
 }
 
 p > img + em {
@@ -572,25 +721,39 @@ video {
 }
 
 .spacer {
+<<<<<<< HEAD
   flex: 2 1 auto;
 }
 
 div:has(> .overflow) {
   max-height: 100%;
   overflow-y: hidden;
+=======
+  flex: 1 1 auto;
+}
+
+div:has(> .overflow) {
+  position: relative;
+>>>>>>> 02f2423 (Initial commit)
 }
 
 ul.overflow,
 ol.overflow {
+<<<<<<< HEAD
   max-height: 100%;
   overflow-y: auto;
   width: 100%;
   margin-bottom: 0;
+=======
+  max-height: 400;
+  overflow-y: auto;
+>>>>>>> 02f2423 (Initial commit)
 
   // clearfix
   content: "";
   clear: both;
 
+<<<<<<< HEAD
   & > li.overflow-end {
     height: 0.5rem;
     margin: 0;
@@ -598,6 +761,23 @@ ol.overflow {
 
   &.gradient-active {
     mask-image: linear-gradient(to bottom, black calc(100% - 50px), transparent 100%);
+=======
+  & > li:last-of-type {
+    margin-bottom: 30px;
+  }
+
+  &:after {
+    pointer-events: none;
+    content: "";
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    background: linear-gradient(transparent 0px, var(--light));
+>>>>>>> 02f2423 (Initial commit)
   }
 }
 
@@ -608,7 +788,10 @@ ol.overflow {
 }
 
 .katex-display {
+<<<<<<< HEAD
   display: initial;
+=======
+>>>>>>> 02f2423 (Initial commit)
   overflow-x: auto;
   overflow-y: hidden;
 }
@@ -620,6 +803,7 @@ iframe.pdf {
   width: 100%;
   border-radius: 5px;
 }
+<<<<<<< HEAD
 
 .navigation-progress {
   position: fixed;
@@ -631,3 +815,5 @@ iframe.pdf {
   transition: width 0.2s ease;
   z-index: 9999;
 }
+=======
+>>>>>>> 02f2423 (Initial commit)

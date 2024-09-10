@@ -1,7 +1,11 @@
 import test, { describe } from "node:test"
 import * as path from "./path"
 import assert from "node:assert"
+<<<<<<< HEAD
 import { FullSlug, TransformOptions, SimpleSlug } from "./path"
+=======
+import { FullSlug, TransformOptions } from "./path"
+>>>>>>> 02f2423 (Initial commit)
 
 describe("typeguards", () => {
   test("isSimpleSlug", () => {
@@ -38,6 +42,7 @@ describe("typeguards", () => {
     assert(!path.isRelativeURL("./abc/def.md"))
   })
 
+<<<<<<< HEAD
   test("isAbsoluteURL", () => {
     assert(path.isAbsoluteURL("https://example.com"))
     assert(path.isAbsoluteURL("http://example.com"))
@@ -49,6 +54,8 @@ describe("typeguards", () => {
     assert(!path.isAbsoluteURL("abc"))
   })
 
+=======
+>>>>>>> 02f2423 (Initial commit)
   test("isFullSlug", () => {
     assert(path.isFullSlug("index"))
     assert(path.isFullSlug("abc/def"))
@@ -169,6 +176,7 @@ describe("transforms", () => {
       path.isRelativeURL,
     )
   })
+<<<<<<< HEAD
 
   test("joinSegments", () => {
     assert.strictEqual(path.joinSegments("a", "b"), "a/b")
@@ -192,6 +200,8 @@ describe("transforms", () => {
     assert.strictEqual(path.joinSegments("https://example.com", "a/"), "https://example.com/a/")
     assert.strictEqual(path.joinSegments("https://example.com/", "a/"), "https://example.com/a/")
   })
+=======
+>>>>>>> 02f2423 (Initial commit)
 })
 
 describe("link strategies", () => {
@@ -314,6 +324,7 @@ describe("link strategies", () => {
     })
   })
 })
+<<<<<<< HEAD
 
 describe("resolveRelative", () => {
   test("from index", () => {
@@ -361,3 +372,5 @@ describe("resolveRelative", () => {
     assert.strictEqual(path.resolveRelative("abc/def" as FullSlug, "ghi/" as SimpleSlug), "../ghi/")
   })
 })
+=======
+>>>>>>> 02f2423 (Initial commit)

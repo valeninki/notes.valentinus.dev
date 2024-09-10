@@ -3,7 +3,11 @@ import remarkFrontmatter from "remark-frontmatter"
 import { QuartzTransformerPlugin } from "../types"
 import yaml from "js-yaml"
 import toml from "toml"
+<<<<<<< HEAD
 import { FilePath, FullSlug, getFileExtension, slugifyFilePath, slugTag } from "../../util/path"
+=======
+import { slugTag } from "../../util/path"
+>>>>>>> 02f2423 (Initial commit)
 import { QuartzPluginData } from "../vfile"
 import { i18n } from "../../i18n"
 
@@ -40,6 +44,7 @@ function coerceToArray(input: string | string[]): string[] | undefined {
     .map((tag: string | number) => tag.toString())
 }
 
+<<<<<<< HEAD
 function getAliasSlugs(aliases: string[]): FullSlug[] {
   const res: FullSlug[] = []
   for (const alias of aliases) {
@@ -52,18 +57,28 @@ function getAliasSlugs(aliases: string[]): FullSlug[] {
   return res
 }
 
+=======
+>>>>>>> 02f2423 (Initial commit)
 export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
   const opts = { ...defaultOptions, ...userOpts }
   return {
     name: "FrontMatter",
+<<<<<<< HEAD
     markdownPlugins(ctx) {
       const { cfg, allSlugs } = ctx
+=======
+    markdownPlugins({ cfg }) {
+>>>>>>> 02f2423 (Initial commit)
       return [
         [remarkFrontmatter, ["yaml", "toml"]],
         () => {
           return (_, file) => {
+<<<<<<< HEAD
             const fileData = Buffer.from(file.value as Uint8Array)
             const { data } = matter(fileData, {
+=======
+            const { data } = matter(Buffer.from(file.value), {
+>>>>>>> 02f2423 (Initial commit)
               ...opts,
               engines: {
                 yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
@@ -81,6 +96,7 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
             if (tags) data.tags = [...new Set(tags.map((tag: string) => slugTag(tag)))]
 
             const aliases = coerceToArray(coalesceAliases(data, ["aliases", "alias"]))
+<<<<<<< HEAD
             if (aliases) {
               data.aliases = aliases // frontmatter
               file.data.aliases = getAliasSlugs(aliases)
@@ -122,6 +138,12 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
             const uniqueSlugs = [...new Set(allSlugs)]
             allSlugs.splice(0, allSlugs.length, ...uniqueSlugs)
 
+=======
+            if (aliases) data.aliases = aliases
+            const cssclasses = coerceToArray(coalesceAliases(data, ["cssclasses", "cssclass"]))
+            if (cssclasses) data.cssclasses = cssclasses
+
+>>>>>>> 02f2423 (Initial commit)
             // fill in frontmatter
             file.data.frontmatter = data as QuartzPluginData["frontmatter"]
           }
@@ -133,12 +155,16 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
 
 declare module "vfile" {
   interface DataMap {
+<<<<<<< HEAD
     aliases: FullSlug[]
+=======
+>>>>>>> 02f2423 (Initial commit)
     frontmatter: { [key: string]: unknown } & {
       title: string
     } & Partial<{
         tags: string[]
         aliases: string[]
+<<<<<<< HEAD
         modified: string
         created: string
         published: string
@@ -151,6 +177,14 @@ declare module "vfile" {
         cssclasses: string[]
         socialImage: string
         comments: boolean | string
+=======
+        description: string
+        publish: boolean
+        draft: boolean
+        lang: string
+        enableToc: string
+        cssclasses: string[]
+>>>>>>> 02f2423 (Initial commit)
       }>
   }
 }

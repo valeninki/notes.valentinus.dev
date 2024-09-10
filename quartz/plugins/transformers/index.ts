@@ -10,4 +10,7 @@ export { OxHugoFlavouredMarkdown } from "./oxhugofm"
 export { SyntaxHighlighting } from "./syntax"
 export { TableOfContents } from "./toc"
 export { HardLineBreaks } from "./linebreaks"
+<<<<<<< HEAD
 export { RoamFlavoredMarkdown } from "./roam"
+=======
+>>>>>>> 02f2423 (Initial commit)

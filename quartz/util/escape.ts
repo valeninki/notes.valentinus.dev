@@ -6,6 +6,7 @@ export const escapeHTML = (unsafe: string) => {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;")
 }
+<<<<<<< HEAD
 
 export const unescapeHTML = (html: string) => {
   return html
@@ -15,3 +16,5 @@ export const unescapeHTML = (html: string) => {
     .replaceAll("&quot;", '"')
     .replaceAll("&#039;", "'")
 }
+=======
+>>>>>>> 02f2423 (Initial commit)

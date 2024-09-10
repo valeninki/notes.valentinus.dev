@@ -15,7 +15,11 @@ export default {
       success: "Erfolg",
       question: "Frage",
       warning: "Warnung",
+<<<<<<< HEAD
       failure: "Fehlgeschlagen",
+=======
+      failure: "Misserfolg",
+>>>>>>> 02f2423 (Initial commit)
       danger: "Gefahr",
       bug: "Fehler",
       example: "Beispiel",
@@ -26,11 +30,16 @@ export default {
       noBacklinksFound: "Keine Backlinks gefunden",
     },
     themeToggle: {
+<<<<<<< HEAD
       lightMode: "Heller Modus",
       darkMode: "Dunkler Modus",
     },
     readerMode: {
       title: "Lesemodus",
+=======
+      lightMode: "Light Mode",
+      darkMode: "Dark Mode",
+>>>>>>> 02f2423 (Initial commit)
     },
     explorer: {
       title: "Explorer",
@@ -57,7 +66,11 @@ export default {
       title: "Inhaltsverzeichnis",
     },
     contentMeta: {
+<<<<<<< HEAD
       readingTime: ({ minutes }) => `${minutes} Min. Lesezeit`,
+=======
+      readingTime: ({ minutes }) => `${minutes} min read`,
+>>>>>>> 02f2423 (Initial commit)
     },
   },
   pages: {
@@ -68,7 +81,11 @@ export default {
     error: {
       title: "Nicht gefunden",
       notFound: "Diese Seite ist entweder nicht öffentlich oder existiert nicht.",
+<<<<<<< HEAD
       home: "Zur Startseite",
+=======
+      home: "Return to Homepage",
+>>>>>>> 02f2423 (Initial commit)
     },
     folderContent: {
       folder: "Ordner",

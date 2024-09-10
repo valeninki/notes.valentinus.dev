@@ -17,6 +17,7 @@ This plugin accepts the following configuration options:
 > [!warning]
 > This plugin must not be removed, otherwise Quartz will break.
 
+<<<<<<< HEAD
 ## List
 
 Quartz supports the following frontmatter:
@@ -65,6 +66,8 @@ Quartz supports the following frontmatter:
   - `publishDate`
   - `date`
 
+=======
+>>>>>>> 02f2423 (Initial commit)
 ## API
 
 - Category: Transformer

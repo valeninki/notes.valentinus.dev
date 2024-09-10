@@ -21,7 +21,10 @@ export interface Translation {
     title: string
     description: string
   }
+<<<<<<< HEAD
   direction?: "ltr" | "rtl"
+=======
+>>>>>>> 02f2423 (Initial commit)
   components: {
     callout: CalloutTranslation
     backlinks: {
@@ -32,9 +35,12 @@ export interface Translation {
       lightMode: string
       darkMode: string
     }
+<<<<<<< HEAD
     readerMode: {
       title: string
     }
+=======
+>>>>>>> 02f2423 (Initial commit)
     explorer: {
       title: string
     }

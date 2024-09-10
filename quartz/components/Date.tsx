@@ -27,5 +27,9 @@ export function formatDate(d: Date, locale: ValidLocale = "en-US"): string {
 }
 
 export function Date({ date, locale }: Props) {
+<<<<<<< HEAD
   return <time datetime={date.toISOString()}>{formatDate(date, locale)}</time>
+=======
+  return <>{formatDate(date, locale)}</>
+>>>>>>> 02f2423 (Initial commit)
 }

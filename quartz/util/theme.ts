@@ -15,6 +15,7 @@ interface Colors {
   darkMode: ColorScheme
 }
 
+<<<<<<< HEAD
 export type FontSpecification =
   | string
   | {
@@ -29,6 +30,13 @@ export interface Theme {
     header: FontSpecification
     body: FontSpecification
     code: FontSpecification
+=======
+export interface Theme {
+  typography: {
+    header: string
+    body: string
+    code: string
+>>>>>>> 02f2423 (Initial commit)
   }
   cdnCaching: boolean
   colors: Colors
@@ -38,6 +46,7 @@ export interface Theme {
 export type ThemeKey = keyof Colors
 
 const DEFAULT_SANS_SERIF =
+<<<<<<< HEAD
   'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
 const DEFAULT_MONO = "ui-monospace, SFMono-Regular, SF Mono, Menlo, monospace"
 
@@ -138,6 +147,14 @@ export async function processGoogleFonts(
   }
 
   return { processedStylesheet, fontFiles }
+=======
+  '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif'
+const DEFAULT_MONO = "ui-monospace, SFMono-Regular, SF Mono, Menlo, monospace"
+
+export function googleFontHref(theme: Theme) {
+  const { code, header, body } = theme.typography
+  return `https://fonts.googleapis.com/css2?family=${code}&family=${header}:wght@400;700&family=${body}:ital,wght@0,400;0,600;1,400;1,600&display=swap`
+>>>>>>> 02f2423 (Initial commit)
 }
 
 export function joinStyles(theme: Theme, ...stylesheet: string[]) {
@@ -155,10 +172,16 @@ ${stylesheet.join("\n\n")}
   --highlight: ${theme.colors.lightMode.highlight};
   --textHighlight: ${theme.colors.lightMode.textHighlight};
 
+<<<<<<< HEAD
   --titleFont: "${getFontSpecificationName(theme.typography.title || theme.typography.header)}", ${DEFAULT_SANS_SERIF};
   --headerFont: "${getFontSpecificationName(theme.typography.header)}", ${DEFAULT_SANS_SERIF};
   --bodyFont: "${getFontSpecificationName(theme.typography.body)}", ${DEFAULT_SANS_SERIF};
   --codeFont: "${getFontSpecificationName(theme.typography.code)}", ${DEFAULT_MONO};
+=======
+  --headerFont: "${theme.typography.header}", ${DEFAULT_SANS_SERIF};
+  --bodyFont: "${theme.typography.body}", ${DEFAULT_SANS_SERIF};
+  --codeFont: "${theme.typography.code}", ${DEFAULT_MONO};
+>>>>>>> 02f2423 (Initial commit)
 }
 
 :root[saved-theme="dark"] {

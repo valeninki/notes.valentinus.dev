@@ -5,7 +5,10 @@ export default {
     title: "غير معنون",
     description: "لم يتم تقديم أي وصف",
   },
+<<<<<<< HEAD
   direction: "rtl" as const,
+=======
+>>>>>>> 02f2423 (Initial commit)
   components: {
     callout: {
       note: "ملاحظة",
@@ -33,9 +36,12 @@ export default {
     explorer: {
       title: "المستعرض",
     },
+<<<<<<< HEAD
     readerMode: {
       title: "وضع القارئ",
     },
+=======
+>>>>>>> 02f2423 (Initial commit)
     footer: {
       createdWith: "أُنشئ باستخدام",
     },

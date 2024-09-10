@@ -13,7 +13,11 @@ li.section-li {
     display: grid;
     grid-template-columns: fit-content(8em) 3fr 1fr;
 
+<<<<<<< HEAD
     @media all and ($mobile) {
+=======
+    @media all and (max-width: $mobileBreakpoint) {
+>>>>>>> 02f2423 (Initial commit)
       & > .tags {
         display: none;
       }

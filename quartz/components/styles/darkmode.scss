@@ -6,9 +6,14 @@
   border: none;
   width: 20px;
   height: 20px;
+<<<<<<< HEAD
   margin: 0;
   text-align: inherit;
   flex-shrink: 0;
+=======
+  margin: 0 10px;
+  text-align: inherit;
+>>>>>>> 02f2423 (Initial commit)
 
   & svg {
     position: absolute;
@@ -29,19 +34,33 @@
 }
 
 :root[saved-theme="dark"] .darkmode {
+<<<<<<< HEAD
   & > .dayIcon {
     display: none;
   }
   & > .nightIcon {
+=======
+  & > #dayIcon {
+    display: none;
+  }
+  & > #nightIcon {
+>>>>>>> 02f2423 (Initial commit)
     display: inline;
   }
 }
 
 :root .darkmode {
+<<<<<<< HEAD
   & > .dayIcon {
     display: inline;
   }
   & > .nightIcon {
+=======
+  & > #dayIcon {
+    display: inline;
+  }
+  & > #nightIcon {
+>>>>>>> 02f2423 (Initial commit)
     display: none;
   }
 }

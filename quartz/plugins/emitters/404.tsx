@@ -3,12 +3,20 @@ import { QuartzComponentProps } from "../../components/types"
 import BodyConstructor from "../../components/Body"
 import { pageResources, renderPage } from "../../components/renderPage"
 import { FullPageLayout } from "../../cfg"
+<<<<<<< HEAD
 import { FullSlug } from "../../util/path"
+=======
+import { FilePath, FullSlug } from "../../util/path"
+>>>>>>> 02f2423 (Initial commit)
 import { sharedPageComponents } from "../../../quartz.layout"
 import { NotFound } from "../../components"
 import { defaultProcessedContent } from "../vfile"
 import { write } from "./helpers"
 import { i18n } from "../../i18n"
+<<<<<<< HEAD
+=======
+import DepGraph from "../../depgraph"
+>>>>>>> 02f2423 (Initial commit)
 
 export const NotFoundPage: QuartzEmitterPlugin = () => {
   const opts: FullPageLayout = {
@@ -27,12 +35,23 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
     getQuartzComponents() {
       return [Head, Body, pageBody, Footer]
     },
+<<<<<<< HEAD
     async *emit(ctx, _content, resources) {
+=======
+    async getDependencyGraph(_ctx, _content, _resources) {
+      return new DepGraph<FilePath>()
+    },
+    async emit(ctx, _content, resources): Promise<FilePath[]> {
+>>>>>>> 02f2423 (Initial commit)
       const cfg = ctx.cfg.configuration
       const slug = "404" as FullSlug
 
       const url = new URL(`https://${cfg.baseUrl ?? "example.com"}`)
       const path = url.pathname as FullSlug
+<<<<<<< HEAD
+=======
+      const externalResources = pageResources(path, resources)
+>>>>>>> 02f2423 (Initial commit)
       const notFound = i18n(cfg.locale).pages.error.title
       const [tree, vfile] = defaultProcessedContent({
         slug,
@@ -40,7 +59,10 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
         description: notFound,
         frontmatter: { title: notFound, tags: [] },
       })
+<<<<<<< HEAD
       const externalResources = pageResources(path, resources)
+=======
+>>>>>>> 02f2423 (Initial commit)
       const componentData: QuartzComponentProps = {
         ctx,
         fileData: vfile.data,
@@ -51,6 +73,7 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
         allFiles: [],
       }
 
+<<<<<<< HEAD
       yield write({
         ctx,
         content: renderPage(cfg, slug, componentData, opts, externalResources),
@@ -59,5 +82,16 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
       })
     },
     async *partialEmit() {},
+=======
+      return [
+        await write({
+          ctx,
+          content: renderPage(cfg, slug, componentData, opts, externalResources),
+          slug,
+          ext: ".html",
+        }),
+      ]
+    },
+>>>>>>> 02f2423 (Initial commit)
   }
 }

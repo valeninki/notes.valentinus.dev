@@ -2,14 +2,22 @@ import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
 /**
+<<<<<<< HEAD
  * Quartz 4 Configuration
+=======
+ * Quartz 4.0 Configuration
+>>>>>>> 02f2423 (Initial commit)
  *
  * See https://quartz.jzhao.xyz/configuration for more information.
  */
 const config: QuartzConfig = {
   configuration: {
+<<<<<<< HEAD
     pageTitle: "Quartz 4",
     pageTitleSuffix: "",
+=======
+    pageTitle: "🪴 Quartz 4.0",
+>>>>>>> 02f2423 (Initial commit)
     enableSPA: true,
     enablePopovers: true,
     analytics: {
@@ -18,7 +26,11 @@ const config: QuartzConfig = {
     locale: "en-US",
     baseUrl: "quartz.jzhao.xyz",
     ignorePatterns: ["private", "templates", ".obsidian"],
+<<<<<<< HEAD
     defaultDateType: "modified",
+=======
+    defaultDateType: "created",
+>>>>>>> 02f2423 (Initial commit)
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
@@ -57,7 +69,11 @@ const config: QuartzConfig = {
     transformers: [
       Plugin.FrontMatter(),
       Plugin.CreatedModifiedDate({
+<<<<<<< HEAD
         priority: ["frontmatter", "git", "filesystem"],
+=======
+        priority: ["frontmatter", "filesystem"],
+>>>>>>> 02f2423 (Initial commit)
       }),
       Plugin.SyntaxHighlighting({
         theme: {
@@ -86,10 +102,14 @@ const config: QuartzConfig = {
       }),
       Plugin.Assets(),
       Plugin.Static(),
+<<<<<<< HEAD
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
       Plugin.CustomOgImages(),
+=======
+      Plugin.NotFoundPage(),
+>>>>>>> 02f2423 (Initial commit)
     ],
   },
 }

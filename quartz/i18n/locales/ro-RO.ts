@@ -29,9 +29,12 @@ export default {
       lightMode: "Modul luminos",
       darkMode: "Modul întunecat",
     },
+<<<<<<< HEAD
     readerMode: {
       title: "Modul de citire",
     },
+=======
+>>>>>>> 02f2423 (Initial commit)
     explorer: {
       title: "Explorator",
     },

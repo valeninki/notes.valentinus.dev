@@ -1,6 +1,9 @@
 import micromorph from "micromorph"
 import { FullSlug, RelativeURL, getFullSlug, normalizeRelativeURLs } from "../../util/path"
+<<<<<<< HEAD
 import { fetchCanonical } from "./util"
+=======
+>>>>>>> 02f2423 (Initial commit)
 
 // adapted from `micromorph`
 // https://github.com/natemoo-re/micromorph
@@ -43,6 +46,7 @@ function notifyNav(url: FullSlug) {
 const cleanupFns: Set<(...args: any[]) => void> = new Set()
 window.addCleanup = (fn) => cleanupFns.add(fn)
 
+<<<<<<< HEAD
 function startLoading() {
   const loadingBar = document.createElement("div")
   loadingBar.className = "navigation-progress"
@@ -63,6 +67,12 @@ async function _navigate(url: URL, isBack: boolean = false) {
   startLoading()
   p = p || new DOMParser()
   const contents = await fetchCanonical(url)
+=======
+let p: DOMParser
+async function navigate(url: URL, isBack: boolean = false) {
+  p = p || new DOMParser()
+  const contents = await fetch(`${url}`)
+>>>>>>> 02f2423 (Initial commit)
     .then((res) => {
       const contentType = res.headers.get("content-type")
       if (contentType?.startsWith("text/html")) {
@@ -77,10 +87,13 @@ async function _navigate(url: URL, isBack: boolean = false) {
 
   if (!contents) return
 
+<<<<<<< HEAD
   // notify about to nav
   const event: CustomEventMap["prenav"] = new CustomEvent("prenav", { detail: {} })
   document.dispatchEvent(event)
 
+=======
+>>>>>>> 02f2423 (Initial commit)
   // cleanup old
   cleanupFns.forEach((fn) => fn())
   cleanupFns.clear()
@@ -114,7 +127,11 @@ async function _navigate(url: URL, isBack: boolean = false) {
     }
   }
 
+<<<<<<< HEAD
   // now, patch head, re-executing scripts
+=======
+  // now, patch head
+>>>>>>> 02f2423 (Initial commit)
   const elementsToRemove = document.head.querySelectorAll(":not([spa-preserve])")
   elementsToRemove.forEach((el) => el.remove())
   const elementsToAdd = html.head.querySelectorAll(":not([spa-preserve])")
@@ -125,11 +142,15 @@ async function _navigate(url: URL, isBack: boolean = false) {
   if (!isBack) {
     history.pushState({}, "", url)
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 02f2423 (Initial commit)
   notifyNav(getFullSlug(window))
   delete announcer.dataset.persist
 }
 
+<<<<<<< HEAD
 async function navigate(url: URL, isBack: boolean = false) {
   if (isNavigating) return
   isNavigating = true
@@ -143,6 +164,8 @@ async function navigate(url: URL, isBack: boolean = false) {
   }
 }
 
+=======
+>>>>>>> 02f2423 (Initial commit)
 window.spaNavigate = navigate
 
 function createRouter() {
@@ -160,13 +183,29 @@ function createRouter() {
         return
       }
 
+<<<<<<< HEAD
       navigate(url, false)
+=======
+      try {
+        navigate(url, false)
+      } catch (e) {
+        window.location.assign(url)
+      }
+>>>>>>> 02f2423 (Initial commit)
     })
 
     window.addEventListener("popstate", (event) => {
       const { url } = getOpts(event) ?? {}
       if (window.location.hash && window.location.pathname === url?.pathname) return
+<<<<<<< HEAD
       navigate(new URL(window.location.toString()), true)
+=======
+      try {
+        navigate(new URL(window.location.toString()), true)
+      } catch (e) {
+        window.location.reload()
+      }
+>>>>>>> 02f2423 (Initial commit)
       return
     })
   }

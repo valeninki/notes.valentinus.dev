@@ -17,7 +17,10 @@ PageTitle.css = `
 .page-title {
   font-size: 1.75rem;
   margin: 0;
+<<<<<<< HEAD
   font-family: var(--titleFont);
+=======
+>>>>>>> 02f2423 (Initial commit)
 }
 `
 

@@ -5,13 +5,19 @@ import { escapeHTML } from "../../util/escape"
 
 export interface Options {
   descriptionLength: number
+<<<<<<< HEAD
   maxDescriptionLength: number
+=======
+>>>>>>> 02f2423 (Initial commit)
   replaceExternalLinks: boolean
 }
 
 const defaultOptions: Options = {
   descriptionLength: 150,
+<<<<<<< HEAD
   maxDescriptionLength: 300,
+=======
+>>>>>>> 02f2423 (Initial commit)
   replaceExternalLinks: true,
 }
 
@@ -39,6 +45,7 @@ export const Description: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
               text = text.replace(urlRegex, "$<domain>" + "$<path>")
             }
 
+<<<<<<< HEAD
             if (frontMatterDescription) {
               file.data.description = frontMatterDescription
               file.data.text = text
@@ -74,6 +81,37 @@ export const Description: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
               finalDesc.length > opts.maxDescriptionLength
                 ? finalDesc.slice(0, opts.maxDescriptionLength) + "..."
                 : finalDesc
+=======
+            const desc = frontMatterDescription ?? text
+            const sentences = desc.replace(/\s+/g, " ").split(/\.\s/)
+            const finalDesc: string[] = []
+            const len = opts.descriptionLength
+            let sentenceIdx = 0
+            let currentDescriptionLength = 0
+
+            if (sentences[0] !== undefined && sentences[0].length >= len) {
+              const firstSentence = sentences[0].split(" ")
+              while (currentDescriptionLength < len) {
+                const sentence = firstSentence[sentenceIdx]
+                if (!sentence) break
+                finalDesc.push(sentence)
+                currentDescriptionLength += sentence.length
+                sentenceIdx++
+              }
+              finalDesc.push("...")
+            } else {
+              while (currentDescriptionLength < len) {
+                const sentence = sentences[sentenceIdx]
+                if (!sentence) break
+                const currentSentence = sentence.endsWith(".") ? sentence : sentence + "."
+                finalDesc.push(currentSentence)
+                currentDescriptionLength += currentSentence.length
+                sentenceIdx++
+              }
+            }
+
+            file.data.description = finalDesc.join(" ")
+>>>>>>> 02f2423 (Initial commit)
             file.data.text = text
           }
         },

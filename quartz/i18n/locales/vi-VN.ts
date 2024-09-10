@@ -29,9 +29,12 @@ export default {
       lightMode: "Sáng",
       darkMode: "Tối",
     },
+<<<<<<< HEAD
     readerMode: {
       title: "Chế độ đọc",
     },
+=======
+>>>>>>> 02f2423 (Initial commit)
     explorer: {
       title: "Trong bài này",
     },

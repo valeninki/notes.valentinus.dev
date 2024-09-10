@@ -18,7 +18,10 @@ export interface D3Config {
   removeTags: string[]
   showTags: boolean
   focusOnHover?: boolean
+<<<<<<< HEAD
   enableRadial?: boolean
+=======
+>>>>>>> 02f2423 (Initial commit)
 }
 
 interface GraphOptions {
@@ -40,7 +43,10 @@ const defaultOptions: GraphOptions = {
     showTags: true,
     removeTags: [],
     focusOnHover: false,
+<<<<<<< HEAD
     enableRadial: false,
+=======
+>>>>>>> 02f2423 (Initial commit)
   },
   globalGraph: {
     drag: true,
@@ -48,18 +54,29 @@ const defaultOptions: GraphOptions = {
     depth: -1,
     scale: 0.9,
     repelForce: 0.5,
+<<<<<<< HEAD
     centerForce: 0.2,
+=======
+    centerForce: 0.3,
+>>>>>>> 02f2423 (Initial commit)
     linkDistance: 30,
     fontSize: 0.6,
     opacityScale: 1,
     showTags: true,
     removeTags: [],
     focusOnHover: true,
+<<<<<<< HEAD
     enableRadial: true,
   },
 }
 
 export default ((opts?: Partial<GraphOptions>) => {
+=======
+  },
+}
+
+export default ((opts?: GraphOptions) => {
+>>>>>>> 02f2423 (Initial commit)
   const Graph: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
     const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph }
     const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
@@ -67,8 +84,13 @@ export default ((opts?: Partial<GraphOptions>) => {
       <div class={classNames(displayClass, "graph")}>
         <h3>{i18n(cfg.locale).components.graph.title}</h3>
         <div class="graph-outer">
+<<<<<<< HEAD
           <div class="graph-container" data-cfg={JSON.stringify(localGraph)}></div>
           <button class="global-graph-icon" aria-label="Global Graph">
+=======
+          <div id="graph-container" data-cfg={JSON.stringify(localGraph)}></div>
+          <button id="global-graph-icon" aria-label="Global Graph">
+>>>>>>> 02f2423 (Initial commit)
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
@@ -95,8 +117,13 @@ export default ((opts?: Partial<GraphOptions>) => {
             </svg>
           </button>
         </div>
+<<<<<<< HEAD
         <div class="global-graph-outer">
           <div class="global-graph-container" data-cfg={JSON.stringify(globalGraph)}></div>
+=======
+        <div id="global-graph-outer">
+          <div id="global-graph-container" data-cfg={JSON.stringify(globalGraph)}></div>
+>>>>>>> 02f2423 (Initial commit)
         </div>
       </div>
     )

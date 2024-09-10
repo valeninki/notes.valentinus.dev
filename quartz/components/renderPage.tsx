@@ -3,8 +3,12 @@ import { QuartzComponent, QuartzComponentProps } from "./types"
 import HeaderConstructor from "./Header"
 import BodyConstructor from "./Body"
 import { JSResourceToScriptElement, StaticResources } from "../util/resources"
+<<<<<<< HEAD
 import { FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
 import { clone } from "../util/clone"
+=======
+import { clone, FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
+>>>>>>> 02f2423 (Initial commit)
 import { visit } from "unist-util-visit"
 import { Root, Element, ElementContent } from "hast"
 import { GlobalConfiguration } from "../cfg"
@@ -29,6 +33,7 @@ export function pageResources(
   const contentIndexPath = joinSegments(baseDir, "static/contentIndex.json")
   const contentIndexScript = `const fetchData = fetch("${contentIndexPath}").then(data => data.json())`
 
+<<<<<<< HEAD
   const resources: StaticResources = {
     css: [
       {
@@ -36,6 +41,10 @@ export function pageResources(
       },
       ...staticResources.css,
     ],
+=======
+  return {
+    css: [joinSegments(baseDir, "index.css"), ...staticResources.css],
+>>>>>>> 02f2423 (Initial commit)
     js: [
       {
         src: joinSegments(baseDir, "prescript.js"),
@@ -49,6 +58,7 @@ export function pageResources(
         script: contentIndexScript,
       },
       ...staticResources.js,
+<<<<<<< HEAD
     ],
     additionalHead: staticResources.additionalHead,
   }
@@ -69,13 +79,40 @@ function renderTranscludes(
   slug: FullSlug,
   componentData: QuartzComponentProps,
 ) {
+=======
+      {
+        src: joinSegments(baseDir, "postscript.js"),
+        loadTime: "afterDOMReady",
+        moduleType: "module",
+        contentType: "external",
+      },
+    ],
+  }
+}
+
+export function renderPage(
+  cfg: GlobalConfiguration,
+  slug: FullSlug,
+  componentData: QuartzComponentProps,
+  components: RenderComponents,
+  pageResources: StaticResources,
+): string {
+  // make a deep copy of the tree so we don't remove the transclusion references
+  // for the file cached in contentMap in build.ts
+  const root = clone(componentData.tree) as Root
+
+>>>>>>> 02f2423 (Initial commit)
   // process transcludes in componentData
   visit(root, "element", (node, _index, _parent) => {
     if (node.tagName === "blockquote") {
       const classNames = (node.properties?.className ?? []) as string[]
       if (classNames.includes("transclude")) {
         const inner = node.children[0] as Element
+<<<<<<< HEAD
         const transcludeTarget = (inner.properties["data-slug"] ?? slug) as FullSlug
+=======
+        const transcludeTarget = inner.properties["data-slug"] as FullSlug
+>>>>>>> 02f2423 (Initial commit)
         const page = componentData.allFiles.find((f) => f.slug === transcludeTarget)
         if (!page) {
           return
@@ -184,6 +221,7 @@ function renderTranscludes(
       }
     }
   })
+<<<<<<< HEAD
 }
 
 export function renderPage(
@@ -197,6 +235,8 @@ export function renderPage(
   // for the file cached in contentMap in build.ts
   const root = clone(componentData.tree) as Root
   renderTranscludes(root, cfg, slug, componentData)
+=======
+>>>>>>> 02f2423 (Initial commit)
 
   // set componentData.tree to the edited html that has transclusions rendered
   componentData.tree = root
@@ -231,9 +271,14 @@ export function renderPage(
   )
 
   const lang = componentData.fileData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
+<<<<<<< HEAD
   const direction = i18n(cfg.locale).direction ?? "ltr"
   const doc = (
     <html lang={lang} dir={direction}>
+=======
+  const doc = (
+    <html lang={lang}>
+>>>>>>> 02f2423 (Initial commit)
       <Head {...componentData} />
       <body data-slug={slug}>
         <div id="quartz-root" class="page">
@@ -261,8 +306,13 @@ export function renderPage(
               </div>
             </div>
             {RightComponent}
+<<<<<<< HEAD
             <Footer {...componentData} />
           </Body>
+=======
+          </Body>
+          <Footer {...componentData} />
+>>>>>>> 02f2423 (Initial commit)
         </div>
       </body>
       {pageResources.js

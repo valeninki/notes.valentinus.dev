@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/usr/bin/env -S node --no-deprecation
+=======
+#!/usr/bin/env node
+>>>>>>> 02f2423 (Initial commit)
 import yargs from "yargs"
 import { hideBin } from "yargs/helpers"
 import {

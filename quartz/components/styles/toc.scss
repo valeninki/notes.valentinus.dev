@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @use "../../styles/variables.scss" as *;
 
 .toc {
@@ -12,6 +13,9 @@
 }
 
 button.toc-header {
+=======
+button#toc {
+>>>>>>> 02f2423 (Initial commit)
   background-color: transparent;
   border: none;
   text-align: left;
@@ -38,6 +42,7 @@ button.toc-header {
   }
 }
 
+<<<<<<< HEAD
 ul.toc-content.overflow {
   list-style: none;
   position: relative;
@@ -55,6 +60,42 @@ ul.toc-content.overflow {
       0.3s ease color;
     &.in-view {
       opacity: 0.75;
+=======
+#toc-content {
+  list-style: none;
+  overflow: hidden;
+  max-height: none;
+  transition:
+    max-height 0.5s ease,
+    visibility 0s linear 0s;
+  position: relative;
+  visibility: visible;
+
+  &.collapsed {
+    transition:
+      max-height 0.5s ease,
+      visibility 0s linear 0.5s;
+    visibility: hidden;
+  }
+
+  &.collapsed > .overflow::after {
+    opacity: 0;
+  }
+
+  & ul {
+    list-style: none;
+    margin: 0.5rem 0;
+    padding: 0;
+    & > li > a {
+      color: var(--dark);
+      opacity: 0.35;
+      transition:
+        0.5s ease opacity,
+        0.3s ease color;
+      &.in-view {
+        opacity: 0.75;
+      }
+>>>>>>> 02f2423 (Initial commit)
     }
   }
 

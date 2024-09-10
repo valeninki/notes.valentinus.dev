@@ -1,8 +1,14 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import breadcrumbsStyle from "./styles/breadcrumbs.scss"
+<<<<<<< HEAD
 import { FullSlug, SimpleSlug, resolveRelative, simplifySlug } from "../util/path"
 import { classNames } from "../util/lang"
 import { trieFromAllFiles } from "../util/ctx"
+=======
+import { FullSlug, SimpleSlug, joinSegments, resolveRelative } from "../util/path"
+import { QuartzPluginData } from "../plugins/vfile"
+import { classNames } from "../util/lang"
+>>>>>>> 02f2423 (Initial commit)
 
 type CrumbData = {
   displayName: string
@@ -23,6 +29,13 @@ interface BreadcrumbOptions {
    */
   resolveFrontmatterTitle: boolean
   /**
+<<<<<<< HEAD
+=======
+   * Whether to display breadcrumbs on root `index.md`
+   */
+  hideOnRoot: boolean
+  /**
+>>>>>>> 02f2423 (Initial commit)
    * Whether to display the current page in the breadcrumbs.
    */
   showCurrentPage: boolean
@@ -32,6 +45,10 @@ const defaultOptions: BreadcrumbOptions = {
   spacerSymbol: "❯",
   rootName: "Home",
   resolveFrontmatterTitle: true,
+<<<<<<< HEAD
+=======
+  hideOnRoot: true,
+>>>>>>> 02f2423 (Initial commit)
   showCurrentPage: true,
 }
 
@@ -43,11 +60,21 @@ function formatCrumb(displayName: string, baseSlug: FullSlug, currentSlug: Simpl
 }
 
 export default ((opts?: Partial<BreadcrumbOptions>) => {
+<<<<<<< HEAD
   const options: BreadcrumbOptions = { ...defaultOptions, ...opts }
+=======
+  // Merge options with defaults
+  const options: BreadcrumbOptions = { ...defaultOptions, ...opts }
+
+  // computed index of folder name to its associated file data
+  let folderIndex: Map<string, QuartzPluginData> | undefined
+
+>>>>>>> 02f2423 (Initial commit)
   const Breadcrumbs: QuartzComponent = ({
     fileData,
     allFiles,
     displayClass,
+<<<<<<< HEAD
     ctx,
   }: QuartzComponentProps) => {
     const trie = (ctx.trie ??= trieFromAllFiles(allFiles))
@@ -74,6 +101,70 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
 
     if (!options.showCurrentPage) {
       crumbs.pop()
+=======
+  }: QuartzComponentProps) => {
+    // Hide crumbs on root if enabled
+    if (options.hideOnRoot && fileData.slug === "index") {
+      return <></>
+    }
+
+    // Format entry for root element
+    const firstEntry = formatCrumb(options.rootName, fileData.slug!, "/" as SimpleSlug)
+    const crumbs: CrumbData[] = [firstEntry]
+
+    if (!folderIndex && options.resolveFrontmatterTitle) {
+      folderIndex = new Map()
+      // construct the index for the first time
+      for (const file of allFiles) {
+        const folderParts = file.slug?.split("/")
+        if (folderParts?.at(-1) === "index") {
+          folderIndex.set(folderParts.slice(0, -1).join("/"), file)
+        }
+      }
+    }
+
+    // Split slug into hierarchy/parts
+    const slugParts = fileData.slug?.split("/")
+    if (slugParts) {
+      // is tag breadcrumb?
+      const isTagPath = slugParts[0] === "tags"
+
+      // full path until current part
+      let currentPath = ""
+
+      for (let i = 0; i < slugParts.length - 1; i++) {
+        let curPathSegment = slugParts[i]
+
+        // Try to resolve frontmatter folder title
+        const currentFile = folderIndex?.get(slugParts.slice(0, i + 1).join("/"))
+        if (currentFile) {
+          const title = currentFile.frontmatter!.title
+          if (title !== "index") {
+            curPathSegment = title
+          }
+        }
+
+        // Add current slug to full path
+        currentPath = joinSegments(currentPath, slugParts[i])
+        const includeTrailingSlash = !isTagPath || i < 1
+
+        // Format and add current crumb
+        const crumb = formatCrumb(
+          curPathSegment,
+          fileData.slug!,
+          (currentPath + (includeTrailingSlash ? "/" : "")) as SimpleSlug,
+        )
+        crumbs.push(crumb)
+      }
+
+      // Add current file to crumb (can directly use frontmatter title)
+      if (options.showCurrentPage && slugParts.at(-1) !== "index") {
+        crumbs.push({
+          displayName: fileData.frontmatter!.title,
+          path: "",
+        })
+      }
+>>>>>>> 02f2423 (Initial commit)
     }
 
     return (

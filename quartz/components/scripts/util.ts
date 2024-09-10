@@ -24,6 +24,7 @@ export function removeAllChildren(node: HTMLElement) {
     node.removeChild(node.firstChild)
   }
 }
+<<<<<<< HEAD
 
 // AliasRedirect emits HTML redirects which also have the link[rel="canonical"]
 // containing the URL it's redirecting to.
@@ -44,3 +45,5 @@ export async function fetchCanonical(url: URL): Promise<Response> {
   const [_, redirect] = text.match(canonicalRegex) ?? []
   return redirect ? fetch(`${new URL(redirect, url)}`) : res
 }
+=======
+>>>>>>> 02f2423 (Initial commit)

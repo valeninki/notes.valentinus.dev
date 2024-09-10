@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { FullSlug, isFolderPath, resolveRelative } from "../util/path"
+=======
+import { FullSlug, resolveRelative } from "../util/path"
+>>>>>>> 02f2423 (Initial commit)
 import { QuartzPluginData } from "../plugins/vfile"
 import { Date, getDate } from "./Date"
 import { QuartzComponent, QuartzComponentProps } from "./types"
@@ -8,6 +12,7 @@ export type SortFn = (f1: QuartzPluginData, f2: QuartzPluginData) => number
 
 export function byDateAndAlphabetical(cfg: GlobalConfiguration): SortFn {
   return (f1, f2) => {
+<<<<<<< HEAD
     // Sort by date/alphabetical
     if (f1.dates && f2.dates) {
       // sort descending
@@ -35,6 +40,8 @@ export function byDateAndAlphabeticalFolderFirst(cfg: GlobalConfiguration): Sort
     if (!f1IsFolder && f2IsFolder) return 1
 
     // If both are folders or both are files, sort by date/alphabetical
+=======
+>>>>>>> 02f2423 (Initial commit)
     if (f1.dates && f2.dates) {
       // sort descending
       return getDate(cfg, f2)!.getTime() - getDate(cfg, f1)!.getTime()
@@ -58,7 +65,11 @@ type Props = {
 } & QuartzComponentProps
 
 export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort }: Props) => {
+<<<<<<< HEAD
   const sorter = sort ?? byDateAndAlphabeticalFolderFirst(cfg)
+=======
+  const sorter = sort ?? byDateAndAlphabetical(cfg)
+>>>>>>> 02f2423 (Initial commit)
   let list = allFiles.sort(sorter)
   if (limit) {
     list = list.slice(0, limit)
@@ -73,9 +84,19 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
         return (
           <li class="section-li">
             <div class="section">
+<<<<<<< HEAD
               <p class="meta">
                 {page.dates && <Date date={getDate(cfg, page)!} locale={cfg.locale} />}
               </p>
+=======
+              <div>
+                {page.dates && (
+                  <p class="meta">
+                    <Date date={getDate(cfg, page)!} locale={cfg.locale} />
+                  </p>
+                )}
+              </div>
+>>>>>>> 02f2423 (Initial commit)
               <div class="desc">
                 <h3>
                   <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">

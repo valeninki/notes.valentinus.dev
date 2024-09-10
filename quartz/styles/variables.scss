@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @use "sass:map";
 
 /**
@@ -56,3 +57,14 @@ $desktopGrid: (
       "grid-sidebar-left grid-center grid-sidebar-right"\
       "grid-sidebar-left grid-footer grid-sidebar-right"',
 );
+=======
+$pageWidth: 750px;
+$mobileBreakpoint: 600px;
+$tabletBreakpoint: 1000px;
+$sidePanelWidth: 380px;
+$topSpacing: 6rem;
+$fullPageWidth: $pageWidth + 2 * $sidePanelWidth;
+$boldWeight: 700;
+$semiBoldWeight: 600;
+$normalWeight: 400;
+>>>>>>> 02f2423 (Initial commit)

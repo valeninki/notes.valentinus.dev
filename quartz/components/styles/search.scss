@@ -3,6 +3,7 @@
 .search {
   min-width: fit-content;
   max-width: 14rem;
+<<<<<<< HEAD
   @media all and ($mobile) {
     flex-grow: 0.3;
   }
@@ -10,21 +11,40 @@
   & > .search-button {
     background-color: transparent;
     border: 1px var(--lightgray) solid;
+=======
+  flex-grow: 0.3;
+
+  & > .search-button {
+    background-color: var(--lightgray);
+    border: none;
+>>>>>>> 02f2423 (Initial commit)
     border-radius: 4px;
     font-family: inherit;
     font-size: inherit;
     height: 2rem;
+<<<<<<< HEAD
     padding: 0 1rem 0 0;
+=======
+    padding: 0;
+>>>>>>> 02f2423 (Initial commit)
     display: flex;
     align-items: center;
     text-align: inherit;
     cursor: pointer;
     white-space: nowrap;
     width: 100%;
+<<<<<<< HEAD
 
     & > p {
       display: inline;
       color: var(--gray);
+=======
+    justify-content: space-between;
+
+    & > p {
+      display: inline;
+      padding: 0 1rem;
+>>>>>>> 02f2423 (Initial commit)
     }
 
     & svg {
@@ -35,13 +55,21 @@
 
       .search-path {
         stroke: var(--darkgray);
+<<<<<<< HEAD
         stroke-width: 1.5px;
+=======
+        stroke-width: 2px;
+>>>>>>> 02f2423 (Initial commit)
         transition: stroke 0.5s ease;
       }
     }
   }
 
+<<<<<<< HEAD
   & > .search-container {
+=======
+  & > #search-container {
+>>>>>>> 02f2423 (Initial commit)
     position: fixed;
     contain: layout;
     z-index: 999;
@@ -57,13 +85,21 @@
       display: inline-block;
     }
 
+<<<<<<< HEAD
     & > .search-space {
+=======
+    & > #search-space {
+>>>>>>> 02f2423 (Initial commit)
       width: 65%;
       margin-top: 12vh;
       margin-left: auto;
       margin-right: auto;
 
+<<<<<<< HEAD
       @media all and not ($desktop) {
+=======
+      @media all and (max-width: $fullPageWidth) {
+>>>>>>> 02f2423 (Initial commit)
         width: 90%;
       }
 
@@ -90,7 +126,11 @@
         }
       }
 
+<<<<<<< HEAD
       & > .search-layout {
+=======
+      & > #search-layout {
+>>>>>>> 02f2423 (Initial commit)
         display: none;
         flex-direction: row;
         border: 1px solid var(--lightgray);
@@ -101,11 +141,19 @@
           display: flex;
         }
 
+<<<<<<< HEAD
         &[data-preview] > .results-container {
           flex: 0 0 min(30%, 450px);
         }
 
         @media all and not ($mobile) {
+=======
+        &[data-preview] > #results-container {
+          flex: 0 0 min(30%, 450px);
+        }
+
+        @media all and (min-width: $tabletBreakpoint) {
+>>>>>>> 02f2423 (Initial commit)
           &[data-preview] {
             & .result-card > p.preview {
               display: none;
@@ -131,6 +179,7 @@
           border-radius: 5px;
         }
 
+<<<<<<< HEAD
         @media all and ($mobile) {
           flex-direction: column;
 
@@ -139,6 +188,14 @@
           }
 
           &[data-preview] > .results-container {
+=======
+        @media all and (max-width: $tabletBreakpoint) {
+          & > #preview-container {
+            display: none !important;
+          }
+
+          &[data-preview] > #results-container {
+>>>>>>> 02f2423 (Initial commit)
             width: 100%;
             height: auto;
             flex: 0 0 100%;
@@ -151,8 +208,12 @@
           scroll-margin-top: 2rem;
         }
 
+<<<<<<< HEAD
         & > .preview-container {
           flex-grow: 1;
+=======
+        & > #preview-container {
+>>>>>>> 02f2423 (Initial commit)
           display: block;
           overflow: hidden;
           font-family: inherit;
@@ -172,7 +233,11 @@
           }
         }
 
+<<<<<<< HEAD
         & > .results-container {
+=======
+        & > #results-container {
+>>>>>>> 02f2423 (Initial commit)
           overflow-y: auto;
 
           & .result-card {
@@ -205,12 +270,15 @@
               margin: 0;
             }
 
+<<<<<<< HEAD
             @media all and not ($mobile) {
               & > p.card-description {
                 display: none;
               }
             }
 
+=======
+>>>>>>> 02f2423 (Initial commit)
             & > ul.tags {
               margin-top: 0.45rem;
               margin-bottom: 0;
