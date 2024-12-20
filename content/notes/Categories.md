@@ -2,4 +2,4 @@
 
 [[Proxmox]]
 
-[[content/notes/Firewall/Firewall|Firewall]]
+[[Firewall]]
