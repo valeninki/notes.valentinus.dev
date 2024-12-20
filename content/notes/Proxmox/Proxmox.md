@@ -2,5 +2,5 @@
 
 [[Share disk between 2 nodes with NFS]]
 
-[[content/notes/Proxmox/Web GUI not accepts password]]
+[[content/notes/Proxmox/Web GUI not accepts password|Web GUI not accepts password]]
 
