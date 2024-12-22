@@ -1,6 +1,6 @@
 Greetings, when I enter Proxmox all of a sudden I can't log in when I enter my password, I would like to share with you the solution to this problem.
 
-![[content/notes/Images/Pasted image 20241211235508.png]]
+![[Pasted image 20241211235508.png]]
 
 ---
 
