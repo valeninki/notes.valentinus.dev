@@ -10,5 +10,6 @@ Configure Firewalls and Servers, route network traffic efficiently and manage un
 Actively spend time with things like OPNsense, Proxmox, Linux Systems (Fedora, Debian etc), Ansible and try to make them work for long periods of time and not cause problems.
 
 
-**[[Categories]]:**
+To access: [All Notes](https://notes.valentinus.dev/notes/)
 
+For spesific topic: [[Topics]]

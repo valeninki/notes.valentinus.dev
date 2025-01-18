@@ -1,5 +1,8 @@
-[[Linux]]
+[[notes/Linux]]
 
 [[Proxmox]]
 
 [[Firewall]]
+
+[[Networking]]
+
