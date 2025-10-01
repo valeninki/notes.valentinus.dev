@@ -1,12 +1,18 @@
 import { slug as slugAnchor } from "github-slugger"
 import type { Element as HastElement } from "hast"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { clone } from "./clone"
 =======
 import rfdc from "rfdc"
 
 export const clone = rfdc()
 >>>>>>> 02f2423 (Initial commit)
+=======
+import rfdc from "rfdc"
+
+export const clone = rfdc()
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 // this file must be isomorphic so it can't use node libs (e.g. path)
 
@@ -44,6 +50,7 @@ export function isRelativeURL(s: string): s is RelativeURL {
   const validStart = /^\.{1,2}/.test(s)
   const validEnding = !endsWith(s, "index")
 <<<<<<< HEAD
+<<<<<<< HEAD
   return validStart && validEnding && ![".md", ".html"].includes(getFileExtension(s) ?? "")
 }
 
@@ -57,6 +64,9 @@ export function isAbsoluteURL(s: string): boolean {
 =======
   return validStart && validEnding && ![".md", ".html"].includes(_getFileExtension(s) ?? "")
 >>>>>>> 02f2423 (Initial commit)
+=======
+  return validStart && validEnding && ![".md", ".html"].includes(_getFileExtension(s) ?? "")
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 export function getFullSlug(window: Window): FullSlug {
@@ -82,10 +92,14 @@ function sluggify(s: string): string {
 export function slugifyFilePath(fp: FilePath, excludeExt?: boolean): FullSlug {
   fp = stripSlashes(fp) as FilePath
 <<<<<<< HEAD
+<<<<<<< HEAD
   let ext = getFileExtension(fp)
 =======
   let ext = _getFileExtension(fp)
 >>>>>>> 02f2423 (Initial commit)
+=======
+  let ext = _getFileExtension(fp)
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   const withoutFileExt = fp.replace(new RegExp(ext + "$"), "")
   if (excludeExt || [".md", ".html", undefined].includes(ext)) {
     ext = ""
@@ -130,16 +144,22 @@ const _rebaseHtmlElement = (el: Element, attr: string, newBase: string | URL) =>
 }
 export function normalizeRelativeURLs(el: Element | Document, destination: string | URL) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   el.querySelectorAll('[href=""], [href^="./"], [href^="../"]').forEach((item) =>
     _rebaseHtmlElement(item, "href", destination),
   )
   el.querySelectorAll('[src=""], [src^="./"], [src^="../"]').forEach((item) =>
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   el.querySelectorAll('[href^="./"], [href^="../"]').forEach((item) =>
     _rebaseHtmlElement(item, "href", destination),
   )
   el.querySelectorAll('[src^="./"], [src^="../"]').forEach((item) =>
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     _rebaseHtmlElement(item, "src", destination),
   )
 }
@@ -212,6 +232,7 @@ export function slugTag(tag: string) {
 
 export function joinSegments(...args: string[]): string {
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (args.length === 0) {
     return ""
   }
@@ -233,11 +254,16 @@ export function joinSegments(...args: string[]): string {
 
   return joined
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   return args
     .filter((segment) => segment !== "")
     .join("/")
     .replace(/\/\/+/g, "/")
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 export function getAllSegmentPrefixes(tags: string): string[] {
@@ -286,10 +312,14 @@ export function transformLink(src: FullSlug, target: string, opts: TransformOpti
 
 // path helpers
 <<<<<<< HEAD
+<<<<<<< HEAD
 export function isFolderPath(fplike: string): boolean {
 =======
 function isFolderPath(fplike: string): boolean {
 >>>>>>> 02f2423 (Initial commit)
+=======
+function isFolderPath(fplike: string): boolean {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   return (
     fplike.endsWith("/") ||
     endsWith(fplike, "index") ||
@@ -303,10 +333,14 @@ export function endsWith(s: string, suffix: string): boolean {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export function trimSuffix(s: string, suffix: string): string {
 =======
 function trimSuffix(s: string, suffix: string): string {
 >>>>>>> 02f2423 (Initial commit)
+=======
+function trimSuffix(s: string, suffix: string): string {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   if (endsWith(s, suffix)) {
     s = s.slice(0, -suffix.length)
   }
@@ -319,16 +353,22 @@ function containsForbiddenCharacters(s: string): boolean {
 
 function _hasFileExtension(s: string): boolean {
 <<<<<<< HEAD
+<<<<<<< HEAD
   return getFileExtension(s) !== undefined
 }
 
 export function getFileExtension(s: string): string | undefined {
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   return _getFileExtension(s) !== undefined
 }
 
 function _getFileExtension(s: string): string | undefined {
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   return s.match(/\.[A-Za-z0-9]+$/)?.[0]
 }
 

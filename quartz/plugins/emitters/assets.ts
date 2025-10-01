@@ -4,9 +4,13 @@ import path from "path"
 import fs from "fs"
 import { glob } from "../../util/glob"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import DepGraph from "../../depgraph"
 >>>>>>> 02f2423 (Initial commit)
+=======
+import DepGraph from "../../depgraph"
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { Argv } from "../../util/ctx"
 import { QuartzConfig } from "../../cfg"
 
@@ -15,6 +19,7 @@ const filesToCopy = async (argv: Argv, cfg: QuartzConfig) => {
   return await glob("**", argv.directory, ["**/*.md", ...cfg.configuration.ignorePatterns])
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 const copyFile = async (argv: Argv, fp: FilePath) => {
   const src = joinSegments(argv.directory, fp) as FilePath
@@ -53,6 +58,8 @@ export const Assets: QuartzEmitterPlugin = () => {
         }
       }
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 export const Assets: QuartzEmitterPlugin = () => {
   return {
     name: "Assets",
@@ -94,7 +101,10 @@ export const Assets: QuartzEmitterPlugin = () => {
       }
 
       return res
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     },
   }
 }

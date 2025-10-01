@@ -37,9 +37,12 @@ Component.Graph({
     removeTags: [], // what tags to remove from the graph
     showTags: true, // whether to show tags in the graph
 <<<<<<< HEAD
+<<<<<<< HEAD
     enableRadial: false, // whether to constrain the graph, similar to Obsidian
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   },
   globalGraph: {
     drag: true,
@@ -54,9 +57,12 @@ Component.Graph({
     removeTags: [], // what tags to remove from the graph
     showTags: true, // whether to show tags in the graph
 <<<<<<< HEAD
+<<<<<<< HEAD
     enableRadial: true, // whether to constrain the graph, similar to Obsidian
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   },
 })
 ```

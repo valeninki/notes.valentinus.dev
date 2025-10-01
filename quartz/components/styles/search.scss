@@ -4,6 +4,7 @@
   min-width: fit-content;
   max-width: 14rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
   @media all and ($mobile) {
     flex-grow: 0.3;
   }
@@ -12,21 +13,30 @@
     background-color: transparent;
     border: 1px var(--lightgray) solid;
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   flex-grow: 0.3;
 
   & > .search-button {
     background-color: var(--lightgray);
     border: none;
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     border-radius: 4px;
     font-family: inherit;
     font-size: inherit;
     height: 2rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
     padding: 0 1rem 0 0;
 =======
     padding: 0;
 >>>>>>> 02f2423 (Initial commit)
+=======
+    padding: 0;
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     display: flex;
     align-items: center;
     text-align: inherit;
@@ -34,17 +44,23 @@
     white-space: nowrap;
     width: 100%;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     & > p {
       display: inline;
       color: var(--gray);
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     justify-content: space-between;
 
     & > p {
       display: inline;
       padding: 0 1rem;
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     }
 
     & svg {
@@ -56,20 +72,28 @@
       .search-path {
         stroke: var(--darkgray);
 <<<<<<< HEAD
+<<<<<<< HEAD
         stroke-width: 1.5px;
 =======
         stroke-width: 2px;
 >>>>>>> 02f2423 (Initial commit)
+=======
+        stroke-width: 2px;
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         transition: stroke 0.5s ease;
       }
     }
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   & > .search-container {
 =======
   & > #search-container {
 >>>>>>> 02f2423 (Initial commit)
+=======
+  & > #search-container {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     position: fixed;
     contain: layout;
     z-index: 999;
@@ -86,20 +110,28 @@
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     & > .search-space {
 =======
     & > #search-space {
 >>>>>>> 02f2423 (Initial commit)
+=======
+    & > #search-space {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       width: 65%;
       margin-top: 12vh;
       margin-left: auto;
       margin-right: auto;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       @media all and not ($desktop) {
 =======
       @media all and (max-width: $fullPageWidth) {
 >>>>>>> 02f2423 (Initial commit)
+=======
+      @media all and (max-width: $fullPageWidth) {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         width: 90%;
       }
 
@@ -127,10 +159,14 @@
       }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       & > .search-layout {
 =======
       & > #search-layout {
 >>>>>>> 02f2423 (Initial commit)
+=======
+      & > #search-layout {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         display: none;
         flex-direction: row;
         border: 1px solid var(--lightgray);
@@ -142,18 +178,24 @@
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         &[data-preview] > .results-container {
           flex: 0 0 min(30%, 450px);
         }
 
         @media all and not ($mobile) {
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         &[data-preview] > #results-container {
           flex: 0 0 min(30%, 450px);
         }
 
         @media all and (min-width: $tabletBreakpoint) {
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
           &[data-preview] {
             & .result-card > p.preview {
               display: none;
@@ -180,6 +222,7 @@
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         @media all and ($mobile) {
           flex-direction: column;
 
@@ -189,13 +232,18 @@
 
           &[data-preview] > .results-container {
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         @media all and (max-width: $tabletBreakpoint) {
           & > #preview-container {
             display: none !important;
           }
 
           &[data-preview] > #results-container {
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
             width: 100%;
             height: auto;
             flex: 0 0 100%;
@@ -209,11 +257,15 @@
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         & > .preview-container {
           flex-grow: 1;
 =======
         & > #preview-container {
 >>>>>>> 02f2423 (Initial commit)
+=======
+        & > #preview-container {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
           display: block;
           overflow: hidden;
           font-family: inherit;
@@ -234,10 +286,14 @@
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         & > .results-container {
 =======
         & > #results-container {
 >>>>>>> 02f2423 (Initial commit)
+=======
+        & > #results-container {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
           overflow-y: auto;
 
           & .result-card {
@@ -271,6 +327,7 @@
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             @media all and not ($mobile) {
               & > p.card-description {
                 display: none;
@@ -279,6 +336,8 @@
 
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
             & > ul.tags {
               margin-top: 0.45rem;
               margin-bottom: 0;

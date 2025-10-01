@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 @use "../../styles/variables.scss" as *;
 
 .toc {
@@ -16,6 +17,9 @@ button.toc-header {
 =======
 button#toc {
 >>>>>>> 02f2423 (Initial commit)
+=======
+button#toc {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   background-color: transparent;
   border: none;
   text-align: left;
@@ -43,6 +47,7 @@ button#toc {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ul.toc-content.overflow {
   list-style: none;
   position: relative;
@@ -61,6 +66,8 @@ ul.toc-content.overflow {
     &.in-view {
       opacity: 0.75;
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 #toc-content {
   list-style: none;
   overflow: hidden;
@@ -95,7 +102,10 @@ ul.toc-content.overflow {
       &.in-view {
         opacity: 0.75;
       }
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     }
   }
 

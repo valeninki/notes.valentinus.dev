@@ -17,6 +17,7 @@ export const sharedPageComponents: SharedLayout = {
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
 <<<<<<< HEAD
+<<<<<<< HEAD
     Component.ConditionalRender({
       component: Component.Breadcrumbs(),
       condition: (page) => page.fileData.slug !== "index",
@@ -24,6 +25,9 @@ export const defaultContentPageLayout: PageLayout = {
 =======
     Component.Breadcrumbs(),
 >>>>>>> 02f2423 (Initial commit)
+=======
+    Component.Breadcrumbs(),
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
@@ -31,6 +35,7 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
+<<<<<<< HEAD
 <<<<<<< HEAD
     Component.Flex({
       components: [
@@ -48,6 +53,11 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Darkmode(),
     Component.DesktopOnly(Component.Explorer()),
 >>>>>>> 02f2423 (Initial commit)
+=======
+    Component.Search(),
+    Component.Darkmode(),
+    Component.DesktopOnly(Component.Explorer()),
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   ],
   right: [
     Component.Graph(),
@@ -62,6 +72,7 @@ export const defaultListPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
+<<<<<<< HEAD
 <<<<<<< HEAD
     Component.Flex({
       components: [
@@ -78,6 +89,11 @@ export const defaultListPageLayout: PageLayout = {
     Component.Darkmode(),
     Component.DesktopOnly(Component.Explorer()),
 >>>>>>> 02f2423 (Initial commit)
+=======
+    Component.Search(),
+    Component.Darkmode(),
+    Component.DesktopOnly(Component.Explorer()),
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   ],
   right: [],
 }

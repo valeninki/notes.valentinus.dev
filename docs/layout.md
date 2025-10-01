@@ -14,18 +14,24 @@ export interface FullPageLayout {
   pageBody: QuartzComponent // single component
   afterBody: QuartzComponent[] // laid out vertically
 <<<<<<< HEAD
+<<<<<<< HEAD
   left: QuartzComponent[] // vertical on desktop and tablet, horizontal on mobile
   right: QuartzComponent[] // vertical on desktop, horizontal on tablet and mobile
 =======
   left: QuartzComponent[] // vertical on desktop, horizontal on mobile
   right: QuartzComponent[] // vertical on desktop, horizontal on mobile
 >>>>>>> 02f2423 (Initial commit)
+=======
+  left: QuartzComponent[] // vertical on desktop, horizontal on mobile
+  right: QuartzComponent[] // vertical on desktop, horizontal on mobile
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   footer: QuartzComponent // single component
 }
 ```
 
 These correspond to following parts of the page:
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 | Layout                          | Preview                             |
 | ------------------------------- | ----------------------------------- |
@@ -35,6 +41,9 @@ These correspond to following parts of the page:
 =======
 ![[quartz layout.png|800]]
 >>>>>>> 02f2423 (Initial commit)
+=======
+![[quartz layout.png|800]]
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 > [!note]
 > There are two additional layout fields that are _not_ shown in the above diagram.
@@ -44,6 +53,7 @@ These correspond to following parts of the page:
 
 Quartz **components**, like plugins, can take in additional properties as configuration options. If you're familiar with React terminology, you can think of them as Higher-order Components.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 See [a list of all the components](component.md) for all available components along with their configuration options. Additionally, Quartz provides several built-in higher-order components for layout composition - see [[layout-components]] for more details.
 
@@ -68,6 +78,9 @@ $breakpoints: (
 =======
 See [a list of all the components](component.md) for all available components along with their configuration options. You can also checkout the guide on [[creating components]] if you're interested in further customizing the behaviour of Quartz.
 >>>>>>> 02f2423 (Initial commit)
+=======
+See [a list of all the components](component.md) for all available components along with their configuration options. You can also checkout the guide on [[creating components]] if you're interested in further customizing the behaviour of Quartz.
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 ### Style
 

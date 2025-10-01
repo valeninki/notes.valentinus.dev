@@ -9,9 +9,12 @@ import {
   forceLink,
   forceCollide,
 <<<<<<< HEAD
+<<<<<<< HEAD
   forceRadial,
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   zoomIdentity,
   select,
   drag,
@@ -72,16 +75,22 @@ type TweenNode = {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   const slug = simplifySlug(fullSlug)
   const visited = getVisited()
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 async function renderGraph(container: string, fullSlug: FullSlug) {
   const slug = simplifySlug(fullSlug)
   const visited = getVisited()
   const graph = document.getElementById(container)
   if (!graph) return
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   removeAllChildren(graph)
 
   let {
@@ -98,9 +107,12 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     showTags,
     focusOnHover,
 <<<<<<< HEAD
+<<<<<<< HEAD
     enableRadial,
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   } = JSON.parse(graph.dataset["cfg"]!) as D3Config
 
   const data: Map<SimpleSlug, ContentDetails> = new Map(
@@ -176,11 +188,14 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const width = graph.offsetWidth
   const height = Math.max(graph.offsetHeight, 250)
 
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   // we virtualize the simulation and use pixi to actually render it
   const simulation: Simulation<NodeData, LinkData> = forceSimulation<NodeData>(graphData.nodes)
     .force("charge", forceManyBody().strength(-100 * repelForce))
@@ -189,12 +204,17 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     .force("collide", forceCollide<NodeData>((n) => nodeRadius(n)).iterations(3))
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const radius = (Math.min(width, height) / 2) * 0.8
   if (enableRadial) simulation.force("radial", forceRadial(radius).strength(0.2))
 =======
   const width = graph.offsetWidth
   const height = Math.max(graph.offsetHeight, 250)
 >>>>>>> 02f2423 (Initial commit)
+=======
+  const width = graph.offsetWidth
+  const height = Math.max(graph.offsetHeight, 250)
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
   // precompute style prop strings as pixi doesn't support css variables
   const cssVars = [
@@ -389,6 +409,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   stage.interactive = false
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const labelsContainer = new Container<Text>({ zIndex: 3, isRenderGroup: true })
   const nodesContainer = new Container<Graphics>({ zIndex: 2, isRenderGroup: true })
   const linkContainer = new Container<Graphics>({ zIndex: 1, isRenderGroup: true })
@@ -397,6 +418,11 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   const nodesContainer = new Container<Graphics>({ zIndex: 2 })
   const linkContainer = new Container<Graphics>({ zIndex: 1 })
 >>>>>>> 02f2423 (Initial commit)
+=======
+  const labelsContainer = new Container<Text>({ zIndex: 3 })
+  const nodesContainer = new Container<Graphics>({ zIndex: 2 })
+  const linkContainer = new Container<Graphics>({ zIndex: 1 })
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   stage.addChild(nodesContainer, labelsContainer, linkContainer)
 
   for (const n of graphData.nodes) {
@@ -429,9 +455,13 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
       .circle(0, 0, nodeRadius(n))
       .fill({ color: isTagNode ? computedStyleMap["--light"] : color(n) })
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       .stroke({ width: isTagNode ? 2 : 0, color: color(n) })
 >>>>>>> 02f2423 (Initial commit)
+=======
+      .stroke({ width: isTagNode ? 2 : 0, color: color(n) })
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       .on("pointerover", (e) => {
         updateHoverInfo(e.target.label)
         oldLabelOpacity = label.alpha
@@ -448,12 +478,15 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
       })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (isTagNode) {
       gfx.stroke({ width: 2, color: computedStyleMap["--tertiary"] })
     }
 
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     nodesContainer.addChild(gfx)
     labelsContainer.addChild(label)
 
@@ -559,12 +592,16 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   let stopAnimation = false
   function animate(time: number) {
     if (stopAnimation) return
 =======
   function animate(time: number) {
 >>>>>>> 02f2423 (Initial commit)
+=======
+  function animate(time: number) {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     for (const n of nodeRenderData) {
       const { x, y } = n.simulationData
       if (!x || !y) continue
@@ -588,6 +625,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     requestAnimationFrame(animate)
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   requestAnimationFrame(animate)
   return () => {
@@ -615,11 +653,16 @@ function cleanupGlobalGraphs() {
   const graphAnimationFrameHandle = requestAnimationFrame(animate)
   window.addCleanup(() => cancelAnimationFrame(graphAnimationFrameHandle))
 >>>>>>> 02f2423 (Initial commit)
+=======
+  const graphAnimationFrameHandle = requestAnimationFrame(animate)
+  window.addCleanup(() => cancelAnimationFrame(graphAnimationFrameHandle))
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   const slug = e.detail.url
   addToVisited(simplifySlug(slug))
+<<<<<<< HEAD
 <<<<<<< HEAD
 
   async function renderLocalGraph() {
@@ -637,6 +680,8 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
 
   document.addEventListener("themechange", handleThemeChange)
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   await renderGraph("graph-container", slug)
 
   // Function to re-render the graph when the theme changes
@@ -648,11 +693,15 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   document.addEventListener("themechange", handleThemeChange)
 
   // cleanup for the event listener
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   window.addCleanup(() => {
     document.removeEventListener("themechange", handleThemeChange)
   })
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   const containers = [...document.getElementsByClassName("global-graph-outer")] as HTMLElement[]
   async function renderGlobalGraph() {
@@ -681,6 +730,8 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
         sidebar.style.zIndex = ""
       }
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   const container = document.getElementById("global-graph-outer")
   const sidebar = container?.closest(".sidebar") as HTMLElement
 
@@ -699,13 +750,17 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
     container?.classList.remove("active")
     if (sidebar) {
       sidebar.style.zIndex = "unset"
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     }
   }
 
   async function shortcutHandler(e: HTMLElementEventMap["keydown"]) {
     if (e.key === "g" && (e.ctrlKey || e.metaKey) && !e.shiftKey) {
       e.preventDefault()
+<<<<<<< HEAD
 <<<<<<< HEAD
       const anyGlobalGraphOpen = containers.some((container) =>
         container.classList.contains("active"),
@@ -727,6 +782,8 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
     cleanupGlobalGraphs()
   })
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       const globalGraphOpen = container?.classList.contains("active")
       globalGraphOpen ? hideGlobalGraph() : renderGlobalGraph()
     }
@@ -738,5 +795,8 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
 
   document.addEventListener("keydown", shortcutHandler)
   window.addCleanup(() => document.removeEventListener("keydown", shortcutHandler))
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 })

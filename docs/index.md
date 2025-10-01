@@ -7,10 +7,14 @@ Quartz is a fast, batteries-included static-site generator that transforms Markd
 ## 🪴 Get Started
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Quartz requires **at least [Node](https://nodejs.org/) v22** and `npm` v10.9.2 to function correctly. Ensure you have this installed on your machine before continuing.
 =======
 Quartz requires **at least [Node](https://nodejs.org/) v20** and `npm` v9.3.1 to function correctly. Ensure you have this installed on your machine before continuing.
 >>>>>>> 02f2423 (Initial commit)
+=======
+Quartz requires **at least [Node](https://nodejs.org/) v20** and `npm` v9.3.1 to function correctly. Ensure you have this installed on your machine before continuing.
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 Then, in your terminal of choice, enter the following commands line by line:
 
@@ -36,21 +40,30 @@ If you prefer instructions in a video format you can try following Nicole van de
 ## 🔧 Features
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [[Obsidian compatibility]], [[full-text search]], [[graph view]], [[wikilinks|wikilinks, transclusions]], [[backlinks]], [[features/Latex|Latex]], [[syntax highlighting]], [[popover previews]], [[Docker Support]], [[i18n|internationalization]], [[comments]] and [many more](./features/) right out of the box
 - Hot-reload on configuration edits and incremental rebuilds for content edits
 =======
 - [[Obsidian compatibility]], [[full-text search]], [[graph view]], note transclusion, [[wikilinks]], [[backlinks]], [[features/Latex|Latex]], [[syntax highlighting]], [[popover previews]], [[Docker Support]], [[i18n|internationalization]], [[comments]] and [many more](./features) right out of the box
 - Hot-reload for both configuration and content
 >>>>>>> 02f2423 (Initial commit)
+=======
+- [[Obsidian compatibility]], [[full-text search]], [[graph view]], note transclusion, [[wikilinks]], [[backlinks]], [[features/Latex|Latex]], [[syntax highlighting]], [[popover previews]], [[Docker Support]], [[i18n|internationalization]], [[comments]] and [many more](./features) right out of the box
+- Hot-reload for both configuration and content
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 - Simple JSX layouts and [[creating components|page components]]
 - [[SPA Routing|Ridiculously fast page loads]] and tiny bundle sizes
 - Fully-customizable parsing, filtering, and page generation through [[making plugins|plugins]]
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 For a comprehensive list of features, visit the [features page](./features/). You can read more about the _why_ behind these features on the [[philosophy]] page and a technical overview on the [[architecture]] page.
 =======
 For a comprehensive list of features, visit the [features page](/features). You can read more about the _why_ behind these features on the [[philosophy]] page and a technical overview on the [[architecture]] page.
 >>>>>>> 02f2423 (Initial commit)
+=======
+For a comprehensive list of features, visit the [features page](/features). You can read more about the _why_ behind these features on the [[philosophy]] page and a technical overview on the [[architecture]] page.
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 ### 🚧 Troubleshooting + Updating
 

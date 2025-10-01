@@ -68,9 +68,12 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                       "aria-hidden": "true",
                       class: "external-icon",
 <<<<<<< HEAD
+<<<<<<< HEAD
                       style: "max-width:0.8em;max-height:0.8em",
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
                       viewBox: "0 0 512 512",
                     },
                     children: [

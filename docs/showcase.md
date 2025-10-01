@@ -7,6 +7,7 @@ Want to see what Quartz can do? Here are some cool community gardens:
 - [Quartz Documentation (this site!)](https://quartz.jzhao.xyz/)
 - [Jacky Zhao's Garden](https://jzhao.xyz/)
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [Aaron Pham's Garden](https://aarnphm.xyz/)
 - [The Pond](https://turntrout.com/welcome)
 - [Eilleen's Everything Notebook](https://quartz.eilleeenz.com/)
@@ -23,6 +24,8 @@ Want to see what Quartz can do? Here are some cool community gardens:
 - [Eledah's Crystalline](https://blog.eledah.ir/)
 - [🌓 Projects & Privacy - FOSS, tech, law](https://be-far.com)
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 - [Socratica Toolbox](https://toolbox.socratica.info/)
 - [Morrowind Modding Wiki](https://morrowind-modding.github.io/)
 - [Aaron Pham's Garden](https://aarnphm.xyz/)
@@ -47,4 +50,7 @@ Want to see what Quartz can do? Here are some cool community gardens:
 - [🌓 Projects & Privacy - FOSS, tech, law](https://be-far.com)
 
 If you want to see your own on here, submit a [Pull Request adding yourself to this file](https://github.com/jackyzha0/quartz/blob/v4/docs/showcase.md)!
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb

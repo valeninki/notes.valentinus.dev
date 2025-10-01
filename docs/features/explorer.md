@@ -28,18 +28,24 @@ Component.Explorer({
   folderDefaultState: "collapsed", // default state of folders ("collapsed" or "open")
   useSavedState: true, // whether to use local storage to save "state" (which folders are opened) of explorer
 <<<<<<< HEAD
+<<<<<<< HEAD
   // omitted but shown later
   sortFn: ...,
   filterFn: ...,
   mapFn: ...,
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   // Sort order: folders first, then files. Sort folders and files alphabetically
   sortFn: (a, b) => {
     ... // default implementation shown later
   },
   filterFn: filterFn: (node) => node.name !== "tags", // filters out 'tags' folder
   mapFn: undefined,
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   // what order to apply functions in
   order: ["filter", "map", "sort"],
 })
@@ -53,18 +59,25 @@ Want to customize it even more?
   - (optional): After removing the explorer component, you can move the [[table of contents | Table of Contents]] component back to the `left` part of the layout
 - Changing `sort`, `filter` and `map` behavior: explained in [[#Advanced customization]]
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Component: `quartz/components/Explorer.tsx`
 =======
 - Component:
   - Wrapper (Outer component, generates file tree, etc): `quartz/components/Explorer.tsx`
   - Explorer node (recursive, either a folder or a file): `quartz/components/ExplorerNode.tsx`
 >>>>>>> 02f2423 (Initial commit)
+=======
+- Component:
+  - Wrapper (Outer component, generates file tree, etc): `quartz/components/Explorer.tsx`
+  - Explorer node (recursive, either a folder or a file): `quartz/components/ExplorerNode.tsx`
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 - Style: `quartz/components/styles/explorer.scss`
 - Script: `quartz/components/scripts/explorer.inline.ts`
 
 ## Advanced customization
 
 This component allows you to fully customize all of its behavior. You can pass a custom `sort`, `filter` and `map` function.
+<<<<<<< HEAD
 <<<<<<< HEAD
 All functions you can pass work with the `FileTrieNode` class, which has the following properties:
 
@@ -84,6 +97,8 @@ export type ContentDetails = {
   tags: string[]
   content: string
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 All functions you can pass work with the `FileNode` class, which has the following properties:
 
 ```ts title="quartz/components/ExplorerNode.tsx" {2-5}
@@ -95,7 +110,10 @@ export class FileNode {
   depth: number // depth of current node
 
   ... // rest of implementation
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 ```
 
@@ -106,23 +124,33 @@ Every function you can pass is optional. By default, only a `sort` function will
 Component.Explorer({
   sortFn: (a, b) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
 =======
     if ((!a.file && !b.file) || (a.file && b.file)) {
       // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
       // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
 >>>>>>> 02f2423 (Initial commit)
+=======
+    if ((!a.file && !b.file) || (a.file && b.file)) {
+      // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
+      // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       return a.displayName.localeCompare(b.displayName, undefined, {
         numeric: true,
         sensitivity: "base",
       })
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     if (!a.isFolder && b.isFolder) {
 =======
     if (a.file && !b.file) {
 >>>>>>> 02f2423 (Initial commit)
+=======
+    if (a.file && !b.file) {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       return 1
     } else {
       return -1
@@ -141,12 +169,15 @@ Type definitions look like this:
 
 ```ts
 <<<<<<< HEAD
+<<<<<<< HEAD
 type SortFn = (a: FileTrieNode, b: FileTrieNode) => number
 type FilterFn = (node: FileTrieNode) => boolean
 type MapFn = (node: FileTrieNode) => void
 ```
 
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 sortFn: (a: FileNode, b: FileNode) => number
 filterFn: (node: FileNode) => boolean
 mapFn: (node: FileNode) => void
@@ -163,7 +194,10 @@ mapFn: (node: FileNode) => void
 > }
 > ```
 
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 ## Basic examples
 
 These examples show the basic usage of `sort`, `map` and `filter`.
@@ -171,17 +205,24 @@ These examples show the basic usage of `sort`, `map` and `filter`.
 ### Use `sort` to put files first
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Using this example, the explorer will alphabetically sort everything.
 =======
 Using this example, the explorer will alphabetically sort everything, but put all **files** above all **folders**.
 >>>>>>> 02f2423 (Initial commit)
+=======
+Using this example, the explorer will alphabetically sort everything, but put all **files** above all **folders**.
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 ```ts title="quartz.layout.ts"
 Component.Explorer({
   sortFn: (a, b) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return a.displayName.localeCompare(b.displayName)
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     if ((!a.file && !b.file) || (a.file && b.file)) {
       return a.displayName.localeCompare(b.displayName)
     }
@@ -190,7 +231,10 @@ Component.Explorer({
     } else {
       return 1
     }
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   },
 })
 ```
@@ -204,9 +248,12 @@ Component.Explorer({
   mapFn: (node) => {
     node.displayName = node.displayName.toUpperCase()
 <<<<<<< HEAD
+<<<<<<< HEAD
     return node
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   },
 })
 ```
@@ -214,16 +261,21 @@ Component.Explorer({
 ### Remove list of elements (`filter`)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Using this example, you can remove elements from your explorer by providing an array of folders/files to exclude.
 Note that this example filters on the title but you can also do it via slug or any other field available on `FileTrieNode`.
 =======
 Using this example, you can remove elements from your explorer by providing an array of folders/files using the `omit` set.
 >>>>>>> 02f2423 (Initial commit)
+=======
+Using this example, you can remove elements from your explorer by providing an array of folders/files using the `omit` set.
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 ```ts title="quartz.layout.ts"
 Component.Explorer({
   filterFn: (node) => {
     // set containing names of everything you want to filter out
+<<<<<<< HEAD
 <<<<<<< HEAD
     const omit = new Set(["authoring content", "tags", "advanced"])
 
@@ -235,31 +287,45 @@ Component.Explorer({
     const omit = new Set(["authoring content", "tags", "hosting"])
     return !omit.has(node.name.toLowerCase())
 >>>>>>> 02f2423 (Initial commit)
+=======
+    const omit = new Set(["authoring content", "tags", "hosting"])
+    return !omit.has(node.name.toLowerCase())
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   },
 })
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### Remove files by tag
 
 You can access the tags of a file by `node.data.tags`.
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 You can customize this by changing the entries of the `omit` set. Simply add all folder or file names you want to remove.
 
 ### Remove files by tag
 
 You can access the frontmatter of a file by `node.file?.frontmatter?`. This allows you to filter out files based on their frontmatter, for example by their tags.
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 ```ts title="quartz.layout.ts"
 Component.Explorer({
   filterFn: (node) => {
     // exclude files with the tag "explorerexclude"
 <<<<<<< HEAD
+<<<<<<< HEAD
     return node.data.tags?.includes("explorerexclude") !== true
 =======
     return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
 >>>>>>> 02f2423 (Initial commit)
+=======
+    return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   },
 })
 ```
@@ -267,11 +333,15 @@ Component.Explorer({
 ### Show every element in explorer
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 By default, the explorer will filter out the `tags` folder.
 To override the default filter function, you can set the filter function to `undefined`.
 =======
 To override the default filter function that removes the `tags` folder from the explorer, you can set the filter function to `undefined`.
 >>>>>>> 02f2423 (Initial commit)
+=======
+To override the default filter function that removes the `tags` folder from the explorer, you can set the filter function to `undefined`.
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 ```ts title="quartz.layout.ts"
 Component.Explorer({
@@ -284,6 +354,7 @@ Component.Explorer({
 > [!tip]
 > When writing more complicated functions, the `layout` file can start to look very cramped.
 <<<<<<< HEAD
+<<<<<<< HEAD
 > You can fix this by defining your sort functions outside of the component
 > and passing it in.
 >
@@ -291,11 +362,16 @@ Component.Explorer({
 > import { Options } from "./quartz/components/Explorer"
 >
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 > You can fix this by defining your functions in another file.
 >
 > ```ts title="functions.ts"
 > import { Options } from "./quartz/components/ExplorerNode"
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 > export const mapFn: Options["mapFn"] = (node) => {
 >   // implement your function here
 > }
@@ -306,6 +382,7 @@ Component.Explorer({
 >   // implement your function here
 > }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >
 > Component.Explorer({
 >   // ... your other options
@@ -313,6 +390,8 @@ Component.Explorer({
 >   filterFn,
 >   sortFn,
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 > ```
 >
 > You can then import them like this:
@@ -323,7 +402,10 @@ Component.Explorer({
 >   mapFn: mapFn,
 >   filterFn: filterFn,
 >   sortFn: sortFn,
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 > })
 > ```
 
@@ -335,11 +417,14 @@ To add emoji prefixes (📁 for folders, 📄 for files), you could use a map fu
 Component.Explorer({
   mapFn: (node) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (node.isFolder) {
       node.displayName = "📁 " + node.displayName
     } else {
       node.displayName = "📄 " + node.displayName
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     // dont change name of root node
     if (node.depth > 0) {
       // set emoji for file/folder
@@ -348,13 +433,19 @@ Component.Explorer({
       } else {
         node.displayName = "📁 " + node.displayName
       }
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     }
   },
 })
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 ### Putting it all together
 
@@ -433,4 +524,7 @@ dinosaur-fossils-file.md
 other-folder
     index.md
 ```
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb

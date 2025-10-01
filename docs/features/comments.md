@@ -46,10 +46,13 @@ afterBody: [
       // from data-category-id
       categoryId: 'DIC_kwDOFxRnmM4B-Xg6',
 <<<<<<< HEAD
+<<<<<<< HEAD
       // from data-lang
       lang: 'en'
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     }
   }),
 ],
@@ -69,6 +72,7 @@ type Options = {
     categoryId: string
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Url to folder with custom themes
     // defaults to 'https://${cfg.baseUrl}/static/giscus'
     themeUrl?: string
@@ -83,6 +87,8 @@ type Options = {
 
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     // how to map pages -> discussions
     // defaults to 'url'
     mapping?: "url" | "title" | "og:title" | "specific" | "number" | "pathname"
@@ -98,6 +104,7 @@ type Options = {
     // where to put the comment input box relative to the comments
     // defaults to 'bottom'
     inputPosition?: "top" | "bottom"
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     // set your preference language here
@@ -143,3 +150,8 @@ comments: false
 }
 ```
 >>>>>>> 02f2423 (Initial commit)
+=======
+  }
+}
+```
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb

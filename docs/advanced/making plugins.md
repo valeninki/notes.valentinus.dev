@@ -26,17 +26,23 @@ The following sections will go into detail for what methods can be implemented f
   - `argv`: The command line arguments passed to the Quartz [[build]] command
   - `cfg`: The full Quartz [[configuration]]
 <<<<<<< HEAD
+<<<<<<< HEAD
   - `allSlugs`: a list of all the valid content slugs (see [[paths]] for more information on what a slug is)
 - `StaticResources` is defined in `quartz/resources.tsx`. It consists of
   - `css`: a list of CSS style definitions that should be loaded. A CSS style is described with the `CSSResource` type which is also defined in `quartz/resources.tsx`. It accepts either a source URL or the inline content of the stylesheet.
   - `js`: a list of scripts that should be loaded. A script is described with the `JSResource` type which is also defined in `quartz/resources.tsx`. It allows you to define a load time (either before or after the DOM has been loaded), whether it should be a module, and either the source URL or the inline content of the script.
   - `additionalHead`: a list of JSX elements or functions that return JSX elements to be added to the `<head>` tag of the page. Functions receive the page's data as an argument and can conditionally render elements.
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   - `allSlugs`: a list of all the valid content slugs (see [[paths]] for more information on what a `ServerSlug` is)
 - `StaticResources` is defined in `quartz/resources.tsx`. It consists of
   - `css`: a list of URLs for stylesheets that should be loaded
   - `js`: a list of scripts that should be loaded. A script is described with the `JSResource` type which is also defined in `quartz/resources.tsx`. It allows you to define a load time (either before or after the DOM has been loaded), whether it should be a module, and either the source URL or the inline content of the script.
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 ## Transformers
 
@@ -46,10 +52,14 @@ Transformers **map** over content, taking a Markdown file and outputting modifie
 export type QuartzTransformerPluginInstance = {
   name: string
 <<<<<<< HEAD
+<<<<<<< HEAD
   textTransform?: (ctx: BuildCtx, src: string) => string
 =======
   textTransform?: (ctx: BuildCtx, src: string | Buffer) => string | Buffer
 >>>>>>> 02f2423 (Initial commit)
+=======
+  textTransform?: (ctx: BuildCtx, src: string | Buffer) => string | Buffer
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   markdownPlugins?: (ctx: BuildCtx) => PluggableList
   htmlPlugins?: (ctx: BuildCtx) => PluggableList
   externalResources?: (ctx: BuildCtx) => Partial<StaticResources>
@@ -98,6 +108,7 @@ export const Latex: QuartzTransformerPlugin<Options> = (opts?: Options) => {
         return {
           css: [
 <<<<<<< HEAD
+<<<<<<< HEAD
             {
               // base css
               content: "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css",
@@ -106,6 +117,10 @@ export const Latex: QuartzTransformerPlugin<Options> = (opts?: Options) => {
             // base css
             "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css",
 >>>>>>> 02f2423 (Initial commit)
+=======
+            // base css
+            "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css",
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
           ],
           js: [
             {
@@ -117,10 +132,15 @@ export const Latex: QuartzTransformerPlugin<Options> = (opts?: Options) => {
           ],
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       } else {
         return {}
 >>>>>>> 02f2423 (Initial commit)
+=======
+      } else {
+        return {}
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       }
     },
   }
@@ -243,6 +263,7 @@ export type QuartzEmitterPlugin<Options extends OptionType = undefined> = (
 export type QuartzEmitterPluginInstance = {
   name: string
 <<<<<<< HEAD
+<<<<<<< HEAD
   emit(
     ctx: BuildCtx,
     content: ProcessedContent[],
@@ -257,10 +278,14 @@ export type QuartzEmitterPluginInstance = {
 =======
   emit(ctx: BuildCtx, content: ProcessedContent[], resources: StaticResources): Promise<FilePath[]>
 >>>>>>> 02f2423 (Initial commit)
+=======
+  emit(ctx: BuildCtx, content: ProcessedContent[], resources: StaticResources): Promise<FilePath[]>
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   getQuartzComponents(ctx: BuildCtx): QuartzComponent[]
 }
 ```
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 An emitter plugin must define a `name` field, an `emit` function, and a `getQuartzComponents` function. It can optionally implement a `partialEmit` function for incremental builds.
 
@@ -270,6 +295,9 @@ An emitter plugin must define a `name` field, an `emit` function, and a `getQuar
 =======
 An emitter plugin must define a `name` field, an `emit` function, and a `getQuartzComponents` function. `emit` is responsible for looking at all the parsed and filtered content and then appropriately creating files and returning a list of paths to files the plugin created.
 >>>>>>> 02f2423 (Initial commit)
+=======
+An emitter plugin must define a `name` field, an `emit` function, and a `getQuartzComponents` function. `emit` is responsible for looking at all the parsed and filtered content and then appropriately creating files and returning a list of paths to files the plugin created.
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 Creating new files can be done via regular Node [fs module](https://nodejs.org/api/fs.html) (i.e. `fs.cp` or `fs.writeFile`) or via the `write` function in `quartz/plugins/emitters/helpers.ts` if you are creating files that contain text. `write` has the following signature:
 
@@ -279,10 +307,14 @@ export type WriteOptions = (data: {
   ctx: BuildCtx
   // the name of the file to emit (not including the file extension)
 <<<<<<< HEAD
+<<<<<<< HEAD
   slug: FullSlug
 =======
   slug: ServerSlug
 >>>>>>> 02f2423 (Initial commit)
+=======
+  slug: ServerSlug
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   // the file extension
   ext: `.${string}` | ""
   // the file content to add
@@ -321,10 +353,14 @@ export const ContentPage: QuartzEmitterPlugin = () => {
       for (const [tree, file] of content) {
         const slug = canonicalizeServer(file.data.slug!)
 <<<<<<< HEAD
+<<<<<<< HEAD
         const externalResources = pageResources(slug, file.data, resources)
 =======
         const externalResources = pageResources(slug, resources)
 >>>>>>> 02f2423 (Initial commit)
+=======
+        const externalResources = pageResources(slug, resources)
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         const componentData: QuartzComponentProps = {
           fileData: file.data,
           externalResources,

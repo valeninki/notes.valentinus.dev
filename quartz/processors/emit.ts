@@ -5,15 +5,19 @@ import { QuartzLogger } from "../util/log"
 import { trace } from "../util/trace"
 import { BuildCtx } from "../util/ctx"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { styleText } from "util"
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 export async function emitContent(ctx: BuildCtx, content: ProcessedContent[]) {
   const { argv, cfg } = ctx
   const perf = new PerfTimer()
   const log = new QuartzLogger(ctx.argv.verbose)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   log.start(`Emitting files`)
 
@@ -50,6 +54,8 @@ export async function emitContent(ctx: BuildCtx, content: ProcessedContent[]) {
     }),
   )
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   log.start(`Emitting output files`)
 
   let emittedFiles = 0
@@ -68,7 +74,10 @@ export async function emitContent(ctx: BuildCtx, content: ProcessedContent[]) {
       trace(`Failed to emit from plugin \`${emitter.name}\``, err as Error)
     }
   }
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
   log.end(`Emitted ${emittedFiles} files to \`${argv.output}\` in ${perf.timeSince()}`)
 }

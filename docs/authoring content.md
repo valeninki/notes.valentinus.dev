@@ -36,10 +36,13 @@ Some common frontmatter fields that are natively supported by Quartz:
 - `date`: A string representing the day the note was published. Normally uses `YYYY-MM-DD` format.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 See [[Frontmatter]] for a complete list of frontmatter.
 
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 ## Syncing your Content
 
 When your Quartz is at a point you're happy with, you can save your changes to GitHub.

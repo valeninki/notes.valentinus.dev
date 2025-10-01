@@ -14,10 +14,13 @@ This plugin accepts the following configuration options:
 - `priority`: The data sources to consult for date information. Highest priority first. Possible values are `"frontmatter"`, `"git"`, and `"filesystem"`. Defaults to `["frontmatter", "git", "filesystem"]`.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 When loading the frontmatter, the value of [[Frontmatter#List]] is used.
 
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 > [!warning]
 > If you rely on `git` for dates, make sure `defaultDateType` is set to `modified` in `quartz.config.ts`.
 >

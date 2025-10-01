@@ -7,6 +7,7 @@
   width: 20px;
   height: 20px;
 <<<<<<< HEAD
+<<<<<<< HEAD
   margin: 0;
   text-align: inherit;
   flex-shrink: 0;
@@ -14,6 +15,10 @@
   margin: 0 10px;
   text-align: inherit;
 >>>>>>> 02f2423 (Initial commit)
+=======
+  margin: 0 10px;
+  text-align: inherit;
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
   & svg {
     position: absolute;
@@ -35,32 +40,44 @@
 
 :root[saved-theme="dark"] .darkmode {
 <<<<<<< HEAD
+<<<<<<< HEAD
   & > .dayIcon {
     display: none;
   }
   & > .nightIcon {
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   & > #dayIcon {
     display: none;
   }
   & > #nightIcon {
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     display: inline;
   }
 }
 
 :root .darkmode {
 <<<<<<< HEAD
+<<<<<<< HEAD
   & > .dayIcon {
     display: inline;
   }
   & > .nightIcon {
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   & > #dayIcon {
     display: inline;
   }
   & > #nightIcon {
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     display: none;
   }
 }

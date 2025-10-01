@@ -15,14 +15,18 @@ import ru from "./locales/ru-RU"
 import ko from "./locales/ko-KR"
 import zh from "./locales/zh-CN"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import zhTw from "./locales/zh-TW"
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import vi from "./locales/vi-VN"
 import pt from "./locales/pt-BR"
 import hu from "./locales/hu-HU"
 import fa from "./locales/fa-IR"
 import pl from "./locales/pl-PL"
+<<<<<<< HEAD
 <<<<<<< HEAD
 import cs from "./locales/cs-CZ"
 import tr from "./locales/tr-TR"
@@ -33,6 +37,8 @@ import no from "./locales/nb-NO"
 import id from "./locales/id-ID"
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 export const TRANSLATIONS = {
   "en-US": enUs,
@@ -72,14 +78,18 @@ export const TRANSLATIONS = {
   "ko-KR": ko,
   "zh-CN": zh,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "zh-TW": zhTw,
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   "vi-VN": vi,
   "pt-BR": pt,
   "hu-HU": hu,
   "fa-IR": fa,
   "pl-PL": pl,
+<<<<<<< HEAD
 <<<<<<< HEAD
   "cs-CZ": cs,
   "tr-TR": tr,
@@ -90,6 +100,8 @@ export const TRANSLATIONS = {
   "id-ID": id,
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 } as const
 
 export const defaultTranslation = "en-US"

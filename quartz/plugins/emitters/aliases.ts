@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FullSlug, isRelativeURL, resolveRelative, simplifySlug } from "../../util/path"
 import { QuartzEmitterPlugin } from "../types"
 import { write } from "./helpers"
@@ -53,6 +54,8 @@ export const AliasRedirects: QuartzEmitterPlugin = () => ({
       }
     }
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { FilePath, FullSlug, joinSegments, resolveRelative, simplifySlug } from "../../util/path"
 import { QuartzEmitterPlugin } from "../types"
 import path from "path"
@@ -132,6 +135,9 @@ export const AliasRedirects: QuartzEmitterPlugin = () => ({
       }
     }
     return fps
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   },
 })

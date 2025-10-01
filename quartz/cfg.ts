@@ -39,6 +39,7 @@ export type Analytics =
       host?: string
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
   | {
       provider: "clarity"
       projectId?: string
@@ -60,6 +61,11 @@ export interface GlobalConfiguration {
 export interface GlobalConfiguration {
   pageTitle: string
 >>>>>>> 02f2423 (Initial commit)
+=======
+
+export interface GlobalConfiguration {
+  pageTitle: string
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   /** Whether to enable single-page-app style rendering. this prevents flashes of unstyled content and improves smoothness of Quartz */
   enableSPA: boolean
   /** Whether to display Wikipedia-style popovers when hovering over links */
@@ -79,10 +85,14 @@ export interface GlobalConfiguration {
    * Allow to translate the date in the language of your choice.
    * Also used for UI translation (default: en-US)
 <<<<<<< HEAD
+<<<<<<< HEAD
    * Need to be formatted following BCP 47: https://en.wikipedia.org/wiki/IETF_language_tag
 =======
    * Need to be formated following BCP 47: https://en.wikipedia.org/wiki/IETF_language_tag
 >>>>>>> 02f2423 (Initial commit)
+=======
+   * Need to be formated following BCP 47: https://en.wikipedia.org/wiki/IETF_language_tag
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
    * The first part is the language (en) and the second part is the script/region (US)
    * Language Codes: https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
    * Region Codes: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2

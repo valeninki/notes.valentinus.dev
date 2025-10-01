@@ -18,9 +18,12 @@ This plugin accepts the following configuration options:
 - `rssLimit`: Defines the maximum number of entries to include in the RSS feed, helping to focus on the most recent or relevant content. Defaults to `10`.
 - `rssFullHtml`: If `true`, the RSS feed includes full HTML content. Otherwise it includes just summaries.
 <<<<<<< HEAD
+<<<<<<< HEAD
 - `rssSlug`: Slug to the generated RSS feed XML file. Defaults to `"index"`.
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 - `includeEmptyFiles`: If `true` (default), content files with no body text are included in the generated index and resources.
 
 ## API

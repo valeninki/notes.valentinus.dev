@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import truncate from "ansi-truncate"
 import readline from "readline"
 
@@ -53,6 +54,8 @@ export class QuartzLogger {
     }
 
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { Spinner } from "cli-spinner"
 
 export class QuartzLogger {
@@ -76,7 +79,10 @@ export class QuartzLogger {
     if (!this.verbose) {
       this.spinner!.stop(true)
     }
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     if (text) {
       console.log(text)
     }

@@ -1,10 +1,16 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // @ts-ignore
 =======
 // @ts-ignore: this is safe, we don't want to actually make darkmode.inline.ts a module as
 // modules are automatically deferred and we don't want that to happen for critical beforeDOMLoads
 // see: https://v8.dev/features/modules#defer
 >>>>>>> 02f2423 (Initial commit)
+=======
+// @ts-ignore: this is safe, we don't want to actually make darkmode.inline.ts a module as
+// modules are automatically deferred and we don't want that to happen for critical beforeDOMLoads
+// see: https://v8.dev/features/modules#defer
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import darkmodeScript from "./scripts/darkmode.inline"
 import styles from "./styles/darkmode.scss"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
@@ -14,19 +20,27 @@ import { classNames } from "../util/lang"
 const Darkmode: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <button class={classNames(displayClass, "darkmode")}>
 =======
     <button class={classNames(displayClass, "darkmode")} id="darkmode">
 >>>>>>> 02f2423 (Initial commit)
+=======
+    <button class={classNames(displayClass, "darkmode")} id="darkmode">
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         version="1.1"
 <<<<<<< HEAD
+<<<<<<< HEAD
         class="dayIcon"
 =======
         id="dayIcon"
 >>>>>>> 02f2423 (Initial commit)
+=======
+        id="dayIcon"
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         x="0px"
         y="0px"
         viewBox="0 0 35 35"
@@ -42,10 +56,14 @@ const Darkmode: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) 
         xmlnsXlink="http://www.w3.org/1999/xlink"
         version="1.1"
 <<<<<<< HEAD
+<<<<<<< HEAD
         class="nightIcon"
 =======
         id="nightIcon"
 >>>>>>> 02f2423 (Initial commit)
+=======
+        id="nightIcon"
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         x="0px"
         y="0px"
         viewBox="0 0 100 100"

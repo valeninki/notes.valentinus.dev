@@ -20,9 +20,13 @@ Component.Breadcrumbs({
   rootName: "Home", // name of first/root element
   resolveFrontmatterTitle: true, // whether to resolve folder names through frontmatter titles
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   hideOnRoot: true, // whether to hide breadcrumbs on root `index.md` page
 >>>>>>> 02f2423 (Initial commit)
+=======
+  hideOnRoot: true, // whether to hide breadcrumbs on root `index.md` page
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   showCurrentPage: true, // whether to display the current page in the breadcrumbs
 })
 ```

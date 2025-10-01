@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #!/usr/bin/env -S node --no-deprecation
 =======
 #!/usr/bin/env node
 >>>>>>> 02f2423 (Initial commit)
+=======
+#!/usr/bin/env node
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import yargs from "yargs"
 import { hideBin } from "yargs/helpers"
 import {

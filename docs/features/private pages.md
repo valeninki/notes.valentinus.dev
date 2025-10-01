@@ -14,12 +14,18 @@ If you'd like to only publish a select number of notes, you can instead use [[Ex
 
 > [!warning]
 <<<<<<< HEAD
+<<<<<<< HEAD
 > Regardless of the filter plugin used, **all non-markdown files will be emitted and available publically in the final build.** This includes files such as images, voice recordings, PDFs, etc.
 =======
 > Regardless of the filter plugin used, **all non-markdown files will be emitted and available publically in the final build.** This includes files such as images, voice recordings, PDFs, etc. One way to prevent this and still be able to embed local images is to create a folder specifically for public media and add the following two patterns to the ignorePatterns array.
 >
 > `"!(PublicMedia)**/!(*.md)", "!(*.md)"`
 >>>>>>> 02f2423 (Initial commit)
+=======
+> Regardless of the filter plugin used, **all non-markdown files will be emitted and available publically in the final build.** This includes files such as images, voice recordings, PDFs, etc. One way to prevent this and still be able to embed local images is to create a folder specifically for public media and add the following two patterns to the ignorePatterns array.
+>
+> `"!(PublicMedia)**/!(*.md)", "!(*.md)"`
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 ## `ignorePatterns`
 
@@ -33,10 +39,14 @@ Common examples include:
 - `some/folder`: exclude the entire of `some/folder`
 - `*.md`: exclude all files with a `.md` extension
 <<<<<<< HEAD
+<<<<<<< HEAD
 - `!(*.md)` exclude all files that _don't_ have a `.md` extension. Note that negations _must_ parenthesize the rest of the pattern!
 =======
 - `!*.md` exclude all files that _don't_ have a `.md` extension
 >>>>>>> 02f2423 (Initial commit)
+=======
+- `!*.md` exclude all files that _don't_ have a `.md` extension
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 - `**/private`: exclude any files or folders named `private` at any level of nesting
 
 > [!warning]

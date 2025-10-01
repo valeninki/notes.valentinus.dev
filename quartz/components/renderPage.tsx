@@ -4,11 +4,15 @@ import HeaderConstructor from "./Header"
 import BodyConstructor from "./Body"
 import { JSResourceToScriptElement, StaticResources } from "../util/resources"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
 import { clone } from "../util/clone"
 =======
 import { clone, FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
 >>>>>>> 02f2423 (Initial commit)
+=======
+import { clone, FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { visit } from "unist-util-visit"
 import { Root, Element, ElementContent } from "hast"
 import { GlobalConfiguration } from "../cfg"
@@ -34,6 +38,7 @@ export function pageResources(
   const contentIndexScript = `const fetchData = fetch("${contentIndexPath}").then(data => data.json())`
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const resources: StaticResources = {
     css: [
       {
@@ -45,6 +50,10 @@ export function pageResources(
   return {
     css: [joinSegments(baseDir, "index.css"), ...staticResources.css],
 >>>>>>> 02f2423 (Initial commit)
+=======
+  return {
+    css: [joinSegments(baseDir, "index.css"), ...staticResources.css],
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     js: [
       {
         src: joinSegments(baseDir, "prescript.js"),
@@ -58,6 +67,7 @@ export function pageResources(
         script: contentIndexScript,
       },
       ...staticResources.js,
+<<<<<<< HEAD
 <<<<<<< HEAD
     ],
     additionalHead: staticResources.additionalHead,
@@ -80,6 +90,8 @@ function renderTranscludes(
   componentData: QuartzComponentProps,
 ) {
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       {
         src: joinSegments(baseDir, "postscript.js"),
         loadTime: "afterDOMReady",
@@ -101,7 +113,10 @@ export function renderPage(
   // for the file cached in contentMap in build.ts
   const root = clone(componentData.tree) as Root
 
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   // process transcludes in componentData
   visit(root, "element", (node, _index, _parent) => {
     if (node.tagName === "blockquote") {
@@ -109,10 +124,14 @@ export function renderPage(
       if (classNames.includes("transclude")) {
         const inner = node.children[0] as Element
 <<<<<<< HEAD
+<<<<<<< HEAD
         const transcludeTarget = (inner.properties["data-slug"] ?? slug) as FullSlug
 =======
         const transcludeTarget = inner.properties["data-slug"] as FullSlug
 >>>>>>> 02f2423 (Initial commit)
+=======
+        const transcludeTarget = inner.properties["data-slug"] as FullSlug
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         const page = componentData.allFiles.find((f) => f.slug === transcludeTarget)
         if (!page) {
           return
@@ -222,6 +241,7 @@ export function renderPage(
     }
   })
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
 export function renderPage(
@@ -237,6 +257,8 @@ export function renderPage(
   renderTranscludes(root, cfg, slug, componentData)
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
   // set componentData.tree to the edited html that has transclusions rendered
   componentData.tree = root
@@ -272,6 +294,7 @@ export function renderPage(
 
   const lang = componentData.fileData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
 <<<<<<< HEAD
+<<<<<<< HEAD
   const direction = i18n(cfg.locale).direction ?? "ltr"
   const doc = (
     <html lang={lang} dir={direction}>
@@ -279,6 +302,10 @@ export function renderPage(
   const doc = (
     <html lang={lang}>
 >>>>>>> 02f2423 (Initial commit)
+=======
+  const doc = (
+    <html lang={lang}>
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       <Head {...componentData} />
       <body data-slug={slug}>
         <div id="quartz-root" class="page">
@@ -307,12 +334,17 @@ export function renderPage(
             </div>
             {RightComponent}
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Footer {...componentData} />
           </Body>
 =======
           </Body>
           <Footer {...componentData} />
 >>>>>>> 02f2423 (Initial commit)
+=======
+          </Body>
+          <Footer {...componentData} />
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         </div>
       </body>
       {pageResources.js

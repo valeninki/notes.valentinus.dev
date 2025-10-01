@@ -1,16 +1,23 @@
 import path from "path"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { visit } from "unist-util-visit"
 import { Root } from "hast"
 import { VFile } from "vfile"
 >>>>>>> 02f2423 (Initial commit)
+=======
+import { visit } from "unist-util-visit"
+import { Root } from "hast"
+import { VFile } from "vfile"
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { QuartzEmitterPlugin } from "../types"
 import { QuartzComponentProps } from "../../components/types"
 import HeaderConstructor from "../../components/Header"
 import BodyConstructor from "../../components/Body"
 import { pageResources, renderPage } from "../../components/renderPage"
 import { FullPageLayout } from "../../cfg"
+<<<<<<< HEAD
 <<<<<<< HEAD
 import { pathToRoot } from "../../util/path"
 import { defaultContentPageLayout, sharedPageComponents } from "../../../quartz.layout"
@@ -51,6 +58,8 @@ async function processContent(
     ext: ".html",
   })
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { Argv } from "../../util/ctx"
 import { FilePath, isRelativeURL, joinSegments, pathToRoot } from "../../util/path"
 import { defaultContentPageLayout, sharedPageComponents } from "../../../quartz.layout"
@@ -92,7 +101,10 @@ const parseDependencies = (argv: Argv, hast: Root, file: VFile): string[] => {
   })
 
   return dependencies
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpts) => {
@@ -124,12 +136,15 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     async *emit(ctx, content, resources) {
       const allFiles = content.map((c) => c[1].data)
       let containsIndex = false
 
       for (const [tree, file] of content) {
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     async getDependencyGraph(ctx, content, _resources) {
       const graph = new DepGraph<FilePath>()
 
@@ -152,12 +167,16 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
 
       let containsIndex = false
       for (const [tree, file] of content) {
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         const slug = file.data.slug!
         if (slug === "index") {
           containsIndex = true
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         // only process home page, non-tag pages, and non-index pages
         if (slug.endsWith("/index") || slug.startsWith("tags/")) continue
@@ -193,6 +212,8 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
         yield processContent(ctx, tree, file.data, allFiles, opts, resources)
       }
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         const externalResources = pageResources(pathToRoot(slug), resources)
         const componentData: QuartzComponentProps = {
           ctx,
@@ -224,7 +245,10 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
       }
 
       return fps
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     },
   }
 }

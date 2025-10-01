@@ -1,6 +1,7 @@
 @use "../../styles/variables.scss" as *;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @media all and ($mobile) {
   .page > #quartz-body {
     // Shift page position when toggling Explorer on mobile.
@@ -96,6 +97,9 @@ button.desktop-explorer {
 =======
 button#explorer {
 >>>>>>> 02f2423 (Initial commit)
+=======
+button#explorer {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   background-color: transparent;
   border: none;
   text-align: left;
@@ -110,6 +114,7 @@ button#explorer {
     display: inline-block;
     margin: 0;
   }
+<<<<<<< HEAD
 <<<<<<< HEAD
 }
 
@@ -126,6 +131,8 @@ button#explorer {
     overscroll-behavior: contain;
 
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
   & .fold {
     margin-left: 0.5rem;
@@ -181,11 +188,15 @@ button#explorer {
       max-height 0.35s ease,
       transform 0.35s ease,
       opacity 0.2s ease;
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     & li > a {
       color: var(--dark);
       opacity: 0.75;
       pointer-events: all;
+<<<<<<< HEAD
 <<<<<<< HEAD
 
       &.active {
@@ -211,6 +222,8 @@ button#explorer {
     padding-left: 0.8rem;
     border-left: 1px solid var(--lightgray);
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     }
   }
 }
@@ -220,7 +233,10 @@ svg {
 
   & > polyline {
     pointer-events: none;
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 }
 
@@ -274,9 +290,12 @@ svg {
   transition: transform 0.3s ease;
   backface-visibility: visible;
 <<<<<<< HEAD
+<<<<<<< HEAD
   flex-shrink: 0;
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 li:has(> .folder-outer:not(.open)) > .folder-container > svg {
@@ -287,6 +306,7 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
   color: var(--tertiary);
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .explorer {
   @media all and ($mobile) {
@@ -346,6 +366,8 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
     overscroll-behavior: none;
   }
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 .no-background::after {
   background: none !important;
 }
@@ -355,5 +377,8 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
   height: 4px;
   // remove default margin from li
   margin: 0;
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }

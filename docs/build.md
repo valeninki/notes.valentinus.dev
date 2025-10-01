@@ -22,9 +22,12 @@ This will start a local web server to run your Quartz on your computer. Open a w
 > - `--port`: what port to run the local preview server on
 > - `--concurrency`: how many threads to use to parse notes
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 > [!warning] Not to be used for production
 > Serve mode is intended for local previews only.
 > For production workloads, see the page on [[hosting]].
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb

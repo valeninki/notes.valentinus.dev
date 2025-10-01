@@ -24,9 +24,12 @@ This plugin accepts the following configuration options:
 - `enableVideoEmbed`: If `true` (default), enables the embedding of video files.
 - `enableCheckbox`: If `true`, adds support for interactive checkboxes in content. Defaults to `false`.
 <<<<<<< HEAD
+<<<<<<< HEAD
 - `disableBrokenWikilinks`: If `true`, replaces links to non-existent notes with a dimmed, disabled link. Defaults to `false`.
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 > [!warning]
 > Don't remove this plugin if you're using [[Obsidian compatibility|Obsidian]] to author the content!
@@ -36,7 +39,11 @@ This plugin accepts the following configuration options:
 - Category: Transformer
 - Function name: `Plugin.ObsidianFlavoredMarkdown()`.
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Source: [`quartz/plugins/transformers/ofm.ts`](https://github.com/jackyzha0/quartz/blob/v4/quartz/plugins/transformers/ofm.ts)
 =======
 - Source: [`quartz/plugins/transformers/toc.ts`](https://github.com/jackyzha0/quartz/blob/v4/quartz/plugins/transformers/toc.ts).
 >>>>>>> 02f2423 (Initial commit)
+=======
+- Source: [`quartz/plugins/transformers/toc.ts`](https://github.com/jackyzha0/quartz/blob/v4/quartz/plugins/transformers/toc.ts).
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb

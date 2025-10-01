@@ -16,10 +16,14 @@ export default {
       question: "Frage",
       warning: "Warnung",
 <<<<<<< HEAD
+<<<<<<< HEAD
       failure: "Fehlgeschlagen",
 =======
       failure: "Misserfolg",
 >>>>>>> 02f2423 (Initial commit)
+=======
+      failure: "Misserfolg",
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       danger: "Gefahr",
       bug: "Fehler",
       example: "Beispiel",
@@ -31,6 +35,7 @@ export default {
     },
     themeToggle: {
 <<<<<<< HEAD
+<<<<<<< HEAD
       lightMode: "Heller Modus",
       darkMode: "Dunkler Modus",
     },
@@ -40,6 +45,10 @@ export default {
       lightMode: "Light Mode",
       darkMode: "Dark Mode",
 >>>>>>> 02f2423 (Initial commit)
+=======
+      lightMode: "Light Mode",
+      darkMode: "Dark Mode",
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     },
     explorer: {
       title: "Explorer",
@@ -67,10 +76,14 @@ export default {
     },
     contentMeta: {
 <<<<<<< HEAD
+<<<<<<< HEAD
       readingTime: ({ minutes }) => `${minutes} Min. Lesezeit`,
 =======
       readingTime: ({ minutes }) => `${minutes} min read`,
 >>>>>>> 02f2423 (Initial commit)
+=======
+      readingTime: ({ minutes }) => `${minutes} min read`,
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     },
   },
   pages: {
@@ -82,10 +95,14 @@ export default {
       title: "Nicht gefunden",
       notFound: "Diese Seite ist entweder nicht öffentlich oder existiert nicht.",
 <<<<<<< HEAD
+<<<<<<< HEAD
       home: "Zur Startseite",
 =======
       home: "Return to Homepage",
 >>>>>>> 02f2423 (Initial commit)
+=======
+      home: "Return to Homepage",
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     },
     folderContent: {
       folder: "Ordner",

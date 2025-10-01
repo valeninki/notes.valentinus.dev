@@ -18,6 +18,7 @@ This plugin accepts the following configuration options:
 > This plugin must not be removed, otherwise Quartz will break.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## List
 
 Quartz supports the following frontmatter:
@@ -68,6 +69,8 @@ Quartz supports the following frontmatter:
 
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 ## API
 
 - Category: Transformer

@@ -6,18 +6,24 @@ import { escapeHTML } from "../../util/escape"
 export interface Options {
   descriptionLength: number
 <<<<<<< HEAD
+<<<<<<< HEAD
   maxDescriptionLength: number
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   replaceExternalLinks: boolean
 }
 
 const defaultOptions: Options = {
   descriptionLength: 150,
 <<<<<<< HEAD
+<<<<<<< HEAD
   maxDescriptionLength: 300,
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   replaceExternalLinks: true,
 }
 
@@ -45,6 +51,7 @@ export const Description: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
               text = text.replace(urlRegex, "$<domain>" + "$<path>")
             }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
             if (frontMatterDescription) {
               file.data.description = frontMatterDescription
@@ -82,6 +89,8 @@ export const Description: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
                 ? finalDesc.slice(0, opts.maxDescriptionLength) + "..."
                 : finalDesc
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
             const desc = frontMatterDescription ?? text
             const sentences = desc.replace(/\s+/g, " ").split(/\.\s/)
             const finalDesc: string[] = []
@@ -111,7 +120,10 @@ export const Description: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
             }
 
             file.data.description = finalDesc.join(" ")
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
             file.data.text = text
           }
         },

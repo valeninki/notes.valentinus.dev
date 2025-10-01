@@ -6,9 +6,12 @@ export default {
     description: "توضیح خاصی اضافه نشده است",
   },
 <<<<<<< HEAD
+<<<<<<< HEAD
   direction: "rtl" as const,
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   components: {
     callout: {
       note: "یادداشت",
@@ -34,11 +37,14 @@ export default {
       darkMode: "حالت تاریک",
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     readerMode: {
       title: "حالت خواندن",
     },
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     explorer: {
       title: "مطالب",
     },

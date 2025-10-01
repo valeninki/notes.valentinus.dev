@@ -4,6 +4,7 @@ import { resolveRelative, simplifySlug } from "../util/path"
 import { i18n } from "../i18n"
 import { classNames } from "../util/lang"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import OverflowListFactory from "./OverflowList"
 
 interface BacklinksOptions {
@@ -55,6 +56,8 @@ export default ((opts?: Partial<BacklinksOptions>) => {
   return Backlinks
 }) satisfies QuartzComponentConstructor
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 const Backlinks: QuartzComponent = ({
   fileData,
@@ -86,4 +89,7 @@ const Backlinks: QuartzComponent = ({
 
 Backlinks.css = style
 export default (() => Backlinks) satisfies QuartzComponentConstructor
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb

@@ -3,15 +3,20 @@ import * as Plugin from "./quartz/plugins"
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Quartz 4 Configuration
 =======
  * Quartz 4.0 Configuration
 >>>>>>> 02f2423 (Initial commit)
+=======
+ * Quartz 4.0 Configuration
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
  *
  * See https://quartz.jzhao.xyz/configuration for more information.
  */
 const config: QuartzConfig = {
   configuration: {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     pageTitle: "Quartz 4",
@@ -22,6 +27,9 @@ const config: QuartzConfig = {
 =======
     pageTitle: "Kerem's Notes",
 >>>>>>> a5382d1 (First run)
+=======
+    pageTitle: "Kerem's Notes",
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     enableSPA: true,
     enablePopovers: true,
     analytics: {
@@ -31,10 +39,14 @@ const config: QuartzConfig = {
     baseUrl: "notes.valentinus.dev",
     ignorePatterns: ["private", "templates", ".obsidian"],
 <<<<<<< HEAD
+<<<<<<< HEAD
     defaultDateType: "modified",
 =======
     defaultDateType: "created",
 >>>>>>> 02f2423 (Initial commit)
+=======
+    defaultDateType: "created",
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
@@ -74,10 +86,14 @@ const config: QuartzConfig = {
       Plugin.FrontMatter(),
       Plugin.CreatedModifiedDate({
 <<<<<<< HEAD
+<<<<<<< HEAD
         priority: ["frontmatter", "git", "filesystem"],
 =======
         priority: ["frontmatter", "filesystem"],
 >>>>>>> 02f2423 (Initial commit)
+=======
+        priority: ["frontmatter", "filesystem"],
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       }),
       Plugin.SyntaxHighlighting({
         theme: {
@@ -107,6 +123,7 @@ const config: QuartzConfig = {
       Plugin.Assets(),
       Plugin.Static(),
 <<<<<<< HEAD
+<<<<<<< HEAD
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
@@ -114,6 +131,9 @@ const config: QuartzConfig = {
 =======
       Plugin.NotFoundPage(),
 >>>>>>> 02f2423 (Initial commit)
+=======
+      Plugin.NotFoundPage(),
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     ],
   },
 }

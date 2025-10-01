@@ -1,5 +1,6 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import style from "./styles/explorer.scss"
 
 // @ts-ignore
@@ -27,6 +28,8 @@ const defaultOptions: Options = {
   folderDefaultState: "collapsed",
   folderClickBehavior: "link",
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import explorerStyle from "./styles/explorer.scss"
 
 // @ts-ignore
@@ -40,12 +43,16 @@ import { i18n } from "../i18n"
 const defaultOptions = {
   folderClickBehavior: "collapse",
   folderDefaultState: "collapsed",
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   useSavedState: true,
   mapFn: (node) => {
     return node
   },
   sortFn: (a, b) => {
+<<<<<<< HEAD
 <<<<<<< HEAD
     // Sort order: folders first, then files. Sort folders and files alphabeticall
     if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
@@ -53,6 +60,10 @@ const defaultOptions = {
     // Sort order: folders first, then files. Sort folders and files alphabetically
     if ((!a.file && !b.file) || (a.file && b.file)) {
 >>>>>>> 02f2423 (Initial commit)
+=======
+    // Sort order: folders first, then files. Sort folders and files alphabetically
+    if ((!a.file && !b.file) || (a.file && b.file)) {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
       // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
       return a.displayName.localeCompare(b.displayName, undefined, {
@@ -62,15 +73,20 @@ const defaultOptions = {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (!a.isFolder && b.isFolder) {
 =======
     if (a.file && !b.file) {
 >>>>>>> 02f2423 (Initial commit)
+=======
+    if (a.file && !b.file) {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       return 1
     } else {
       return -1
     }
   },
+<<<<<<< HEAD
 <<<<<<< HEAD
   filterFn: (node) => node.slugSegment !== "tags",
   order: ["filter", "map", "sort"],
@@ -129,6 +145,8 @@ export default ((userOpts?: Partial<Options>) => {
           data-mobile={false}
           aria-expanded={true}
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   filterFn: (node) => node.name !== "tags",
   order: ["filter", "map", "sort"],
 } satisfies Options
@@ -191,7 +209,10 @@ export default ((userOpts?: Partial<Options>) => {
           data-tree={jsonTree}
           aria-controls="explorer-content"
           aria-expanded={opts.folderDefaultState === "open"}
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         >
           <h2>{opts.title ?? i18n(cfg.locale).components.explorer.title}</h2>
           <svg
@@ -209,6 +230,7 @@ export default ((userOpts?: Partial<Options>) => {
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </button>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <div id={id} class="explorer-content" aria-expanded={false} role="group">
           <OverflowList class="explorer-ul" />
@@ -247,17 +269,23 @@ export default ((userOpts?: Partial<Options>) => {
           </li>
         </template>
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         <div id="explorer-content">
           <ul class="overflow" id="explorer-ul">
             <ExplorerNode node={fileTree} opts={opts} fileData={fileData} />
             <li id="explorer-end" />
           </ul>
         </div>
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       </div>
     )
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   Explorer.css = style
   Explorer.afterDOMLoaded = concatenateResources(script, overflowListAfterDOMLoaded)
@@ -265,5 +293,9 @@ export default ((userOpts?: Partial<Options>) => {
   Explorer.css = explorerStyle
   Explorer.afterDOMLoaded = script
 >>>>>>> 02f2423 (Initial commit)
+=======
+  Explorer.css = explorerStyle
+  Explorer.afterDOMLoaded = script
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   return Explorer
 }) satisfies QuartzComponentConstructor

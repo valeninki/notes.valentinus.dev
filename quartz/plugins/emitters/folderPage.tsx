@@ -8,9 +8,13 @@ import { FullPageLayout } from "../../cfg"
 import path from "path"
 import {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   FilePath,
 >>>>>>> 02f2423 (Initial commit)
+=======
+  FilePath,
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   FullSlug,
   SimpleSlug,
   stripSlashes,
@@ -22,6 +26,7 @@ import { defaultListPageLayout, sharedPageComponents } from "../../../quartz.lay
 import { FolderContent } from "../../components"
 import { write } from "./helpers"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { i18n, TRANSLATIONS } from "../../i18n"
 import { BuildCtx } from "../../util/ctx"
 import { StaticResources } from "../../util/resources"
@@ -30,10 +35,16 @@ import { i18n } from "../../i18n"
 import DepGraph from "../../depgraph"
 
 >>>>>>> 02f2423 (Initial commit)
+=======
+import { i18n } from "../../i18n"
+import DepGraph from "../../depgraph"
+
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 interface FolderPageOptions extends FullPageLayout {
   sort?: (f1: QuartzPluginData, f2: QuartzPluginData) => number
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 async function* processFolderInfo(
   ctx: BuildCtx,
@@ -113,6 +124,8 @@ function _getFolders(slug: FullSlug): SimpleSlug[] {
 
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (userOpts) => {
   const opts: FullPageLayout = {
     ...sharedPageComponents,
@@ -142,8 +155,11 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     async *emit(ctx, content, resources) {
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     async getDependencyGraph(_ctx, content, _resources) {
       // Example graph:
       // nested/file.md --> nested/index.html
@@ -162,12 +178,16 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
     },
     async emit(ctx, content, resources): Promise<FilePath[]> {
       const fps: FilePath[] = []
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       const allFiles = content.map((c) => c[1].data)
       const cfg = ctx.cfg.configuration
 
       const folders: Set<SimpleSlug> = new Set(
         allFiles.flatMap((data) => {
+<<<<<<< HEAD
 <<<<<<< HEAD
           return data.slug
             ? _getFolders(data.slug).filter(
@@ -201,6 +221,8 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
         yield* processFolderInfo(ctx, folderInfo, allFiles, opts, resources)
       }
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
           const slug = data.slug
           const folderName = path.dirname(slug ?? "") as SimpleSlug
           if (slug && folderName !== "." && folderName !== "tags") {
@@ -255,7 +277,10 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
         fps.push(fp)
       }
       return fps
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     },
   }
 }

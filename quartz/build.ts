@@ -3,6 +3,7 @@ sourceMapSupport.install(options)
 import path from "path"
 import { PerfTimer } from "./util/perf"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { rm } from "fs/promises"
 import { GlobbyFilterFunction, isGitIgnored } from "globby"
 import { styleText } from "util"
@@ -11,15 +12,24 @@ import { rimraf } from "rimraf"
 import { GlobbyFilterFunction, isGitIgnored } from "globby"
 import chalk from "chalk"
 >>>>>>> 02f2423 (Initial commit)
+=======
+import { rimraf } from "rimraf"
+import { GlobbyFilterFunction, isGitIgnored } from "globby"
+import chalk from "chalk"
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { parseMarkdown } from "./processors/parse"
 import { filterContent } from "./processors/filter"
 import { emitContent } from "./processors/emit"
 import cfg from "../quartz.config"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FilePath, joinSegments, slugifyFilePath } from "./util/path"
 =======
 import { FilePath, FullSlug, joinSegments, slugifyFilePath } from "./util/path"
 >>>>>>> 02f2423 (Initial commit)
+=======
+import { FilePath, FullSlug, joinSegments, slugifyFilePath } from "./util/path"
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import chokidar from "chokidar"
 import { ProcessedContent } from "./plugins/vfile"
 import { Argv, BuildCtx } from "./util/ctx"
@@ -27,6 +37,7 @@ import { glob, toPosixPath } from "./util/glob"
 import { trace } from "./util/trace"
 import { options } from "./util/sourcemap"
 import { Mutex } from "async-mutex"
+<<<<<<< HEAD
 <<<<<<< HEAD
 import { getStaticResourcesFromPlugins } from "./plugins"
 import { randomIdNonSecure } from "./util/random"
@@ -44,21 +55,29 @@ type ContentMap = Map<
     }
 >
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import DepGraph from "./depgraph"
 import { getStaticResourcesFromPlugins } from "./plugins"
 
 type Dependencies = Record<string, DepGraph<FilePath> | null>
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 type BuildData = {
   ctx: BuildCtx
   ignored: GlobbyFilterFunction
   mut: Mutex
 <<<<<<< HEAD
+<<<<<<< HEAD
   contentMap: ContentMap
   changesSinceLastBuild: Record<FilePath, ChangeEvent["type"]>
   lastBuildMs: number
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   initialSlugs: FullSlug[]
   // TODO merge contentMap and trackedAssets
   contentMap: Map<FilePath, ProcessedContent>
@@ -73,11 +92,15 @@ type FileEvent = "add" | "change" | "delete"
 
 function newBuildId() {
   return new Date().toISOString()
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
   const ctx: BuildCtx = {
+<<<<<<< HEAD
 <<<<<<< HEAD
     buildId: randomIdNonSecure(),
     argv,
@@ -86,11 +109,16 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
     allFiles: [],
     incremental: false,
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     buildId: newBuildId(),
     argv,
     cfg,
     allSlugs: [],
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 
   const perf = new PerfTimer()
@@ -109,14 +137,19 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
   const release = await mut.acquire()
   perf.addEvent("clean")
 <<<<<<< HEAD
+<<<<<<< HEAD
   await rm(output, { recursive: true, force: true })
 =======
   await rimraf(path.join(output, "*"), { glob: true })
 >>>>>>> 02f2423 (Initial commit)
+=======
+  await rimraf(path.join(output, "*"), { glob: true })
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   console.log(`Cleaned output directory \`${output}\` in ${perf.timeSince("clean")}`)
 
   perf.addEvent("glob")
   const allFiles = await glob("**/*.*", argv.directory, cfg.configuration.ignorePatterns)
+<<<<<<< HEAD
 <<<<<<< HEAD
   const markdownPaths = allFiles.filter((fp) => fp.endsWith(".md")).sort()
   console.log(
@@ -126,18 +159,24 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
   const filePaths = markdownPaths.map((fp) => joinSegments(argv.directory, fp) as FilePath)
   ctx.allFiles = allFiles
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   const fps = allFiles.filter((fp) => fp.endsWith(".md")).sort()
   console.log(
     `Found ${fps.length} input files from \`${argv.directory}\` in ${perf.timeSince("glob")}`,
   )
 
   const filePaths = fps.map((fp) => joinSegments(argv.directory, fp) as FilePath)
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   ctx.allSlugs = allFiles.map((fp) => slugifyFilePath(fp as FilePath))
 
   const parsedFiles = await parseMarkdown(ctx, filePaths)
   const filteredContent = filterContent(ctx, parsedFiles)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   await emitContent(ctx, filteredContent)
   console.log(
@@ -149,6 +188,8 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
     ctx.incremental = true
     return startWatching(ctx, mut, parsedFiles, clientRefresh)
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   const dependencies: Record<string, DepGraph<FilePath> | null> = {}
 
   // Only build dependency graphs if we're doing a fast rebuild
@@ -166,20 +207,28 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
 
   if (argv.serve) {
     return startServing(ctx, mut, parsedFiles, clientRefresh, dependencies)
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 }
 
 // setup watcher for rebuilds
 <<<<<<< HEAD
+<<<<<<< HEAD
 async function startWatching(
 =======
 async function startServing(
 >>>>>>> 02f2423 (Initial commit)
+=======
+async function startServing(
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   ctx: BuildCtx,
   mut: Mutex,
   initialContent: ProcessedContent[],
   clientRefresh: () => void,
+<<<<<<< HEAD
 <<<<<<< HEAD
 ) {
   const { argv, allFiles } = ctx
@@ -219,6 +268,8 @@ async function startServing(
 
     changesSinceLastBuild: {},
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   dependencies: Dependencies, // emitter name: dep graph
 ) {
   const { argv } = ctx
@@ -240,7 +291,10 @@ async function startServing(
     toRebuild: new Set<FilePath>(),
     toRemove: new Set<FilePath>(),
     trackedAssets: new Set<FilePath>(),
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     lastBuildMs: 0,
   }
 
@@ -250,6 +304,7 @@ async function startServing(
     ignoreInitial: true,
   })
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   const changes: ChangeEvent[] = []
   watcher
@@ -272,18 +327,24 @@ async function startServing(
       void rebuild(changes, clientRefresh, buildData)
     })
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   const buildFromEntry = argv.fastRebuild ? partialRebuildFromEntrypoint : rebuildFromEntrypoint
   watcher
     .on("add", (fp) => buildFromEntry(fp, "add", clientRefresh, buildData))
     .on("change", (fp) => buildFromEntry(fp, "change", clientRefresh, buildData))
     .on("unlink", (fp) => buildFromEntry(fp, "delete", clientRefresh, buildData))
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
   return async () => {
     await watcher.close()
   }
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 async function rebuild(changes: ChangeEvent[], clientRefresh: () => void, buildData: BuildData) {
   const { ctx, contentMap, mut, changesSinceLastBuild } = buildData
@@ -298,6 +359,8 @@ async function rebuild(changes: ChangeEvent[], clientRefresh: () => void, buildD
   // if there's another build after us, release and let them do it
   if (ctx.buildId !== buildId) {
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 async function partialRebuildFromEntrypoint(
   filepath: string,
   action: FileEvent,
@@ -316,12 +379,16 @@ async function partialRebuildFromEntrypoint(
   buildData.lastBuildMs = buildStart
   const release = await mut.acquire()
   if (buildData.lastBuildMs > buildStart) {
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     release()
     return
   }
 
   const perf = new PerfTimer()
+<<<<<<< HEAD
 <<<<<<< HEAD
   perf.addEvent("rebuild")
   console.log(styleText("yellow", "Detected change, rebuilding..."))
@@ -419,6 +486,8 @@ async function partialRebuildFromEntrypoint(
         }
       }
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   console.log(chalk.yellow("Detected change, rebuilding..."))
   ctx.buildId = newBuildId()
 
@@ -538,17 +607,23 @@ async function partialRebuildFromEntrypoint(
       }
 
       emittedFiles += emittedFps.length
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     }
   }
 
   console.log(`Emitted ${emittedFiles} files to \`${argv.output}\` in ${perf.timeSince("rebuild")}`)
+<<<<<<< HEAD
 <<<<<<< HEAD
   console.log(styleText("green", `Done rebuilding in ${perf.timeSince()}`))
   changes.splice(0, numChangesInBuild)
   clientRefresh()
   release()
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
   // CLEANUP
   const destinationsToDelete = new Set<FilePath>()
@@ -664,7 +739,10 @@ async function rebuildFromEntrypoint(
   clientRefresh()
   toRebuild.clear()
   toRemove.clear()
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 export default async (argv: Argv, mut: Mutex, clientRefresh: () => void) => {

@@ -3,6 +3,7 @@ import { QuartzEmitterPlugin } from "../types"
 import fs from "fs"
 import { glob } from "../../util/glob"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { dirname } from "path"
 
 export const Static: QuartzEmitterPlugin = () => ({
@@ -22,6 +23,8 @@ export const Static: QuartzEmitterPlugin = () => ({
   },
   async *partialEmit() {},
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import DepGraph from "../../depgraph"
 
 export const Static: QuartzEmitterPlugin = () => ({
@@ -52,5 +55,8 @@ export const Static: QuartzEmitterPlugin = () => ({
     })
     return fps.map((fp) => joinSegments(argv.output, "static", fp)) as FilePath[]
   },
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 })

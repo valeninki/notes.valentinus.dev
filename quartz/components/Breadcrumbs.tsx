@@ -1,6 +1,7 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import breadcrumbsStyle from "./styles/breadcrumbs.scss"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FullSlug, SimpleSlug, resolveRelative, simplifySlug } from "../util/path"
 import { classNames } from "../util/lang"
 import { trieFromAllFiles } from "../util/ctx"
@@ -9,6 +10,11 @@ import { FullSlug, SimpleSlug, joinSegments, resolveRelative } from "../util/pat
 import { QuartzPluginData } from "../plugins/vfile"
 import { classNames } from "../util/lang"
 >>>>>>> 02f2423 (Initial commit)
+=======
+import { FullSlug, SimpleSlug, joinSegments, resolveRelative } from "../util/path"
+import { QuartzPluginData } from "../plugins/vfile"
+import { classNames } from "../util/lang"
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 type CrumbData = {
   displayName: string
@@ -30,12 +36,18 @@ interface BreadcrumbOptions {
   resolveFrontmatterTitle: boolean
   /**
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
    * Whether to display breadcrumbs on root `index.md`
    */
   hideOnRoot: boolean
   /**
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
    * Whether to display the current page in the breadcrumbs.
    */
   showCurrentPage: boolean
@@ -46,9 +58,13 @@ const defaultOptions: BreadcrumbOptions = {
   rootName: "Home",
   resolveFrontmatterTitle: true,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   hideOnRoot: true,
 >>>>>>> 02f2423 (Initial commit)
+=======
+  hideOnRoot: true,
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   showCurrentPage: true,
 }
 
@@ -61,19 +77,26 @@ function formatCrumb(displayName: string, baseSlug: FullSlug, currentSlug: Simpl
 
 export default ((opts?: Partial<BreadcrumbOptions>) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
   const options: BreadcrumbOptions = { ...defaultOptions, ...opts }
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   // Merge options with defaults
   const options: BreadcrumbOptions = { ...defaultOptions, ...opts }
 
   // computed index of folder name to its associated file data
   let folderIndex: Map<string, QuartzPluginData> | undefined
 
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   const Breadcrumbs: QuartzComponent = ({
     fileData,
     allFiles,
     displayClass,
+<<<<<<< HEAD
 <<<<<<< HEAD
     ctx,
   }: QuartzComponentProps) => {
@@ -102,6 +125,8 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
     if (!options.showCurrentPage) {
       crumbs.pop()
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }: QuartzComponentProps) => {
     // Hide crumbs on root if enabled
     if (options.hideOnRoot && fileData.slug === "index") {
@@ -164,7 +189,10 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
           path: "",
         })
       }
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     }
 
     return (

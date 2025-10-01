@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 const observer = new IntersectionObserver((entries) => {
   for (const entry of entries) {
     const slug = entry.target.id
@@ -10,6 +11,8 @@ const observer = new IntersectionObserver((entries) => {
       } else {
         tocEntryElements.forEach((tocEntryElement) => tocEntryElement.classList.remove("in-view"))
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 const bufferPx = 150
 const observer = new IntersectionObserver((entries) => {
   for (const entry of entries) {
@@ -21,7 +24,10 @@ const observer = new IntersectionObserver((entries) => {
         tocEntryElement.classList.add("in-view")
       } else {
         tocEntryElement.classList.remove("in-view")
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       }
     }
   }
@@ -37,6 +43,7 @@ function toggleToc(this: HTMLElement) {
   if (!content) return
   content.classList.toggle("collapsed")
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
 function setupToc() {
@@ -50,6 +57,8 @@ function setupToc() {
 }
 
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   content.style.maxHeight = content.style.maxHeight === "0px" ? content.scrollHeight + "px" : "0px"
 }
 
@@ -66,7 +75,10 @@ function setupToc() {
 }
 
 window.addEventListener("resize", setupToc)
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 document.addEventListener("nav", () => {
   setupToc()
 

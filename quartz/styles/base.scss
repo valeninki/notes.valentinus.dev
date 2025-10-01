@@ -1,8 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 @use "sass:map";
 
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 @use "./variables.scss" as *;
 @use "./syntax.scss";
 @use "./callouts.scss";
@@ -15,14 +18,20 @@ html {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 body {
   margin: 0;
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 body,
 section {
   margin: 0;
   max-width: 100%;
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   box-sizing: border-box;
   background-color: var(--light);
   font-family: var(--bodyFont);
@@ -50,6 +59,7 @@ ol,
 ul,
 .katex,
 <<<<<<< HEAD
+<<<<<<< HEAD
 .math,
 .typst-doc,
 .typst-doc * {
@@ -58,6 +68,8 @@ ul,
   overflow-wrap: break-word;
   text-wrap: pretty;
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 .math {
   color: var(--darkgray);
   fill: var(--darkgray);
@@ -75,7 +87,10 @@ ul,
 .math {
   overflow-wrap: anywhere;
   /* tr and td removed from list of selectors for overflow-wrap, allowing them to use default 'normal' property value */
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 .math {
@@ -84,6 +99,7 @@ ul,
   }
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 article {
   > mjx-container.MathJax,
@@ -102,6 +118,8 @@ article {
 
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 strong {
   font-weight: $semiBoldWeight;
 }
@@ -114,10 +132,14 @@ a {
 
   &:hover {
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: var(--tertiary);
 =======
     color: var(--tertiary) !important;
 >>>>>>> 02f2423 (Initial commit)
+=======
+    color: var(--tertiary) !important;
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 
   &.internal {
@@ -127,6 +149,7 @@ a {
     border-radius: 5px;
     line-height: 1.4rem;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     &.broken {
       color: var(--secondary);
@@ -143,6 +166,10 @@ a {
     &:has(> img) {
       background-color: none;
 >>>>>>> 02f2423 (Initial commit)
+=======
+    &:has(> img) {
+      background-color: none;
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       border-radius: 0;
       padding: 0;
     }
@@ -164,6 +191,7 @@ a {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .flex-component {
   display: flex;
 }
@@ -182,12 +210,18 @@ a {
   display: initial;
   @media all and (max-width: $fullPageWidth) {
 >>>>>>> 02f2423 (Initial commit)
+=======
+.desktop-only {
+  display: initial;
+  @media all and (max-width: $fullPageWidth) {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     display: none;
   }
 }
 
 .mobile-only {
   display: none;
+<<<<<<< HEAD
 <<<<<<< HEAD
   &.flex-component {
     display: none;
@@ -199,22 +233,31 @@ a {
 =======
   @media all and (max-width: $fullPageWidth) {
 >>>>>>> 02f2423 (Initial commit)
+=======
+  @media all and (max-width: $fullPageWidth) {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     display: initial;
   }
 }
 
 .page {
 <<<<<<< HEAD
+<<<<<<< HEAD
   max-width: calc(#{map.get($breakpoints, desktop)} + 300px);
   margin: 0 auto;
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   @media all and (max-width: $fullPageWidth) {
     margin: 0 auto;
     padding: 0 1rem;
     max-width: $pageWidth;
   }
 
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   & article {
     & > h1 {
       font-size: 2rem;
@@ -242,6 +285,7 @@ a {
   }
 
   & > #quartz-body {
+<<<<<<< HEAD
 <<<<<<< HEAD
     display: grid;
     grid-template-columns: #{map.get($desktopGrid, templateColumns)};
@@ -281,6 +325,8 @@ a {
       height: 100vh;
       position: sticky;
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     width: 100%;
     display: flex;
     @media all and (max-width: $fullPageWidth) {
@@ -305,11 +351,15 @@ a {
         width: initial;
         margin-top: 2rem;
       }
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     }
 
     & .sidebar.left {
       z-index: 1;
+<<<<<<< HEAD
 <<<<<<< HEAD
       grid-area: grid-sidebar-left;
       flex-direction: column;
@@ -323,15 +373,21 @@ a {
         padding: 0;
         padding-top: 2rem;
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       left: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth);
       @media all and (max-width: $fullPageWidth) {
         gap: 0;
         align-items: center;
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       }
     }
 
     & .sidebar.right {
+<<<<<<< HEAD
 <<<<<<< HEAD
       grid-area: grid-sidebar-right;
       margin-right: 0;
@@ -394,6 +450,8 @@ a {
     & footer {
       margin-left: 0;
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       right: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth);
       flex-wrap: wrap;
       & > * {
@@ -431,7 +489,10 @@ a {
       width: initial;
       margin-left: 0;
       margin-right: 0;
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     }
   }
 }
@@ -517,12 +578,15 @@ h6 {
     opacity: 1;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   &:not([id]) > a[role="anchor"] {
     display: none;
   }
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 // typography improvements
@@ -564,10 +628,14 @@ figure[data-rehype-pretty-code-figure] {
     padding: 0.1rem 0.5rem;
     border: 1px solid var(--lightgray);
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: fit-content;
 =======
     width: max-content;
 >>>>>>> 02f2423 (Initial commit)
+=======
+    width: max-content;
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     border-radius: 5px;
     margin-bottom: -0.5rem;
     color: var(--darkgray);
@@ -599,10 +667,14 @@ pre {
     display: grid;
     padding: 0.5rem 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
     overflow-x: auto;
 =======
     overflow-x: scroll;
 >>>>>>> 02f2423 (Initial commit)
+=======
+    overflow-x: scroll;
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
     & [data-highlighted-chars] {
       background-color: var(--highlight);
@@ -696,9 +768,12 @@ img {
   border-radius: 5px;
   margin: 1rem 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
   content-visibility: auto;
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 p > img + em {
@@ -722,6 +797,7 @@ video {
 
 .spacer {
 <<<<<<< HEAD
+<<<<<<< HEAD
   flex: 2 1 auto;
 }
 
@@ -729,16 +805,22 @@ div:has(> .overflow) {
   max-height: 100%;
   overflow-y: hidden;
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   flex: 1 1 auto;
 }
 
 div:has(> .overflow) {
   position: relative;
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 ul.overflow,
 ol.overflow {
+<<<<<<< HEAD
 <<<<<<< HEAD
   max-height: 100%;
   overflow-y: auto;
@@ -748,11 +830,16 @@ ol.overflow {
   max-height: 400;
   overflow-y: auto;
 >>>>>>> 02f2423 (Initial commit)
+=======
+  max-height: 400;
+  overflow-y: auto;
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
   // clearfix
   content: "";
   clear: both;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   & > li.overflow-end {
     height: 0.5rem;
@@ -762,6 +849,8 @@ ol.overflow {
   &.gradient-active {
     mask-image: linear-gradient(to bottom, black calc(100% - 50px), transparent 100%);
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   & > li:last-of-type {
     margin-bottom: 30px;
   }
@@ -777,7 +866,10 @@ ol.overflow {
     opacity: 1;
     transition: opacity 0.3s ease;
     background: linear-gradient(transparent 0px, var(--light));
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 }
 
@@ -789,9 +881,12 @@ ol.overflow {
 
 .katex-display {
 <<<<<<< HEAD
+<<<<<<< HEAD
   display: initial;
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   overflow-x: auto;
   overflow-y: hidden;
 }
@@ -803,6 +898,7 @@ iframe.pdf {
   width: 100%;
   border-radius: 5px;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 .navigation-progress {
@@ -817,3 +913,5 @@ iframe.pdf {
 }
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb

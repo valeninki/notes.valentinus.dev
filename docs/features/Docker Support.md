@@ -4,8 +4,12 @@ You can run the below one-liner to run Quartz in Docker.
 
 ```sh
 <<<<<<< HEAD
+<<<<<<< HEAD
 docker run --rm -itp 8080:8080 -p 3001:3001 -v ./content:/usr/src/app/content $(docker build -q .)
 =======
 docker run --rm -itp 8080:8080 $(docker build -q .)
 >>>>>>> 02f2423 (Initial commit)
+=======
+docker run --rm -itp 8080:8080 $(docker build -q .)
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 ```

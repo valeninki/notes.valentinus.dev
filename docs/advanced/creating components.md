@@ -162,6 +162,7 @@ document.addEventListener("nav", () => {
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 You can also add the equivalent of a `beforeunload` event for [[SPA Routing]] via the `prenav` event.
 
 ```ts
@@ -176,6 +177,8 @@ document.addEventListener("prenav", () => {
 
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 It is best practice to track any event handlers via `window.addCleanup` to prevent memory leaks.
 This will get called on page navigation.
 
@@ -230,6 +233,7 @@ As Quartz components are just functions that return React components, you can co
 
 ```tsx title="quartz/components/AnotherComponent.tsx"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import YourComponentConstructor from "./YourComponent"
 
 export default (() => {
@@ -240,6 +244,11 @@ import YourComponent from "./YourComponent"
 
 export default (() => {
 >>>>>>> 02f2423 (Initial commit)
+=======
+import YourComponent from "./YourComponent"
+
+export default (() => {
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   function AnotherComponent(props: QuartzComponentProps) {
     return (
       <div>

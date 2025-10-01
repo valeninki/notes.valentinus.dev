@@ -1,6 +1,7 @@
 import { computePosition, flip, inline, shift } from "@floating-ui/dom"
 import { normalizeRelativeURLs } from "../../util/path"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { fetchCanonical } from "./util"
 
 const p = new DOMParser()
@@ -10,21 +11,30 @@ let activeAnchor: HTMLAnchorElement | null = null
 
 const p = new DOMParser()
 >>>>>>> 02f2423 (Initial commit)
+=======
+
+const p = new DOMParser()
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 async function mouseEnterHandler(
   this: HTMLAnchorElement,
   { clientX, clientY }: { clientX: number; clientY: number },
 ) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   const link = (activeAnchor = this)
 =======
   const link = this
 >>>>>>> 02f2423 (Initial commit)
+=======
+  const link = this
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   if (link.dataset.noPopover === "true") {
     return
   }
 
   async function setPosition(popoverElement: HTMLElement) {
     const { x, y } = await computePosition(link, popoverElement, {
+<<<<<<< HEAD
 <<<<<<< HEAD
       strategy: "fixed",
       middleware: [inline({ x: clientX, y: clientY }), shift(), flip()],
@@ -50,6 +60,8 @@ async function mouseEnterHandler(
   }
 
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       middleware: [inline({ x: clientX, y: clientY }), shift(), flip()],
     })
     Object.assign(popoverElement.style, {
@@ -69,11 +81,15 @@ async function mouseEnterHandler(
   const thisUrl = new URL(document.location.href)
   thisUrl.hash = ""
   thisUrl.search = ""
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   const targetUrl = new URL(link.href)
   const hash = decodeURIComponent(targetUrl.hash)
   targetUrl.hash = ""
   targetUrl.search = ""
+<<<<<<< HEAD
 <<<<<<< HEAD
   const popoverId = `popover-${link.pathname}`
   const prevPopoverElement = document.getElementById(popoverId)
@@ -89,6 +105,8 @@ async function mouseEnterHandler(
   })
 
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
   const response = await fetch(`${targetUrl}`).catch((err) => {
     console.error(err)
@@ -99,12 +117,16 @@ async function mouseEnterHandler(
     return
   }
 
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   if (!response) return
   const [contentType] = response.headers.get("Content-Type")!.split(";")
   const [contentTypeCategory, typeInfo] = contentType.split("/")
 
   const popoverElement = document.createElement("div")
+<<<<<<< HEAD
 <<<<<<< HEAD
   popoverElement.id = popoverId
   popoverElement.classList.add("popover")
@@ -114,6 +136,8 @@ async function mouseEnterHandler(
   popoverElement.appendChild(popoverInner)
 
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   popoverElement.classList.add("popover")
   const popoverInner = document.createElement("div")
   popoverInner.classList.add("popover-inner")
@@ -121,7 +145,10 @@ async function mouseEnterHandler(
 
   popoverInner.dataset.contentType = contentType ?? undefined
 
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   switch (contentTypeCategory) {
     case "image":
       const img = document.createElement("img")
@@ -146,6 +173,7 @@ async function mouseEnterHandler(
       const html = p.parseFromString(contents, "text/html")
       normalizeRelativeURLs(html, targetUrl)
 <<<<<<< HEAD
+<<<<<<< HEAD
       // prepend all IDs inside popovers to prevent duplicates
       html.querySelectorAll("[id]").forEach((el) => {
         const targetID = `popover-internal-${el.id}`
@@ -153,12 +181,15 @@ async function mouseEnterHandler(
       })
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       const elts = [...html.getElementsByClassName("popover-hint")]
       if (elts.length === 0) return
 
       elts.forEach((elt) => popoverInner.appendChild(elt))
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   if (!!document.getElementById(popoverId)) {
     return
@@ -188,6 +219,8 @@ document.addEventListener("nav", () => {
       link.removeEventListener("mouseleave", clearActivePopover)
     })
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   setPosition(popoverElement)
   link.appendChild(popoverElement)
 
@@ -205,6 +238,9 @@ document.addEventListener("nav", () => {
   for (const link of links) {
     link.addEventListener("mouseenter", mouseEnterHandler)
     window.addCleanup(() => link.removeEventListener("mouseenter", mouseEnterHandler))
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 })

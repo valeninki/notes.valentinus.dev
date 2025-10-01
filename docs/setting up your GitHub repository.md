@@ -35,6 +35,7 @@ npx quartz sync --no-pull
 > You may have an outdated version of `git`. Updating `git` should fix this issue.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 > [!warning]- `fatal: The remote end hung up unexpectedly`
 > It might be due to Git's default buffer size. You can fix it by increasing the buffer with this command:
 >
@@ -44,6 +45,8 @@ npx quartz sync --no-pull
 
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 In future updates, you can simply run `npx quartz sync` every time you want to push updates to your repository.
 
 > [!hint] Flags and options

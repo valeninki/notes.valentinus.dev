@@ -2,6 +2,7 @@ import remarkMath from "remark-math"
 import rehypeKatex from "rehype-katex"
 import rehypeMathjax from "rehype-mathjax/svg"
 <<<<<<< HEAD
+<<<<<<< HEAD
 //@ts-ignore
 import rehypeTypst from "@myriaddreamin/rehype-typst"
 import { QuartzTransformerPlugin } from "../types"
@@ -17,12 +18,17 @@ interface Options {
   mathJaxOptions: Omit<MathjaxOptions, "macros">
   typstOptions: TypstOptions
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { QuartzTransformerPlugin } from "../types"
 
 interface Options {
   renderEngine: "katex" | "mathjax"
   customMacros: MacroType
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 interface MacroType {
@@ -38,6 +44,7 @@ export const Latex: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
       return [remarkMath]
     },
     htmlPlugins() {
+<<<<<<< HEAD
 <<<<<<< HEAD
       switch (engine) {
         case "katex": {
@@ -69,6 +76,8 @@ export const Latex: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
             ],
           }
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       if (engine === "katex") {
         return [[rehypeKatex, { output: "html", macros }]]
       } else {
@@ -93,7 +102,10 @@ export const Latex: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
         }
       } else {
         return {}
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       }
     },
   }

@@ -7,10 +7,13 @@ import { classNames } from "../util/lang"
 import script from "./scripts/toc.inline"
 import { i18n } from "../i18n"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import OverflowListFactory from "./OverflowList"
 import { concatenateResources } from "../util/resources"
 =======
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 interface Options {
   layout: "modern" | "legacy"
@@ -20,6 +23,7 @@ const defaultOptions: Options = {
   layout: "modern",
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 let numTocs = 0
 export default ((opts?: Partial<Options>) => {
@@ -89,6 +93,8 @@ export default ((opts?: Partial<Options>) => {
         </summary>
         <ul>
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 const TableOfContents: QuartzComponent = ({
   fileData,
   displayClass,
@@ -125,7 +131,10 @@ const TableOfContents: QuartzComponent = ({
       </button>
       <div id="toc-content" class={fileData.collapseToc ? "collapsed" : ""}>
         <ul class="overflow">
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
           {fileData.toc.map((tocEntry) => (
             <li key={tocEntry.slug} class={`depth-${tocEntry.depth}`}>
               <a href={`#${tocEntry.slug}`} data-for={tocEntry.slug}>
@@ -135,12 +144,15 @@ const TableOfContents: QuartzComponent = ({
           ))}
         </ul>
 <<<<<<< HEAD
+<<<<<<< HEAD
       </details>
     )
   }
   LegacyTableOfContents.css = legacyStyle
 
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       </div>
     </div>
   )
@@ -173,6 +185,9 @@ LegacyTableOfContents.css = legacyStyle
 
 export default ((opts?: Partial<Options>) => {
   const layout = opts?.layout ?? defaultOptions.layout
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   return layout === "modern" ? TableOfContents : LegacyTableOfContents
 }) satisfies QuartzComponentConstructor

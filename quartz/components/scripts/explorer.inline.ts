@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FileTrieNode } from "../../util/fileTrie"
 import { FullSlug, resolveRelative, simplifySlug } from "../../util/path"
 import { ContentDetails } from "../../plugins/emitters/contentIndex"
@@ -37,6 +38,8 @@ function toggleExplorer(this: HTMLElement) {
     document.documentElement.classList.remove("mobile-no-scroll")
   }
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { FolderState } from "../ExplorerNode"
 
 type MaybeHTMLElement = HTMLElement | undefined
@@ -65,7 +68,10 @@ function toggleExplorer(this: HTMLElement) {
 
   content.classList.toggle("collapsed")
   content.style.maxHeight = content.style.maxHeight === "0px" ? content.scrollHeight + "px" : "0px"
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 function toggleFolder(evt: MouseEvent) {
@@ -73,6 +79,7 @@ function toggleFolder(evt: MouseEvent) {
   const target = evt.target as MaybeHTMLElement
   if (!target) return
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   // Check if target was svg icon or button
   const isSvg = target.nodeName === "svg"
@@ -108,6 +115,8 @@ function toggleFolder(evt: MouseEvent) {
   }
 
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   const isSvg = target.nodeName === "svg"
   const childFolderContainer = (
     isSvg
@@ -124,11 +133,15 @@ function toggleFolder(evt: MouseEvent) {
   setFolderState(childFolderContainer, !isCollapsed)
   const fullFolderPath = currentFolderParent.dataset.folderpath as string
   toggleCollapsedByPath(currentExplorerState, fullFolderPath)
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   const stringifiedFileTree = JSON.stringify(currentExplorerState)
   localStorage.setItem("fileTree", stringifiedFileTree)
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 function createFileNode(currentSlug: FullSlug, node: FileTrieNode): HTMLLIElement {
   const template = document.getElementById("template-file") as HTMLTemplateElement
@@ -351,6 +364,8 @@ function setFolderState(folderElement: HTMLElement, collapsed: boolean) {
   return collapsed ? folderElement.classList.remove("open") : folderElement.classList.add("open")
 }
 =======
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 function setupExplorer() {
   const explorer = document.getElementById("explorer")
   if (!explorer) return
@@ -432,4 +447,7 @@ function toggleCollapsedByPath(array: FolderState[], path: string) {
     entry.collapsed = !entry.collapsed
   }
 }
+<<<<<<< HEAD
 >>>>>>> 02f2423 (Initial commit)
+=======
+>>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
