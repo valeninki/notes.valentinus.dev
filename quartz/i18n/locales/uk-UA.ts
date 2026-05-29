@@ -29,15 +29,9 @@ export default {
       lightMode: "Світлий режим",
       darkMode: "Темний режим",
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
     readerMode: {
       title: "Режим читання",
     },
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     explorer: {
       title: "Провідник",
     },

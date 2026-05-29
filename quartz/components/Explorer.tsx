@@ -1,6 +1,4 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-<<<<<<< HEAD
-<<<<<<< HEAD
 import style from "./styles/explorer.scss"
 
 // @ts-ignore
@@ -27,43 +25,13 @@ export interface Options {
 const defaultOptions: Options = {
   folderDefaultState: "collapsed",
   folderClickBehavior: "link",
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-import explorerStyle from "./styles/explorer.scss"
-
-// @ts-ignore
-import script from "./scripts/explorer.inline"
-import { ExplorerNode, FileNode, Options } from "./ExplorerNode"
-import { QuartzPluginData } from "../plugins/vfile"
-import { classNames } from "../util/lang"
-import { i18n } from "../i18n"
-
-// Options interface defined in `ExplorerNode` to avoid circular dependency
-const defaultOptions = {
-  folderClickBehavior: "collapse",
-  folderDefaultState: "collapsed",
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   useSavedState: true,
   mapFn: (node) => {
     return node
   },
   sortFn: (a, b) => {
-<<<<<<< HEAD
-<<<<<<< HEAD
     // Sort order: folders first, then files. Sort folders and files alphabeticall
     if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
-=======
-    // Sort order: folders first, then files. Sort folders and files alphabetically
-    if ((!a.file && !b.file) || (a.file && b.file)) {
->>>>>>> 02f2423 (Initial commit)
-=======
-    // Sort order: folders first, then files. Sort folders and files alphabetically
-    if ((!a.file && !b.file) || (a.file && b.file)) {
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
       // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
       return a.displayName.localeCompare(b.displayName, undefined, {
@@ -72,22 +40,12 @@ const defaultOptions = {
       })
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     if (!a.isFolder && b.isFolder) {
-=======
-    if (a.file && !b.file) {
->>>>>>> 02f2423 (Initial commit)
-=======
-    if (a.file && !b.file) {
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       return 1
     } else {
       return -1
     }
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
   filterFn: (node) => node.slugSegment !== "tags",
   order: ["filter", "map", "sort"],
 }
@@ -144,75 +102,6 @@ export default ((userOpts?: Partial<Options>) => {
           class="title-button explorer-toggle desktop-explorer"
           data-mobile={false}
           aria-expanded={true}
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-  filterFn: (node) => node.name !== "tags",
-  order: ["filter", "map", "sort"],
-} satisfies Options
-
-export default ((userOpts?: Partial<Options>) => {
-  // Parse config
-  const opts: Options = { ...defaultOptions, ...userOpts }
-
-  // memoized
-  let fileTree: FileNode
-  let jsonTree: string
-  let lastBuildId: string = ""
-
-  function constructFileTree(allFiles: QuartzPluginData[]) {
-    // Construct tree from allFiles
-    fileTree = new FileNode("")
-    allFiles.forEach((file) => fileTree.add(file))
-
-    // Execute all functions (sort, filter, map) that were provided (if none were provided, only default "sort" is applied)
-    if (opts.order) {
-      // Order is important, use loop with index instead of order.map()
-      for (let i = 0; i < opts.order.length; i++) {
-        const functionName = opts.order[i]
-        if (functionName === "map") {
-          fileTree.map(opts.mapFn)
-        } else if (functionName === "sort") {
-          fileTree.sort(opts.sortFn)
-        } else if (functionName === "filter") {
-          fileTree.filter(opts.filterFn)
-        }
-      }
-    }
-
-    // Get all folders of tree. Initialize with collapsed state
-    // Stringify to pass json tree as data attribute ([data-tree])
-    const folders = fileTree.getFolderPaths(opts.folderDefaultState === "collapsed")
-    jsonTree = JSON.stringify(folders)
-  }
-
-  const Explorer: QuartzComponent = ({
-    ctx,
-    cfg,
-    allFiles,
-    displayClass,
-    fileData,
-  }: QuartzComponentProps) => {
-    if (ctx.buildId !== lastBuildId) {
-      lastBuildId = ctx.buildId
-      constructFileTree(allFiles)
-    }
-
-    return (
-      <div class={classNames(displayClass, "explorer")}>
-        <button
-          type="button"
-          id="explorer"
-          data-behavior={opts.folderClickBehavior}
-          data-collapsed={opts.folderDefaultState}
-          data-savestate={opts.useSavedState}
-          data-tree={jsonTree}
-          aria-controls="explorer-content"
-          aria-expanded={opts.folderDefaultState === "open"}
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         >
           <h2>{opts.title ?? i18n(cfg.locale).components.explorer.title}</h2>
           <svg
@@ -230,8 +119,6 @@ export default ((userOpts?: Partial<Options>) => {
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </button>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <div id={id} class="explorer-content" aria-expanded={false} role="group">
           <OverflowList class="explorer-ul" />
         </div>
@@ -268,34 +155,11 @@ export default ((userOpts?: Partial<Options>) => {
             </div>
           </li>
         </template>
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-        <div id="explorer-content">
-          <ul class="overflow" id="explorer-ul">
-            <ExplorerNode node={fileTree} opts={opts} fileData={fileData} />
-            <li id="explorer-end" />
-          </ul>
-        </div>
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       </div>
     )
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   Explorer.css = style
   Explorer.afterDOMLoaded = concatenateResources(script, overflowListAfterDOMLoaded)
-=======
-  Explorer.css = explorerStyle
-  Explorer.afterDOMLoaded = script
->>>>>>> 02f2423 (Initial commit)
-=======
-  Explorer.css = explorerStyle
-  Explorer.afterDOMLoaded = script
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   return Explorer
 }) satisfies QuartzComponentConstructor

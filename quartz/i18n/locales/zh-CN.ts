@@ -29,15 +29,9 @@ export default {
       lightMode: "亮色模式",
       darkMode: "暗色模式",
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
     readerMode: {
       title: "阅读模式",
     },
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     explorer: {
       title: "探索",
     },

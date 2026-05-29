@@ -1,6 +1,4 @@
 import { QuartzTransformerPlugin } from "../types"
-<<<<<<< HEAD
-<<<<<<< HEAD
 import {
   Root,
   Html,
@@ -10,20 +8,12 @@ import {
   Paragraph,
   Code,
 } from "mdast"
-=======
-import { Root, Html, BlockContent, DefinitionContent, Paragraph, Code } from "mdast"
->>>>>>> 02f2423 (Initial commit)
-=======
-import { Root, Html, BlockContent, DefinitionContent, Paragraph, Code } from "mdast"
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { Element, Literal, Root as HtmlRoot } from "hast"
 import { ReplaceFunction, findAndReplace as mdastFindReplace } from "mdast-util-find-and-replace"
 import rehypeRaw from "rehype-raw"
 import { SKIP, visit } from "unist-util-visit"
 import path from "path"
 import { splitAnchor } from "../../util/path"
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { JSResource, CSSResource } from "../../util/resources"
 // @ts-ignore
 import calloutScript from "../../components/scripts/callout.inline"
@@ -35,22 +25,6 @@ import mermaidStyle from "../../components/styles/mermaid.inline.scss"
 import { FilePath, pathToRoot, slugTag, slugifyFilePath } from "../../util/path"
 import { toHast } from "mdast-util-to-hast"
 import { toHtml } from "hast-util-to-html"
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-import { JSResource } from "../../util/resources"
-// @ts-ignore
-import calloutScript from "../../components/scripts/callout.inline.ts"
-// @ts-ignore
-import checkboxScript from "../../components/scripts/checkbox.inline.ts"
-import { FilePath, pathToRoot, slugTag, slugifyFilePath } from "../../util/path"
-import { toHast } from "mdast-util-to-hast"
-import { toHtml } from "hast-util-to-html"
-import { PhrasingContent } from "mdast-util-find-and-replace/lib"
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { capitalize } from "../../util/lang"
 import { PluggableList } from "unified"
 
@@ -67,13 +41,7 @@ export interface Options {
   enableYouTubeEmbed: boolean
   enableVideoEmbed: boolean
   enableCheckbox: boolean
-<<<<<<< HEAD
-<<<<<<< HEAD
   disableBrokenWikilinks: boolean
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 const defaultOptions: Options = {
@@ -89,13 +57,7 @@ const defaultOptions: Options = {
   enableYouTubeEmbed: true,
   enableVideoEmbed: true,
   enableCheckbox: false,
-<<<<<<< HEAD
-<<<<<<< HEAD
   disableBrokenWikilinks: false,
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 const calloutMapping = {
@@ -153,21 +115,9 @@ export const arrowRegex = new RegExp(/(-{1,2}>|={1,2}>|<-{1,2}|<={1,2})/g)
 // \[\[               -> open brace
 // ([^\[\]\|\#]+)     -> one or more non-special characters ([,],|, or #) (name)
 // (#[^\[\]\|\#]+)?   -> # then one or more non-special characters (heading link)
-<<<<<<< HEAD
-<<<<<<< HEAD
 // (\\?\|[^\[\]\#]+)? -> optional escape \ then | then zero or more non-special characters (alias)
 export const wikilinkRegex = new RegExp(
   /!?\[\[([^\[\]\|\#\\]+)?(#+[^\[\]\|\#\\]+)?(\\?\|[^\[\]\#]*)?\]\]/g,
-=======
-// (\\?\|[^\[\]\#]+)? -> optional escape \ then | then one or more non-special characters (alias)
-export const wikilinkRegex = new RegExp(
-  /!?\[\[([^\[\]\|\#\\]+)?(#+[^\[\]\|\#\\]+)?(\\?\|[^\[\]\#]+)?\]\]/g,
->>>>>>> 02f2423 (Initial commit)
-=======
-// (\\?\|[^\[\]\#]+)? -> optional escape \ then | then one or more non-special characters (alias)
-export const wikilinkRegex = new RegExp(
-  /!?\[\[([^\[\]\|\#\\]+)?(#+[^\[\]\|\#\\]+)?(\\?\|[^\[\]\#]+)?\]\]/g,
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 )
 
 // ^\|([^\n])+\|\n(\|) -> matches the header row
@@ -176,47 +126,19 @@ export const wikilinkRegex = new RegExp(
 export const tableRegex = new RegExp(/^\|([^\n])+\|\n(\|)( ?:?-{3,}:? ?\|)+\n(\|([^\n])+\|\n?)+/gm)
 
 // matches any wikilink, only used for escaping wikilinks inside tables
-<<<<<<< HEAD
-<<<<<<< HEAD
 export const tableWikilinkRegex = new RegExp(/(!?\[\[[^\]]*?\]\]|\[\^[^\]]*?\])/g)
-=======
-export const tableWikilinkRegex = new RegExp(/(!?\[\[[^\]]*?\]\])/g)
->>>>>>> 02f2423 (Initial commit)
-=======
-export const tableWikilinkRegex = new RegExp(/(!?\[\[[^\]]*?\]\])/g)
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 const highlightRegex = new RegExp(/==([^=]+)==/g)
 const commentRegex = new RegExp(/%%[\s\S]*?%%/g)
 // from https://github.com/escwxyz/remark-obsidian-callout/blob/main/src/index.ts
-<<<<<<< HEAD
-<<<<<<< HEAD
 const calloutRegex = new RegExp(/^\[\!([\w-]+)\|?(.+?)?\]([+-]?)/)
 const calloutLineRegex = new RegExp(/^> *\[\!\w+\|?.*?\][+-]?.*$/gm)
 // (?<=^| )             -> a lookbehind assertion, tag should start be separated by a space or be the start of the line
-=======
-const calloutRegex = new RegExp(/^\[\!(\w+)\|?(.+?)?\]([+-]?)/)
-const calloutLineRegex = new RegExp(/^> *\[\!\w+\|?.*?\][+-]?.*$/gm)
-// (?:^| )              -> non-capturing group, tag should start be separated by a space or be the start of the line
->>>>>>> 02f2423 (Initial commit)
-=======
-const calloutRegex = new RegExp(/^\[\!(\w+)\|?(.+?)?\]([+-]?)/)
-const calloutLineRegex = new RegExp(/^> *\[\!\w+\|?.*?\][+-]?.*$/gm)
-// (?:^| )              -> non-capturing group, tag should start be separated by a space or be the start of the line
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 // #(...)               -> capturing group, tag itself must start with #
 // (?:[-_\p{L}\d\p{Z}])+       -> non-capturing group, non-empty string of (Unicode-aware) alpha-numeric characters and symbols, hyphens and/or underscores
 // (?:\/[-_\p{L}\d\p{Z}]+)*)   -> non-capturing group, matches an arbitrary number of tag strings separated by "/"
 const tagRegex = new RegExp(
-<<<<<<< HEAD
-<<<<<<< HEAD
   /(?<=^| )#((?:[-_\p{L}\p{Emoji}\p{M}\d])+(?:\/[-_\p{L}\p{Emoji}\p{M}\d]+)*)/gu,
-=======
-  /(?:^| )#((?:[-_\p{L}\p{Emoji}\p{M}\d])+(?:\/[-_\p{L}\p{Emoji}\p{M}\d]+)*)/gu,
->>>>>>> 02f2423 (Initial commit)
-=======
-  /(?:^| )#((?:[-_\p{L}\p{Emoji}\p{M}\d])+(?:\/[-_\p{L}\p{Emoji}\p{M}\d]+)*)/gu,
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 )
 const blockReferenceRegex = new RegExp(/\^([-_A-Za-z0-9]+)$/g)
 const ytLinkRegex = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
@@ -239,37 +161,11 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
     textTransform(_ctx, src) {
       // do comments at text level
       if (opts.comments) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-        if (src instanceof Buffer) {
-          src = src.toString()
-        }
-
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         src = src.replace(commentRegex, "")
       }
 
       // pre-transform blockquotes
       if (opts.callouts) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-        if (src instanceof Buffer) {
-          src = src.toString()
-        }
-
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         src = src.replace(calloutLineRegex, (value) => {
           // force newline after title of callout
           return value + "\n> "
@@ -278,19 +174,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
 
       // pre-transform wikilinks (fix anchors to things that may contain illegal syntax e.g. codeblocks, latex)
       if (opts.wikilinks) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-        if (src instanceof Buffer) {
-          src = src.toString()
-        }
-
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         // replace all wikilinks inside a table first
         src = src.replace(tableRegex, (value) => {
           // escape all aliases and headers in wikilinks inside a table
@@ -310,15 +193,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
           const [rawFp, rawHeader, rawAlias]: (string | undefined)[] = capture
 
           const [fp, anchor] = splitAnchor(`${rawFp ?? ""}${rawHeader ?? ""}`)
-<<<<<<< HEAD
-<<<<<<< HEAD
           const blockRef = Boolean(rawHeader?.startsWith("#^")) ? "^" : ""
-=======
-          const blockRef = Boolean(rawHeader?.match(/^#?\^/)) ? "^" : ""
->>>>>>> 02f2423 (Initial commit)
-=======
-          const blockRef = Boolean(rawHeader?.match(/^#?\^/)) ? "^" : ""
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
           const displayAnchor = anchor ? `#${blockRef}${anchor.trim().replace(/^#+/, "")}` : ""
           const displayAlias = rawAlias ?? rawHeader?.replace("#", "|") ?? ""
           const embedDisplay = value.startsWith("!") ? "!" : ""
@@ -333,15 +208,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
 
       return src
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
     markdownPlugins(ctx) {
-=======
-    markdownPlugins(_ctx) {
->>>>>>> 02f2423 (Initial commit)
-=======
-    markdownPlugins(_ctx) {
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       const plugins: PluggableList = []
 
       // regex replacements
@@ -357,15 +224,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 let [rawFp, rawHeader, rawAlias] = capture
                 const fp = rawFp?.trim() ?? ""
                 const anchor = rawHeader?.trim() ?? ""
-<<<<<<< HEAD
-<<<<<<< HEAD
                 const alias: string | undefined = rawAlias?.slice(1).trim()
-=======
-                const alias = rawAlias?.slice(1).trim()
->>>>>>> 02f2423 (Initial commit)
-=======
-                const alias = rawAlias?.slice(1).trim()
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
                 // embed cases
                 if (value.startsWith("!")) {
@@ -418,8 +277,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                   // otherwise, fall through to regular link
                 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 // treat as broken link if slug not in ctx.allSlugs
                 if (opts.disableBrokenWikilinks) {
                   const slug = slugifyFilePath(fp as FilePath)
@@ -435,14 +292,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 // internal link
                 const url = fp + anchor
 
-=======
-                // internal link
-                const url = fp + anchor
->>>>>>> 02f2423 (Initial commit)
-=======
-                // internal link
-                const url = fp + anchor
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
                 return {
                   type: "link",
                   url,
@@ -488,18 +337,8 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
             replacements.push([
               tagRegex,
               (_value: string, tag: string) => {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 // Check if the tag only includes numbers and slashes
                 if (/^[\/\d]+$/.test(tag)) {
-=======
-                // Check if the tag only includes numbers
-                if (/^\d+$/.test(tag)) {
->>>>>>> 02f2423 (Initial commit)
-=======
-                // Check if the tag only includes numbers
-                if (/^\d+$/.test(tag)) {
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
                   return false
                 }
 
@@ -604,17 +443,9 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                   children: [
                     {
                       type: "text",
-<<<<<<< HEAD
-<<<<<<< HEAD
                       value: useDefaultTitle
                         ? capitalize(typeString).replace(/-/g, " ")
                         : titleContent + " ",
-=======
-                      value: useDefaultTitle ? capitalize(typeString) : titleContent + " ",
->>>>>>> 02f2423 (Initial commit)
-=======
-                      value: useDefaultTitle ? capitalize(typeString) : titleContent + " ",
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
                     },
                     ...restOfTitle,
                   ],
@@ -647,8 +478,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                   })
                 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 // For the rest of the MD callout elements other than the title, wrap them with
                 // two nested HTML <div>s (use some hacked mdhast component to achieve this) of
                 // class `callout-content` and `callout-content-inner` respectively for
@@ -664,10 +493,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                   ]
                 }
 
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
                 // replace first line of blockquote with title and rest of the paragraph text
                 node.children.splice(0, 1, ...blockquoteContent)
 
@@ -689,30 +514,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                     "data-callout-metadata": calloutMetaData,
                   },
                 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-
-                // Add callout-content class to callout body if it has one.
-                if (calloutContent.length > 0) {
-                  const contentData: BlockContent | DefinitionContent = {
-                    data: {
-                      hProperties: {
-                        className: "callout-content",
-                      },
-                      hName: "div",
-                    },
-                    type: "blockquote",
-                    children: [...calloutContent],
-                  }
-                  node.children = [node.children[0], contentData]
-                }
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
               }
             })
           }
@@ -721,8 +522,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
 
       if (opts.mermaid) {
         plugins.push(() => {
-<<<<<<< HEAD
-<<<<<<< HEAD
           return (tree: Root, file) => {
             visit(tree, "code", (node: Code) => {
               if (node.lang === "mermaid") {
@@ -731,19 +530,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                   hProperties: {
                     className: ["mermaid"],
                     "data-clipboard": JSON.stringify(node.value),
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-          return (tree: Root, _file) => {
-            visit(tree, "code", (node: Code) => {
-              if (node.lang === "mermaid") {
-                node.data = {
-                  hProperties: {
-                    className: ["mermaid"],
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
                   },
                 }
               }
@@ -888,8 +674,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
         })
       }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
       if (opts.mermaid) {
         plugins.push(() => {
           return (tree: HtmlRoot, _file) => {
@@ -959,21 +743,11 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
         })
       }
 
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       return plugins
     },
     externalResources() {
       const js: JSResource[] = []
-<<<<<<< HEAD
-<<<<<<< HEAD
       const css: CSSResource[] = []
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
       if (opts.enableCheckbox) {
         js.push({
@@ -993,8 +767,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
 
       if (opts.mermaid) {
         js.push({
-<<<<<<< HEAD
-<<<<<<< HEAD
           script: mermaidScript,
           loadTime: "afterDOMReady",
           contentType: "inline",
@@ -1008,39 +780,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
       }
 
       return { js, css }
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-          script: `
-          let mermaidImport = undefined
-          document.addEventListener('nav', async () => {
-            if (document.querySelector("code.mermaid")) {
-              mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs')
-              const mermaid = mermaidImport.default
-              const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
-              mermaid.initialize({
-                startOnLoad: false,
-                securityLevel: 'loose',
-                theme: darkMode ? 'dark' : 'default'
-              })
-
-              await mermaid.run({
-                querySelector: '.mermaid'
-              })
-            }
-          });
-          `,
-          loadTime: "afterDOMReady",
-          moduleType: "module",
-          contentType: "inline",
-        })
-      }
-
-      return { js }
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     },
   }
 }
@@ -1049,12 +788,6 @@ declare module "vfile" {
   interface DataMap {
     blocks: Record<string, Element>
     htmlAst: HtmlRoot
-<<<<<<< HEAD
-<<<<<<< HEAD
     hasMermaidDiagram: boolean | undefined
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 }

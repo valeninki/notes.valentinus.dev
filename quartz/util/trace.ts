@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { styleText } from "util"
-=======
-import chalk from "chalk"
->>>>>>> 02f2423 (Initial commit)
-=======
-import chalk from "chalk"
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import process from "process"
 import { isMainThread } from "workerpool"
 
@@ -19,21 +11,9 @@ export function trace(msg: string, err: Error) {
   lines.push("")
   lines.push(
     "\n" +
-<<<<<<< HEAD
-<<<<<<< HEAD
       styleText(["bgRed", "black", "bold"], " ERROR ") +
       "\n\n" +
       styleText("red", ` ${msg}`) +
-=======
-      chalk.bgRed.black.bold(" ERROR ") +
-      "\n\n" +
-      chalk.red(` ${msg}`) +
->>>>>>> 02f2423 (Initial commit)
-=======
-      chalk.bgRed.black.bold(" ERROR ") +
-      "\n\n" +
-      chalk.red(` ${msg}`) +
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       (err.message.length > 0 ? `: ${err.message}` : ""),
   )
 

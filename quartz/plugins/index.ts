@@ -6,22 +6,10 @@ export function getStaticResourcesFromPlugins(ctx: BuildCtx) {
   const staticResources: StaticResources = {
     css: [],
     js: [],
-<<<<<<< HEAD
-<<<<<<< HEAD
     additionalHead: [],
   }
 
   for (const transformer of [...ctx.cfg.plugins.transformers, ...ctx.cfg.plugins.emitters]) {
-=======
-  }
-
-  for (const transformer of ctx.cfg.plugins.transformers) {
->>>>>>> 02f2423 (Initial commit)
-=======
-  }
-
-  for (const transformer of ctx.cfg.plugins.transformers) {
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     const res = transformer.externalResources ? transformer.externalResources(ctx) : {}
     if (res?.js) {
       staticResources.js.push(...res.js)
@@ -29,15 +17,9 @@ export function getStaticResourcesFromPlugins(ctx: BuildCtx) {
     if (res?.css) {
       staticResources.css.push(...res.css)
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
     if (res?.additionalHead) {
       staticResources.additionalHead.push(...res.additionalHead)
     }
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 
   // if serving locally, listen for rebuilds and reload the page

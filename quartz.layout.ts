@@ -8,7 +8,8 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/Vallentinus",
+      GitHub: "https://github.com/valeninki",
+      LinkedIn: "https://www.linkedin.com/in/kerem-kurt-647696246/",
     },
   }),
 }
@@ -16,18 +17,10 @@ export const sharedPageComponents: SharedLayout = {
 // components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
-<<<<<<< HEAD
-<<<<<<< HEAD
     Component.ConditionalRender({
       component: Component.Breadcrumbs(),
       condition: (page) => page.fileData.slug !== "index",
     }),
-=======
-    Component.Breadcrumbs(),
->>>>>>> 02f2423 (Initial commit)
-=======
-    Component.Breadcrumbs(),
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
@@ -35,8 +28,6 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-<<<<<<< HEAD
-<<<<<<< HEAD
     Component.Flex({
       components: [
         {
@@ -44,25 +35,38 @@ export const defaultContentPageLayout: PageLayout = {
           grow: true,
         },
         { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
       ],
     }),
     Component.Explorer(),
-=======
-    Component.Search(),
-    Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
->>>>>>> 02f2423 (Initial commit)
-=======
-    Component.Search(),
-    Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   ],
   right: [
-    Component.Graph(),
-    Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.Graph({
+      localGraph: {
+        depth: 2,
+        repelForce: 0.6,
+        linkDistance: 50,
+        fontSize: 0.7,
+        focusOnHover: true,
+      },
+      globalGraph: {
+        repelForce: 0.5,
+        linkDistance: 40,
+        fontSize: 0.7,
+        focusOnHover: true,
+        enableRadial: true,
+      },
+    }),
+    Component.DesktopOnly(
+      Component.RecentNotes({
+        title: "Recent Notes",
+        limit: 5,
+        showTags: false,
+        filter: (f) =>
+          f.slug !== "Topics" && !f.slug?.endsWith("/index") && f.slug !== "index",
+      }),
+    ),
   ],
 }
 
@@ -72,8 +76,6 @@ export const defaultListPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-<<<<<<< HEAD
-<<<<<<< HEAD
     Component.Flex({
       components: [
         {
@@ -84,16 +86,16 @@ export const defaultListPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer(),
-=======
-    Component.Search(),
-    Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
->>>>>>> 02f2423 (Initial commit)
-=======
-    Component.Search(),
-    Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   ],
-  right: [],
+  right: [
+    Component.DesktopOnly(
+      Component.RecentNotes({
+        title: "Recent Notes",
+        limit: 5,
+        showTags: false,
+        filter: (f) =>
+          f.slug !== "Topics" && !f.slug?.endsWith("/index") && f.slug !== "index",
+      }),
+    ),
+  ],
 }

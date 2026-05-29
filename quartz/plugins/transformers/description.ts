@@ -5,25 +5,13 @@ import { escapeHTML } from "../../util/escape"
 
 export interface Options {
   descriptionLength: number
-<<<<<<< HEAD
-<<<<<<< HEAD
   maxDescriptionLength: number
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   replaceExternalLinks: boolean
 }
 
 const defaultOptions: Options = {
   descriptionLength: 150,
-<<<<<<< HEAD
-<<<<<<< HEAD
   maxDescriptionLength: 300,
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   replaceExternalLinks: true,
 }
 
@@ -51,8 +39,6 @@ export const Description: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
               text = text.replace(urlRegex, "$<domain>" + "$<path>")
             }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             if (frontMatterDescription) {
               file.data.description = frontMatterDescription
               file.data.text = text
@@ -88,42 +74,6 @@ export const Description: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
               finalDesc.length > opts.maxDescriptionLength
                 ? finalDesc.slice(0, opts.maxDescriptionLength) + "..."
                 : finalDesc
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-            const desc = frontMatterDescription ?? text
-            const sentences = desc.replace(/\s+/g, " ").split(/\.\s/)
-            const finalDesc: string[] = []
-            const len = opts.descriptionLength
-            let sentenceIdx = 0
-            let currentDescriptionLength = 0
-
-            if (sentences[0] !== undefined && sentences[0].length >= len) {
-              const firstSentence = sentences[0].split(" ")
-              while (currentDescriptionLength < len) {
-                const sentence = firstSentence[sentenceIdx]
-                if (!sentence) break
-                finalDesc.push(sentence)
-                currentDescriptionLength += sentence.length
-                sentenceIdx++
-              }
-              finalDesc.push("...")
-            } else {
-              while (currentDescriptionLength < len) {
-                const sentence = sentences[sentenceIdx]
-                if (!sentence) break
-                const currentSentence = sentence.endsWith(".") ? sentence : sentence + "."
-                finalDesc.push(currentSentence)
-                currentDescriptionLength += currentSentence.length
-                sentenceIdx++
-              }
-            }
-
-            file.data.description = finalDesc.join(" ")
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
             file.data.text = text
           }
         },

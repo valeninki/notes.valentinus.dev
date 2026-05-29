@@ -21,17 +21,18 @@ export const Citations: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =
   const opts = { ...defaultOptions, ...userOpts }
   return {
     name: "Citations",
-<<<<<<< HEAD
-<<<<<<< HEAD
     htmlPlugins(ctx) {
-=======
-    htmlPlugins() {
->>>>>>> 02f2423 (Initial commit)
-=======
-    htmlPlugins() {
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       const plugins: PluggableList = []
-
+      // per default, rehype-citations only supports en-US
+      // see: https://github.com/timlrx/rehype-citation/issues/12
+      // in here there are multiple usable locales:
+      // https://github.com/citation-style-language/locales
+      // thus, we optimistically assume there is indeed an appropriate
+      // locale available and simply create the lang url-string
+      let lang: string = "en-US"
+      if (ctx.cfg.configuration.locale !== "en-US") {
+        lang = `https://raw.githubusercontent.com/citation-style-language/locales/refs/heads/master/locales-${ctx.cfg.configuration.locale}.xml`
+      }
       // Add rehype-citation to the list of plugins
       plugins.push([
         rehypeCitation,
@@ -39,14 +40,8 @@ export const Citations: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =
           bibliography: opts.bibliographyFile,
           suppressBibliography: opts.suppressBibliography,
           linkCitations: opts.linkCitations,
-<<<<<<< HEAD
-<<<<<<< HEAD
           csl: opts.csl,
-          lang: ctx.cfg.configuration.locale ?? "en-US",
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
+          lang,
         },
       ])
 

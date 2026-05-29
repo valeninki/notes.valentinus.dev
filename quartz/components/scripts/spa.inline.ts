@@ -1,12 +1,6 @@
 import micromorph from "micromorph"
 import { FullSlug, RelativeURL, getFullSlug, normalizeRelativeURLs } from "../../util/path"
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { fetchCanonical } from "./util"
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 // adapted from `micromorph`
 // https://github.com/natemoo-re/micromorph
@@ -49,8 +43,6 @@ function notifyNav(url: FullSlug) {
 const cleanupFns: Set<(...args: any[]) => void> = new Set()
 window.addCleanup = (fn) => cleanupFns.add(fn)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 function startLoading() {
   const loadingBar = document.createElement("div")
   loadingBar.className = "navigation-progress"
@@ -71,17 +63,6 @@ async function _navigate(url: URL, isBack: boolean = false) {
   startLoading()
   p = p || new DOMParser()
   const contents = await fetchCanonical(url)
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-let p: DOMParser
-async function navigate(url: URL, isBack: boolean = false) {
-  p = p || new DOMParser()
-  const contents = await fetch(`${url}`)
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     .then((res) => {
       const contentType = res.headers.get("content-type")
       if (contentType?.startsWith("text/html")) {
@@ -96,16 +77,10 @@ async function navigate(url: URL, isBack: boolean = false) {
 
   if (!contents) return
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   // notify about to nav
   const event: CustomEventMap["prenav"] = new CustomEvent("prenav", { detail: {} })
   document.dispatchEvent(event)
 
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   // cleanup old
   cleanupFns.forEach((fn) => fn())
   cleanupFns.clear()
@@ -127,7 +102,7 @@ async function navigate(url: URL, isBack: boolean = false) {
   html.body.appendChild(announcer)
 
   // morph body
-  micromorph(document.body, html.body)
+  await micromorph(document.body, html.body)
 
   // scroll into place and add history
   if (!isBack) {
@@ -139,18 +114,10 @@ async function navigate(url: URL, isBack: boolean = false) {
     }
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   // now, patch head, re-executing scripts
-=======
-  // now, patch head
->>>>>>> 02f2423 (Initial commit)
-=======
-  // now, patch head
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-  const elementsToRemove = document.head.querySelectorAll(":not([spa-preserve])")
+  const elementsToRemove = document.head.querySelectorAll(":not([data-persist])")
   elementsToRemove.forEach((el) => el.remove())
-  const elementsToAdd = html.head.querySelectorAll(":not([spa-preserve])")
+  const elementsToAdd = html.head.querySelectorAll(":not([data-persist])")
   elementsToAdd.forEach((el) => document.head.appendChild(el))
 
   // delay setting the url until now
@@ -158,19 +125,11 @@ async function navigate(url: URL, isBack: boolean = false) {
   if (!isBack) {
     history.pushState({}, "", url)
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   notifyNav(getFullSlug(window))
   delete announcer.dataset.persist
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 async function navigate(url: URL, isBack: boolean = false) {
   if (isNavigating) return
   isNavigating = true
@@ -184,10 +143,6 @@ async function navigate(url: URL, isBack: boolean = false) {
   }
 }
 
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 window.spaNavigate = navigate
 
 function createRouter() {
@@ -205,41 +160,13 @@ function createRouter() {
         return
       }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
       navigate(url, false)
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-      try {
-        navigate(url, false)
-      } catch (e) {
-        window.location.assign(url)
-      }
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     })
 
     window.addEventListener("popstate", (event) => {
       const { url } = getOpts(event) ?? {}
       if (window.location.hash && window.location.pathname === url?.pathname) return
-<<<<<<< HEAD
-<<<<<<< HEAD
       navigate(new URL(window.location.toString()), true)
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-      try {
-        navigate(new URL(window.location.toString()), true)
-      } catch (e) {
-        window.location.reload()
-      }
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       return
     })
   }

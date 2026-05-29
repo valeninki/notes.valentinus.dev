@@ -1,3 +1,7 @@
+---
+date: 2025-01-16
+aliases: [notes/networking/Design Network Test Environment From Scratch, notes/Design Network Test Environment From Scratch]
+---
 Greetings, in this article I will show you how to build a structure for network testing from scratch and then make the necessary adjustments. Have a good read.
 
 # Prerequisites

@@ -18,13 +18,7 @@ export interface D3Config {
   removeTags: string[]
   showTags: boolean
   focusOnHover?: boolean
-<<<<<<< HEAD
-<<<<<<< HEAD
   enableRadial?: boolean
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 interface GraphOptions {
@@ -46,13 +40,7 @@ const defaultOptions: GraphOptions = {
     showTags: true,
     removeTags: [],
     focusOnHover: false,
-<<<<<<< HEAD
-<<<<<<< HEAD
     enableRadial: false,
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   },
   globalGraph: {
     drag: true,
@@ -60,39 +48,18 @@ const defaultOptions: GraphOptions = {
     depth: -1,
     scale: 0.9,
     repelForce: 0.5,
-<<<<<<< HEAD
-<<<<<<< HEAD
     centerForce: 0.2,
-=======
-    centerForce: 0.3,
->>>>>>> 02f2423 (Initial commit)
-=======
-    centerForce: 0.3,
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     linkDistance: 30,
     fontSize: 0.6,
     opacityScale: 1,
     showTags: true,
     removeTags: [],
     focusOnHover: true,
-<<<<<<< HEAD
-<<<<<<< HEAD
     enableRadial: true,
   },
 }
 
 export default ((opts?: Partial<GraphOptions>) => {
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-  },
-}
-
-export default ((opts?: GraphOptions) => {
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   const Graph: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
     const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph }
     const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
@@ -100,18 +67,8 @@ export default ((opts?: GraphOptions) => {
       <div class={classNames(displayClass, "graph")}>
         <h3>{i18n(cfg.locale).components.graph.title}</h3>
         <div class="graph-outer">
-<<<<<<< HEAD
-<<<<<<< HEAD
           <div class="graph-container" data-cfg={JSON.stringify(localGraph)}></div>
           <button class="global-graph-icon" aria-label="Global Graph">
-=======
-          <div id="graph-container" data-cfg={JSON.stringify(localGraph)}></div>
-          <button id="global-graph-icon" aria-label="Global Graph">
->>>>>>> 02f2423 (Initial commit)
-=======
-          <div id="graph-container" data-cfg={JSON.stringify(localGraph)}></div>
-          <button id="global-graph-icon" aria-label="Global Graph">
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
@@ -138,18 +95,8 @@ export default ((opts?: GraphOptions) => {
             </svg>
           </button>
         </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <div class="global-graph-outer">
           <div class="global-graph-container" data-cfg={JSON.stringify(globalGraph)}></div>
-=======
-        <div id="global-graph-outer">
-          <div id="global-graph-container" data-cfg={JSON.stringify(globalGraph)}></div>
->>>>>>> 02f2423 (Initial commit)
-=======
-        <div id="global-graph-outer">
-          <div id="global-graph-container" data-cfg={JSON.stringify(globalGraph)}></div>
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         </div>
       </div>
     )

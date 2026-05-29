@@ -1,3 +1,189 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+html[saved-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[saved-theme="light"] {
+  color-scheme: light;
+}
+
+article {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-title {
+  font-size: 1.15rem;
+}
+
+.article-title {
+  font-size: 1.55rem;
+  letter-spacing: -0.03em;
+}
+
+.explorer .title-button h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray);
+}
+
+article h1 {
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  margin-top: 2rem;
+}
+
+article h2 {
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  margin-top: 1.75rem;
+}
+
+article h3 {
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  margin-top: 1.5rem;
+}
+
+article h4 {
+  font-size: 0.95rem;
+  margin-top: 1.25rem;
+  color: var(--darkgray);
+}
+
+article h5 {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+article p,
+article li {
+  line-height: 1.75;
+}
+
+article a.external {
+  text-decoration: underline;
+  text-decoration-color: var(--gray);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  &:hover {
+    text-decoration-color: var(--secondary);
+  }
+}
+
+article a.internal {
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+.navigation-progress {
+  height: 4px !important;
+  background: linear-gradient(90deg, var(--secondary), var(--tertiary)) !important;
+}
+
+.sidebar {
+  max-width: 320px;
+}
+
+.sidebar.left {
+  background: var(--light);
+}
+
+.sidebar.right > * {
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.sidebar.right > * + * {
+  margin-top: 0.75rem;
+}
+
+.graph {
+  border: none !important;
+}
+
+.graph > .graph-outer {
+  height: 280px;
+  border-radius: 8px;
+}
+
+.graph > .global-graph-outer {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.graph > .global-graph-outer > .global-graph-container {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.sidebar .recent-notes > h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.sidebar .recent-notes > ul.recent-ul {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar .recent-notes > ul.recent-ul > li {
+  margin: 0;
+  padding: 0.3rem 0 0.3rem 0.5rem;
+  border-left: 2px solid var(--lightgray);
+  transition: border-color 0.2s;
+  &:hover {
+    border-left-color: var(--secondary);
+  }
+}
+
+.sidebar .recent-notes > ul.recent-ul > li + li {
+  margin-top: 0.2rem;
+}
+
+.sidebar .recent-notes > ul.recent-ul > li .section > .desc > h3 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.sidebar .recent-notes > ul.recent-ul > li .section > .desc > h3 > a {
+  background-color: transparent;
+  color: var(--darkgray);
+  &:hover {
+    color: var(--secondary);
+  }
+}
+
+.sidebar .recent-notes > ul.recent-ul > li .section > .meta {
+  display: none;
+}
+
+blockquote {
+  border-left-color: var(--secondary);
+  background: var(--highlight);
+  border-radius: 0 6px 6px 0;
+  padding: 0.75rem 1rem;
+}
+
+pre {
+  border-radius: 8px;
+}
+
+img {
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+hr {
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, var(--lightgray), transparent) !important;
+}

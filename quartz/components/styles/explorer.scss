@@ -1,13 +1,12 @@
 @use "../../styles/variables.scss" as *;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 @media all and ($mobile) {
   .page > #quartz-body {
     // Shift page position when toggling Explorer on mobile.
     & > :not(.sidebar.left:has(.explorer)) {
       transition: transform 300ms ease-in-out;
     }
+
     &.lock-scroll > :not(.sidebar.left:has(.explorer)) {
       transform: translateX(100dvw);
       transition: transform 300ms ease-in-out;
@@ -35,8 +34,10 @@
 
   min-height: 1.2rem;
   flex: 0 1 auto;
+
   &.collapsed {
     flex: 0 1 1.2rem;
+
     & .fold {
       transform: rotateZ(-90deg);
     }
@@ -94,12 +95,6 @@
 
 button.mobile-explorer,
 button.desktop-explorer {
-=======
-button#explorer {
->>>>>>> 02f2423 (Initial commit)
-=======
-button#explorer {
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   background-color: transparent;
   border: none;
   text-align: left;
@@ -114,8 +109,6 @@ button#explorer {
     display: inline-block;
     margin: 0;
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
 
 .explorer-content {
@@ -128,76 +121,15 @@ button#explorer {
     list-style: none;
     margin: 0;
     padding: 0;
-    overscroll-behavior: contain;
 
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
+    &.explorer-ul {
+      overscroll-behavior: contain;
+    }
 
-  & .fold {
-    margin-left: 0.5rem;
-    transition: transform 0.3s ease;
-    opacity: 0.8;
-  }
-
-  &.collapsed .fold {
-    transform: rotateZ(-90deg);
-  }
-}
-
-.folder-outer {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease-in-out;
-}
-
-.folder-outer.open {
-  grid-template-rows: 1fr;
-}
-
-.folder-outer > ul {
-  overflow: hidden;
-}
-
-#explorer-content {
-  list-style: none;
-  overflow: hidden;
-  max-height: none;
-  transition:
-    max-height 0.35s ease,
-    visibility 0s linear 0s;
-  margin-top: 0.5rem;
-  visibility: visible;
-
-  &.collapsed {
-    transition:
-      max-height 0.35s ease,
-      visibility 0s linear 0.35s;
-    visibility: hidden;
-  }
-
-  &.collapsed > .overflow::after {
-    opacity: 0;
-  }
-
-  & ul {
-    list-style: none;
-    margin: 0.08rem 0;
-    padding: 0;
-    transition:
-      max-height 0.35s ease,
-      transform 0.35s ease,
-      opacity 0.2s ease;
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     & li > a {
       color: var(--dark);
       opacity: 0.75;
       pointer-events: all;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
       &.active {
         opacity: 1;
@@ -207,12 +139,16 @@ button#explorer {
   }
 
   .folder-outer {
+    visibility: collapse;
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 0.3s ease-in-out;
+    transition-property: grid-template-rows, visibility;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
   }
 
   .folder-outer.open {
+    visibility: visible;
     grid-template-rows: 1fr;
   }
 
@@ -221,22 +157,6 @@ button#explorer {
     margin-left: 6px;
     padding-left: 0.8rem;
     border-left: 1px solid var(--lightgray);
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-    }
-  }
-}
-
-svg {
-  pointer-events: all;
-
-  & > polyline {
-    pointer-events: none;
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 }
 
@@ -289,13 +209,7 @@ svg {
   cursor: pointer;
   transition: transform 0.3s ease;
   backface-visibility: visible;
-<<<<<<< HEAD
-<<<<<<< HEAD
   flex-shrink: 0;
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 li:has(> .folder-outer:not(.open)) > .folder-container > svg {
@@ -306,8 +220,6 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
   color: var(--tertiary);
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .explorer {
   @media all and ($mobile) {
     &.collapsed {
@@ -363,22 +275,8 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
 
 .mobile-no-scroll {
   @media all and ($mobile) {
-    overscroll-behavior: none;
+    .explorer-content > .explorer-ul {
+      overscroll-behavior: contain;
+    }
   }
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-.no-background::after {
-  background: none !important;
-}
-
-#explorer-end {
-  // needs height so IntersectionObserver gets triggered
-  height: 4px;
-  // remove default margin from li
-  margin: 0;
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }

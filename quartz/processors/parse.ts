@@ -4,15 +4,7 @@ import remarkRehype from "remark-rehype"
 import { Processor, unified } from "unified"
 import { Root as MDRoot } from "remark-parse/lib"
 import { Root as HTMLRoot } from "hast"
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { MarkdownContent, ProcessedContent } from "../plugins/vfile"
-=======
-import { ProcessedContent } from "../plugins/vfile"
->>>>>>> 02f2423 (Initial commit)
-=======
-import { ProcessedContent } from "../plugins/vfile"
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { PerfTimer } from "../util/perf"
 import { read } from "to-vfile"
 import { FilePath, QUARTZ, slugifyFilePath } from "../util/path"
@@ -20,8 +12,6 @@ import path from "path"
 import workerpool, { Promise as WorkerPromise } from "workerpool"
 import { QuartzLogger } from "../util/log"
 import { trace } from "../util/trace"
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { BuildCtx, WorkerSerializableBuildCtx } from "../util/ctx"
 import { styleText } from "util"
 
@@ -29,17 +19,6 @@ export type QuartzMdProcessor = Processor<MDRoot, MDRoot, MDRoot>
 export type QuartzHtmlProcessor = Processor<undefined, MDRoot, HTMLRoot>
 
 export function createMdProcessor(ctx: BuildCtx): QuartzMdProcessor {
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-import { BuildCtx } from "../util/ctx"
-
-export type QuartzProcessor = Processor<MDRoot, MDRoot, HTMLRoot>
-export function createProcessor(ctx: BuildCtx): QuartzProcessor {
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   const transformers = ctx.cfg.plugins.transformers
 
   return (
@@ -48,8 +27,6 @@ export function createProcessor(ctx: BuildCtx): QuartzProcessor {
       .use(remarkParse)
       // MD AST -> MD AST transforms
       .use(
-<<<<<<< HEAD
-<<<<<<< HEAD
         transformers.flatMap((plugin) => plugin.markdownPlugins?.(ctx) ?? []),
       ) as unknown as QuartzMdProcessor
     //  ^ sadly the typing of `use` is not smart enough to infer the correct type from our plugin list
@@ -64,21 +41,6 @@ export function createHtmlProcessor(ctx: BuildCtx): QuartzHtmlProcessor {
       .use(remarkRehype, { allowDangerousHtml: true })
       // HTML AST -> HTML AST transforms
       .use(transformers.flatMap((plugin) => plugin.htmlPlugins?.(ctx) ?? []))
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-        transformers
-          .filter((p) => p.markdownPlugins)
-          .flatMap((plugin) => plugin.markdownPlugins!(ctx)),
-      )
-      // MD AST -> HTML AST
-      .use(remarkRehype, { allowDangerousHtml: true })
-      // HTML AST -> HTML AST transforms
-      .use(transformers.filter((p) => p.htmlPlugins).flatMap((plugin) => plugin.htmlPlugins!(ctx)))
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   )
 }
 
@@ -122,18 +84,8 @@ async function transpileWorkerScript() {
 
 export function createFileParser(ctx: BuildCtx, fps: FilePath[]) {
   const { argv, cfg } = ctx
-<<<<<<< HEAD
-<<<<<<< HEAD
   return async (processor: QuartzMdProcessor) => {
     const res: MarkdownContent[] = []
-=======
-  return async (processor: QuartzProcessor) => {
-    const res: ProcessedContent[] = []
->>>>>>> 02f2423 (Initial commit)
-=======
-  return async (processor: QuartzProcessor) => {
-    const res: ProcessedContent[] = []
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     for (const fp of fps) {
       try {
         const perf = new PerfTimer()
@@ -157,8 +109,6 @@ export function createFileParser(ctx: BuildCtx, fps: FilePath[]) {
         res.push([newAst, file])
 
         if (argv.verbose) {
-<<<<<<< HEAD
-<<<<<<< HEAD
           console.log(`[markdown] ${fp} -> ${file.data.slug} (${perf.timeSince()})`)
         }
       } catch (err) {
@@ -185,17 +135,6 @@ export function createMarkdownParser(ctx: BuildCtx, mdContent: MarkdownContent[]
         }
       } catch (err) {
         trace(`\nFailed to process html \`${file.data.filePath}\``, err as Error)
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-          console.log(`[process] ${fp} -> ${file.data.slug} (${perf.timeSince()})`)
-        }
-      } catch (err) {
-        trace(`\nFailed to process \`${fp}\``, err as Error)
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       }
     }
 
@@ -205,13 +144,7 @@ export function createMarkdownParser(ctx: BuildCtx, mdContent: MarkdownContent[]
 
 const clamp = (num: number, min: number, max: number) =>
   Math.min(Math.max(Math.round(num), min), max)
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 export async function parseMarkdown(ctx: BuildCtx, fps: FilePath[]): Promise<ProcessedContent[]> {
   const { argv } = ctx
   const perf = new PerfTimer()
@@ -225,20 +158,8 @@ export async function parseMarkdown(ctx: BuildCtx, fps: FilePath[]): Promise<Pro
   log.start(`Parsing input files using ${concurrency} threads`)
   if (concurrency === 1) {
     try {
-<<<<<<< HEAD
-<<<<<<< HEAD
       const mdRes = await createFileParser(ctx, fps)(createMdProcessor(ctx))
       res = await createMarkdownParser(ctx, mdRes)(createHtmlProcessor(ctx))
-=======
-      const processor = createProcessor(ctx)
-      const parse = createFileParser(ctx, fps)
-      res = await parse(processor)
->>>>>>> 02f2423 (Initial commit)
-=======
-      const processor = createProcessor(ctx)
-      const parse = createFileParser(ctx, fps)
-      res = await parse(processor)
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     } catch (error) {
       log.end()
       throw error
@@ -250,8 +171,6 @@ export async function parseMarkdown(ctx: BuildCtx, fps: FilePath[]): Promise<Pro
       maxWorkers: concurrency,
       workerType: "thread",
     })
-<<<<<<< HEAD
-<<<<<<< HEAD
     const errorHandler = (err: any) => {
       console.error(err)
       process.exit(1)
@@ -294,24 +213,6 @@ export async function parseMarkdown(ctx: BuildCtx, fps: FilePath[]): Promise<Pro
       }),
     ).catch(errorHandler)
 
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-
-    const childPromises: WorkerPromise<ProcessedContent[]>[] = []
-    for (const chunk of chunks(fps, CHUNK_SIZE)) {
-      childPromises.push(pool.exec("parseFiles", [ctx.buildId, argv, chunk, ctx.allSlugs]))
-    }
-
-    const results: ProcessedContent[][] = await WorkerPromise.all(childPromises).catch((err) => {
-      const errString = err.toString().slice("Error:".length)
-      console.error(errString)
-      process.exit(1)
-    })
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     res = results.flat()
     await pool.terminate()
   }

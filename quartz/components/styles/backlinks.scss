@@ -1,42 +1,19 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 @use "../../styles/variables.scss" as *;
 
 .backlinks {
   flex-direction: column;
-=======
-.backlinks {
-  position: relative;
->>>>>>> 02f2423 (Initial commit)
-=======
-.backlinks {
-  position: relative;
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
   & > h3 {
     font-size: 1rem;
     margin: 0;
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   & > ul.overflow {
     list-style: none;
     padding: 0;
     margin: 0.5rem 0;
     max-height: calc(100% - 2rem);
     overscroll-behavior: contain;
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-  & > ul {
-    list-style: none;
-    padding: 0;
-    margin: 0.5rem 0;
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
     & > li {
       & > a {

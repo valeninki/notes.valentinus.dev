@@ -29,15 +29,9 @@ export default {
       lightMode: "Trzyb jasny",
       darkMode: "Tryb ciemny",
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
     readerMode: {
       title: "Tryb czytania",
     },
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     explorer: {
       title: "Przeglądaj",
     },
@@ -57,15 +51,7 @@ export default {
     },
     search: {
       title: "Szukaj",
-<<<<<<< HEAD
-<<<<<<< HEAD
       searchBarPlaceholder: "Wpisz frazę wyszukiwania",
-=======
-      searchBarPlaceholder: "Search for something",
->>>>>>> 02f2423 (Initial commit)
-=======
-      searchBarPlaceholder: "Search for something",
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     },
     tableOfContents: {
       title: "Spis treści",

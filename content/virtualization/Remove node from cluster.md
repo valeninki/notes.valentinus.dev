@@ -1,3 +1,7 @@
+---
+date: 2025-01-18
+aliases: [notes/virtualization/Remove node from cluster, notes/Remove node from cluster]
+---
 **List all Nodes**
 
 Connect the machine which you used to create cluster and list all nodes with `pvecm nodes` command.

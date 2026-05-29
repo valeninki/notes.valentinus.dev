@@ -1,3 +1,7 @@
+---
+date: 2024-11-28
+aliases: [notes/networking/Using GeoFilter with OPNsense, notes/Using GeoFilter with OPNsense]
+---
 Greetings, today we'll learning how to setup GeoFilter (MaxMind GeoIP) to out OPNsense Firewall.
 
 ---

@@ -1,3 +1,7 @@
+---
+date: 2024-01-29
+aliases: [notes/homelab/Installing Nextcloud in CasaOS with MariaDB, notes/Installing Nextcloud in CasaOS with MariaDB]
+---
 # First Steps
 
 Firstly connect your CasaOS GUI with your favourite browser, then press **Install a customized app**.

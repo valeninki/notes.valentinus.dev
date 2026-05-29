@@ -29,15 +29,9 @@ export default {
       lightMode: "라이트 모드",
       darkMode: "다크 모드",
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
     readerMode: {
       title: "리더 모드",
     },
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     explorer: {
       title: "탐색기",
     },

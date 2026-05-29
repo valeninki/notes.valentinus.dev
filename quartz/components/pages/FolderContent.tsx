@@ -1,6 +1,4 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "../types"
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 import style from "../styles/listPage.scss"
 import { PageList, SortFn } from "../PageList"
@@ -11,46 +9,19 @@ import { QuartzPluginData } from "../../plugins/vfile"
 import { ComponentChildren } from "preact"
 import { concatenateResources } from "../../util/resources"
 import { trieFromAllFiles } from "../../util/ctx"
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-import path from "path"
-
-import style from "../styles/listPage.scss"
-import { PageList, SortFn } from "../PageList"
-import { stripSlashes, simplifySlug } from "../../util/path"
-import { Root } from "hast"
-import { htmlToJsx } from "../../util/jsx"
-import { i18n } from "../../i18n"
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 interface FolderContentOptions {
   /**
    * Whether to display number of folders
    */
   showFolderCount: boolean
-<<<<<<< HEAD
-<<<<<<< HEAD
   showSubfolders: boolean
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   sort?: SortFn
 }
 
 const defaultOptions: FolderContentOptions = {
   showFolderCount: true,
-<<<<<<< HEAD
-<<<<<<< HEAD
   showSubfolders: true,
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }
 
 export default ((opts?: Partial<FolderContentOptions>) => {
@@ -58,8 +29,6 @@ export default ((opts?: Partial<FolderContentOptions>) => {
 
   const FolderContent: QuartzComponent = (props: QuartzComponentProps) => {
     const { tree, fileData, allFiles, cfg } = props
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     const trie = (props.ctx.trie ??= trieFromAllFiles(allFiles))
     const folder = trie.findNode(fileData.slug!.split("/"))
@@ -121,32 +90,12 @@ export default ((opts?: Partial<FolderContentOptions>) => {
         .filter((page) => page !== undefined) ?? []
     const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
     const classes = cssClasses.join(" ")
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-    const folderSlug = stripSlashes(simplifySlug(fileData.slug!))
-    const allPagesInFolder = allFiles.filter((file) => {
-      const fileSlug = stripSlashes(simplifySlug(file.slug!))
-      const prefixed = fileSlug.startsWith(folderSlug) && fileSlug !== folderSlug
-      const folderParts = folderSlug.split(path.posix.sep)
-      const fileParts = fileSlug.split(path.posix.sep)
-      const isDirectChild = fileParts.length === folderParts.length + 1
-      return prefixed && isDirectChild
-    })
-    const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
-    const classes = ["popover-hint", ...cssClasses].join(" ")
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     const listProps = {
       ...props,
       sort: options.sort,
       allFiles: allPagesInFolder,
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     const content = (
       (tree as Root).children.length === 0
         ? fileData.description
@@ -156,21 +105,6 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     return (
       <div class="popover-hint">
         <article class={classes}>{content}</article>
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-    const content =
-      (tree as Root).children.length === 0
-        ? fileData.description
-        : htmlToJsx(fileData.filePath!, tree)
-
-    return (
-      <div class={classes}>
-        <article>{content}</article>
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         <div class="page-listing">
           {options.showFolderCount && (
             <p>
@@ -187,14 +121,6 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     )
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   FolderContent.css = concatenateResources(style, PageList.css)
-=======
-  FolderContent.css = style + PageList.css
->>>>>>> 02f2423 (Initial commit)
-=======
-  FolderContent.css = style + PageList.css
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   return FolderContent
 }) satisfies QuartzComponentConstructor

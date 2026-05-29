@@ -1,25 +1,11 @@
 import { promises } from "fs"
 import path from "path"
 import esbuild from "esbuild"
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { styleText } from "util"
 import { sassPlugin } from "esbuild-sass-plugin"
 import fs from "fs"
 import { intro, outro, select, text } from "@clack/prompts"
 import { rm } from "fs/promises"
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-import chalk from "chalk"
-import { sassPlugin } from "esbuild-sass-plugin"
-import fs from "fs"
-import { intro, outro, select, text } from "@clack/prompts"
-import { rimraf } from "rimraf"
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import chokidar from "chokidar"
 import prettyBytes from "pretty-bytes"
 import { execSync, spawnSync } from "child_process"
@@ -29,13 +15,7 @@ import { WebSocketServer } from "ws"
 import { randomUUID } from "crypto"
 import { Mutex } from "async-mutex"
 import { CreateArgv } from "./args.js"
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { globby } from "globby"
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import {
   exitIfCancel,
   escapePath,
@@ -54,8 +34,6 @@ import {
 } from "./constants.js"
 
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
  * Resolve content directory path
  * @param contentPath path to resolve
  */
@@ -65,48 +43,24 @@ function resolveContentPath(contentPath) {
 }
 
 /**
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
  * Handles `npx quartz create`
  * @param {*} argv arguments for `create`
  */
 export async function handleCreate(argv) {
   console.log()
-<<<<<<< HEAD
-<<<<<<< HEAD
   intro(styleText(["bgGreen", "black"], ` Quartz v${version} `))
   const contentFolder = resolveContentPath(argv.directory)
-=======
-  intro(chalk.bgGreen.black(` Quartz v${version} `))
-  const contentFolder = path.join(cwd, argv.directory)
->>>>>>> 02f2423 (Initial commit)
-=======
-  intro(chalk.bgGreen.black(` Quartz v${version} `))
-  const contentFolder = path.join(cwd, argv.directory)
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   let setupStrategy = argv.strategy?.toLowerCase()
   let linkResolutionStrategy = argv.links?.toLowerCase()
   const sourceDirectory = argv.source
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   // If all cmd arguments were provided, check if they're valid
-=======
-  // If all cmd arguments were provided, check if theyre valid
->>>>>>> 02f2423 (Initial commit)
-=======
-  // If all cmd arguments were provided, check if theyre valid
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   if (setupStrategy && linkResolutionStrategy) {
     // If setup isn't, "new", source argument is required
     if (setupStrategy !== "new") {
       // Error handling
       if (!sourceDirectory) {
         outro(
-<<<<<<< HEAD
-<<<<<<< HEAD
           styleText(
             "red",
             `Setup strategies (arg '${styleText(
@@ -117,19 +71,6 @@ export async function handleCreate(argv) {
               "new",
             )}' require content folder argument ('${styleText(
               "yellow",
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-          chalk.red(
-            `Setup strategies (arg '${chalk.yellow(
-              `-${CreateArgv.strategy.alias[0]}`,
-            )}') other than '${chalk.yellow(
-              "new",
-            )}' require content folder argument ('${chalk.yellow(
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
               `-${CreateArgv.source.alias[0]}`,
             )}') to be set`,
           ),
@@ -138,49 +79,23 @@ export async function handleCreate(argv) {
       } else {
         if (!fs.existsSync(sourceDirectory)) {
           outro(
-<<<<<<< HEAD
-<<<<<<< HEAD
             styleText(
               "red",
               `Input directory to copy/symlink 'content' from not found ('${styleText(
                 "yellow",
                 sourceDirectory,
               )}', invalid argument "${styleText("yellow", `-${CreateArgv.source.alias[0]}`)})`,
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-            chalk.red(
-              `Input directory to copy/symlink 'content' from not found ('${chalk.yellow(
-                sourceDirectory,
-              )}', invalid argument "${chalk.yellow(`-${CreateArgv.source.alias[0]}`)})`,
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
             ),
           )
           process.exit(1)
         } else if (!fs.lstatSync(sourceDirectory).isDirectory()) {
           outro(
-<<<<<<< HEAD
-<<<<<<< HEAD
             styleText(
               "red",
               `Source directory to copy/symlink 'content' from is not a directory (found file at '${styleText(
                 "yellow",
                 sourceDirectory,
               )}', invalid argument ${styleText("yellow", `-${CreateArgv.source.alias[0]}`)}")`,
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-            chalk.red(
-              `Source directory to copy/symlink 'content' from is not a directory (found file at '${chalk.yellow(
-                sourceDirectory,
-              )}', invalid argument ${chalk.yellow(`-${CreateArgv.source.alias[0]}`)}")`,
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
             ),
           )
           process.exit(1)
@@ -212,15 +127,7 @@ export async function handleCreate(argv) {
     if (contentStat.isSymbolicLink()) {
       await fs.promises.unlink(contentFolder)
     } else {
-<<<<<<< HEAD
-<<<<<<< HEAD
       await rm(contentFolder, { recursive: true, force: true })
-=======
-      await rimraf(contentFolder)
->>>>>>> 02f2423 (Initial commit)
-=======
-      await rimraf(contentFolder)
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     }
   }
 
@@ -326,19 +233,11 @@ See the [documentation](https://quartz.jzhao.xyz) for how to get started.
  * @param {*} argv arguments for `build`
  */
 export async function handleBuild(argv) {
-<<<<<<< HEAD
-<<<<<<< HEAD
   if (argv.serve) {
     argv.watch = true
   }
 
   console.log(`\n${styleText(["bgGreen", "black"], ` Quartz v${version} `)} \n`)
-=======
-  console.log(chalk.bgGreen.black(`\n Quartz v${version} \n`))
->>>>>>> 02f2423 (Initial commit)
-=======
-  console.log(chalk.bgGreen.black(`\n Quartz v${version} \n`))
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   const ctx = await esbuild.context({
     entryPoints: [fp],
     outfile: cacheFile,
@@ -359,17 +258,11 @@ export async function handleBuild(argv) {
         type: "css-text",
         cssImports: true,
       }),
-<<<<<<< HEAD
-<<<<<<< HEAD
       sassPlugin({
         filter: /\.inline\.scss$/,
         type: "css",
         cssImports: true,
       }),
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       {
         name: "inline-script-loader",
         setup(build) {
@@ -419,29 +312,13 @@ export async function handleBuild(argv) {
     }
 
     if (cleanupBuild) {
-<<<<<<< HEAD
-<<<<<<< HEAD
       console.log(styleText("yellow", "Detected a source code change, doing a hard rebuild..."))
       await cleanupBuild()
     }
 
     const result = await ctx.rebuild().catch((err) => {
       console.error(`${styleText("red", "Couldn't parse Quartz configuration:")} ${fp}`)
-      console.log(`Reason: ${styleText("grey", err)}`)
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-      await cleanupBuild()
-      console.log(chalk.yellow("Detected a source code change, doing a hard rebuild..."))
-    }
-
-    const result = await ctx.rebuild().catch((err) => {
-      console.error(`${chalk.red("Couldn't parse Quartz configuration:")} ${fp}`)
-      console.log(`Reason: ${chalk.grey(err)}`)
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
+      console.log(`Reason: ${styleText("gray", err)}`)
       process.exit(1)
     })
     release()
@@ -466,22 +343,10 @@ export async function handleBuild(argv) {
     clientRefresh()
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   let clientRefresh = () => {}
   if (argv.serve) {
     const connections = []
     clientRefresh = () => connections.forEach((conn) => conn.send("rebuild"))
-=======
-  if (argv.serve) {
-    const connections = []
-    const clientRefresh = () => connections.forEach((conn) => conn.send("rebuild"))
->>>>>>> 02f2423 (Initial commit)
-=======
-  if (argv.serve) {
-    const connections = []
-    const clientRefresh = () => connections.forEach((conn) => conn.send("rebuild"))
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
     if (argv.baseDir !== "" && !argv.baseDir.startsWith("/")) {
       argv.baseDir = "/" + argv.baseDir
@@ -491,16 +356,8 @@ export async function handleBuild(argv) {
     const server = http.createServer(async (req, res) => {
       if (argv.baseDir && !req.url?.startsWith(argv.baseDir)) {
         console.log(
-<<<<<<< HEAD
-<<<<<<< HEAD
           styleText(
             "red",
-=======
-          chalk.red(
->>>>>>> 02f2423 (Initial commit)
-=======
-          chalk.red(
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
             `[404] ${req.url} (warning: link outside of site, this is likely a Quartz bug)`,
           ),
         )
@@ -522,8 +379,6 @@ export async function handleBuild(argv) {
               source: "**/*.*",
               headers: [{ key: "Content-Disposition", value: "inline" }],
             },
-<<<<<<< HEAD
-<<<<<<< HEAD
             {
               source: "**/*.webp",
               headers: [{ key: "Content-Type", value: "image/webp" }],
@@ -533,28 +388,14 @@ export async function handleBuild(argv) {
               source: "**/*.avif",
               headers: [{ key: "Content-Type", value: "image/avif" }],
             },
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
           ],
         })
         const status = res.statusCode
         const statusString =
-<<<<<<< HEAD
-<<<<<<< HEAD
           status >= 200 && status < 300
             ? styleText("green", `[${status}]`)
             : styleText("red", `[${status}]`)
-        console.log(statusString + styleText("grey", ` ${argv.baseDir}${req.url}`))
-=======
-          status >= 200 && status < 300 ? chalk.green(`[${status}]`) : chalk.red(`[${status}]`)
-        console.log(statusString + chalk.grey(` ${argv.baseDir}${req.url}`))
->>>>>>> 02f2423 (Initial commit)
-=======
-          status >= 200 && status < 300 ? chalk.green(`[${status}]`) : chalk.red(`[${status}]`)
-        console.log(statusString + chalk.grey(` ${argv.baseDir}${req.url}`))
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
+        console.log(statusString + styleText("gray", ` ${argv.baseDir}${req.url}`))
         release()
       }
 
@@ -563,18 +404,10 @@ export async function handleBuild(argv) {
         res.writeHead(302, {
           Location: newFp,
         })
-<<<<<<< HEAD
-<<<<<<< HEAD
         console.log(
           styleText("yellow", "[302]") +
-            styleText("grey", ` ${argv.baseDir}${req.url} -> ${newFp}`),
+            styleText("gray", ` ${argv.baseDir}${req.url} -> ${newFp}`),
         )
-=======
-        console.log(chalk.yellow("[302]") + chalk.grey(` ${argv.baseDir}${req.url} -> ${newFp}`))
->>>>>>> 02f2423 (Initial commit)
-=======
-        console.log(chalk.yellow("[302]") + chalk.grey(` ${argv.baseDir}${req.url} -> ${newFp}`))
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         res.end()
       }
 
@@ -619,19 +452,11 @@ export async function handleBuild(argv) {
 
       return serve()
     })
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     server.listen(argv.port)
     const wss = new WebSocketServer({ port: argv.wsPort })
     wss.on("connection", (ws) => connections.push(ws))
     console.log(
-<<<<<<< HEAD
-<<<<<<< HEAD
       styleText(
         "cyan",
         `Started a Quartz server listening at http://localhost:${argv.port}${argv.baseDir}`,
@@ -657,29 +482,7 @@ export async function handleBuild(argv) {
       .on("change", () => build(clientRefresh))
       .on("unlink", () => build(clientRefresh))
 
-    console.log(styleText("grey", "hint: exit with ctrl+c"))
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-      chalk.cyan(
-        `Started a Quartz server listening at http://localhost:${argv.port}${argv.baseDir}`,
-      ),
-    )
-    console.log("hint: exit with ctrl+c")
-    chokidar
-      .watch(["**/*.ts", "**/*.tsx", "**/*.scss", "package.json"], {
-        ignoreInitial: true,
-      })
-      .on("all", async () => {
-        build(clientRefresh)
-      })
-  } else {
-    await build(() => {})
-    ctx.dispose()
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
+    console.log(styleText("gray", "hint: exit with ctrl+c"))
   }
 }
 
@@ -688,18 +491,8 @@ export async function handleBuild(argv) {
  * @param {*} argv arguments for `update`
  */
 export async function handleUpdate(argv) {
-<<<<<<< HEAD
-<<<<<<< HEAD
   const contentFolder = resolveContentPath(argv.directory)
   console.log(`\n${styleText(["bgGreen", "black"], ` Quartz v${version} `)} \n`)
-=======
-  const contentFolder = path.join(cwd, argv.directory)
-  console.log(chalk.bgGreen.black(`\n Quartz v${version} \n`))
->>>>>>> 02f2423 (Initial commit)
-=======
-  const contentFolder = path.join(cwd, argv.directory)
-  console.log(chalk.bgGreen.black(`\n Quartz v${version} \n`))
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   console.log("Backing up your content")
   execSync(
     `git remote show upstream || git remote add upstream https://github.com/jackyzha0/quartz.git`,
@@ -712,23 +505,13 @@ export async function handleUpdate(argv) {
   try {
     gitPull(UPSTREAM_NAME, QUARTZ_SOURCE_BRANCH)
   } catch {
-<<<<<<< HEAD
-<<<<<<< HEAD
     console.log(styleText("red", "An error occurred above while pulling updates."))
-=======
-    console.log(chalk.red("An error occurred above while pulling updates."))
->>>>>>> 02f2423 (Initial commit)
-=======
-    console.log(chalk.red("An error occurred above while pulling updates."))
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     await popContentFolder(contentFolder)
     return
   }
 
   await popContentFolder(contentFolder)
   console.log("Ensuring dependencies are up to date")
-<<<<<<< HEAD
-<<<<<<< HEAD
 
   /*
   On Windows, if the command `npm` is really `npm.cmd', this call fails
@@ -752,18 +535,6 @@ export async function handleUpdate(argv) {
     console.log(styleText("green", "Done!"))
   } else {
     console.log(styleText("red", "An error occurred above while installing dependencies."))
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-  const res = spawnSync("npm", ["i"], { stdio: "inherit" })
-  if (res.status === 0) {
-    console.log(chalk.green("Done!"))
-  } else {
-    console.log(chalk.red("An error occurred above while installing dependencies."))
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 }
 
@@ -772,15 +543,7 @@ export async function handleUpdate(argv) {
  * @param {*} argv arguments for `restore`
  */
 export async function handleRestore(argv) {
-<<<<<<< HEAD
-<<<<<<< HEAD
   const contentFolder = resolveContentPath(argv.directory)
-=======
-  const contentFolder = path.join(cwd, argv.directory)
->>>>>>> 02f2423 (Initial commit)
-=======
-  const contentFolder = path.join(cwd, argv.directory)
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   await popContentFolder(contentFolder)
 }
 
@@ -789,33 +552,15 @@ export async function handleRestore(argv) {
  * @param {*} argv arguments for `sync`
  */
 export async function handleSync(argv) {
-<<<<<<< HEAD
-<<<<<<< HEAD
   const contentFolder = resolveContentPath(argv.directory)
   console.log(`\n${styleText(["bgGreen", "black"], ` Quartz v${version} `)}\n`)
-=======
-  const contentFolder = path.join(cwd, argv.directory)
-  console.log(chalk.bgGreen.black(`\n Quartz v${version} \n`))
->>>>>>> 02f2423 (Initial commit)
-=======
-  const contentFolder = path.join(cwd, argv.directory)
-  console.log(chalk.bgGreen.black(`\n Quartz v${version} \n`))
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   console.log("Backing up your content")
 
   if (argv.commit) {
     const contentStat = await fs.promises.lstat(contentFolder)
     if (contentStat.isSymbolicLink()) {
       const linkTarg = await fs.promises.readlink(contentFolder)
-<<<<<<< HEAD
-<<<<<<< HEAD
       console.log(styleText("yellow", "Detected symlink, trying to dereference before committing"))
-=======
-      console.log(chalk.yellow("Detected symlink, trying to dereference before committing"))
->>>>>>> 02f2423 (Initial commit)
-=======
-      console.log(chalk.yellow("Detected symlink, trying to dereference before committing"))
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
       // stash symlink file
       await stashContentFolder(contentFolder)
@@ -850,15 +595,7 @@ export async function handleSync(argv) {
     try {
       gitPull(ORIGIN_NAME, QUARTZ_SOURCE_BRANCH)
     } catch {
-<<<<<<< HEAD
-<<<<<<< HEAD
       console.log(styleText("red", "An error occurred above while pulling updates."))
-=======
-      console.log(chalk.red("An error occurred above while pulling updates."))
->>>>>>> 02f2423 (Initial commit)
-=======
-      console.log(chalk.red("An error occurred above while pulling updates."))
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       await popContentFolder(contentFolder)
       return
     }
@@ -867,8 +604,6 @@ export async function handleSync(argv) {
   await popContentFolder(contentFolder)
   if (argv.push) {
     console.log("Pushing your changes")
-<<<<<<< HEAD
-<<<<<<< HEAD
     const currentBranch = execSync("git rev-parse --abbrev-ref HEAD").toString().trim()
     const res = spawnSync("git", ["push", "-uf", ORIGIN_NAME, currentBranch], {
       stdio: "inherit",
@@ -877,29 +612,9 @@ export async function handleSync(argv) {
       console.log(
         styleText("red", `An error occurred above while pushing to remote ${ORIGIN_NAME}.`),
       )
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-    const res = spawnSync("git", ["push", "-uf", ORIGIN_NAME, QUARTZ_SOURCE_BRANCH], {
-      stdio: "inherit",
-    })
-    if (res.status !== 0) {
-      console.log(chalk.red(`An error occurred above while pushing to remote ${ORIGIN_NAME}.`))
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       return
     }
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   console.log(styleText("green", "Done!"))
-=======
-  console.log(chalk.green("Done!"))
->>>>>>> 02f2423 (Initial commit)
-=======
-  console.log(chalk.green("Done!"))
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 }

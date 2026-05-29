@@ -1,35 +1,10 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
-/**
-<<<<<<< HEAD
-<<<<<<< HEAD
- * Quartz 4 Configuration
-=======
- * Quartz 4.0 Configuration
->>>>>>> 02f2423 (Initial commit)
-=======
- * Quartz 4.0 Configuration
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
- *
- * See https://quartz.jzhao.xyz/configuration for more information.
- */
 const config: QuartzConfig = {
   configuration: {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    pageTitle: "Quartz 4",
+    pageTitle: "Kerem's Notes",
     pageTitleSuffix: "",
-=======
-    pageTitle: "🪴 Quartz 4.0",
->>>>>>> 02f2423 (Initial commit)
-=======
-    pageTitle: "Kerem's Notes",
->>>>>>> a5382d1 (First run)
-=======
-    pageTitle: "Kerem's Notes",
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     enableSPA: true,
     enablePopovers: true,
     analytics: {
@@ -38,45 +13,37 @@ const config: QuartzConfig = {
     locale: "en-US",
     baseUrl: "notes.valentinus.dev",
     ignorePatterns: ["private", "templates", ".obsidian"],
-<<<<<<< HEAD
-<<<<<<< HEAD
-    defaultDateType: "modified",
-=======
     defaultDateType: "created",
->>>>>>> 02f2423 (Initial commit)
-=======
-    defaultDateType: "created",
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
+        header: "Inter",
+        body: "Inter",
         code: "IBM Plex Mono",
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#fff23688",
+          light: "#faf8f6",
+          lightgray: "#e6e4df",
+          gray: "#8f8d88",
+          darkgray: "#3d3b38",
+          dark: "#1c1b18",
+          secondary: "#3a7d4f",
+          tertiary: "#5c9e71",
+          highlight: "rgba(58, 125, 79, 0.10)",
+          textHighlight: "#d4e6d8",
         },
         darkMode: {
-          light: "#121212",
-          lightgray: "#2c2c2c",
-          gray: "#d6b460",
-          darkgray: "#9b7n28",
-          dark: "#e7d3a2",
-          secondary: "#d4b158",
-          tertiary: "#d4b25a",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#b3aa0288",
+          light: "#141714",
+          lightgray: "#242724",
+          gray: "#7a7975",
+          darkgray: "#cccbc7",
+          dark: "#e5e3de",
+          secondary: "#5c9e71",
+          tertiary: "#7db892",
+          highlight: "rgba(92, 158, 113, 0.15)",
+          textHighlight: "#2d4d39",
         },
       },
     },
@@ -85,15 +52,7 @@ const config: QuartzConfig = {
     transformers: [
       Plugin.FrontMatter(),
       Plugin.CreatedModifiedDate({
-<<<<<<< HEAD
-<<<<<<< HEAD
         priority: ["frontmatter", "git", "filesystem"],
-=======
-        priority: ["frontmatter", "filesystem"],
->>>>>>> 02f2423 (Initial commit)
-=======
-        priority: ["frontmatter", "filesystem"],
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       }),
       Plugin.SyntaxHighlighting({
         theme: {
@@ -122,18 +81,9 @@ const config: QuartzConfig = {
       }),
       Plugin.Assets(),
       Plugin.Static(),
-<<<<<<< HEAD
-<<<<<<< HEAD
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
-      // Comment out CustomOgImages to speed up build time
       Plugin.CustomOgImages(),
-=======
-      Plugin.NotFoundPage(),
->>>>>>> 02f2423 (Initial commit)
-=======
-      Plugin.NotFoundPage(),
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     ],
   },
 }

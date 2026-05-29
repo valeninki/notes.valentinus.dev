@@ -1,27 +1,13 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "../types"
 import style from "../styles/listPage.scss"
 import { PageList, SortFn } from "../PageList"
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { FullSlug, getAllSegmentPrefixes, resolveRelative, simplifySlug } from "../../util/path"
-=======
-import { FullSlug, getAllSegmentPrefixes, simplifySlug } from "../../util/path"
->>>>>>> 02f2423 (Initial commit)
-=======
-import { FullSlug, getAllSegmentPrefixes, simplifySlug } from "../../util/path"
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { QuartzPluginData } from "../../plugins/vfile"
 import { Root } from "hast"
 import { htmlToJsx } from "../../util/jsx"
 import { i18n } from "../../i18n"
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { ComponentChildren } from "preact"
 import { concatenateResources } from "../../util/resources"
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 interface TagContentOptions {
   sort?: SortFn
@@ -49,8 +35,6 @@ export default ((opts?: Partial<TagContentOptions>) => {
         (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes).includes(tag),
       )
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     const content = (
       (tree as Root).children.length === 0
         ? fileData.description
@@ -58,19 +42,6 @@ export default ((opts?: Partial<TagContentOptions>) => {
     ) as ComponentChildren
     const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
     const classes = cssClasses.join(" ")
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-    const content =
-      (tree as Root).children.length === 0
-        ? fileData.description
-        : htmlToJsx(fileData.filePath!, tree)
-    const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
-    const classes = ["popover-hint", ...cssClasses].join(" ")
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     if (tag === "/") {
       const tags = [
         ...new Set(
@@ -82,18 +53,8 @@ export default ((opts?: Partial<TagContentOptions>) => {
         tagItemMap.set(tag, allPagesWithTag(tag))
       }
       return (
-<<<<<<< HEAD
-<<<<<<< HEAD
         <div class="popover-hint">
           <article class={classes}>
-=======
-        <div class={classes}>
-          <article>
->>>>>>> 02f2423 (Initial commit)
-=======
-        <div class={classes}>
-          <article>
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
             <p>{content}</p>
           </article>
           <p>{i18n(cfg.locale).pages.tagContent.totalTags({ count: tags.length })}</p>
@@ -113,8 +74,6 @@ export default ((opts?: Partial<TagContentOptions>) => {
                   ? contentPage?.description
                   : htmlToJsx(contentPage.filePath!, root)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
               const tagListingPage = `/tags/${tag}` as FullSlug
               const href = resolveRelative(fileData.slug!, tagListingPage)
 
@@ -122,17 +81,6 @@ export default ((opts?: Partial<TagContentOptions>) => {
                 <div>
                   <h2>
                     <a class="internal tag-link" href={href}>
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-              return (
-                <div>
-                  <h2>
-                    <a class="internal tag-link" href={`../tags/${tag}`}>
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
                       {tag}
                     </a>
                   </h2>
@@ -151,15 +99,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
                         </>
                       )}
                     </p>
-<<<<<<< HEAD
-<<<<<<< HEAD
                     <PageList limit={options.numPages} {...listProps} sort={options?.sort} />
-=======
-                    <PageList limit={options.numPages} {...listProps} sort={opts?.sort} />
->>>>>>> 02f2423 (Initial commit)
-=======
-                    <PageList limit={options.numPages} {...listProps} sort={opts?.sort} />
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
                   </div>
                 </div>
               )
@@ -175,27 +115,12 @@ export default ((opts?: Partial<TagContentOptions>) => {
       }
 
       return (
-<<<<<<< HEAD
-<<<<<<< HEAD
         <div class="popover-hint">
           <article class={classes}>{content}</article>
           <div class="page-listing">
             <p>{i18n(cfg.locale).pages.tagContent.itemsUnderTag({ count: pages.length })}</p>
             <div>
               <PageList {...listProps} sort={options?.sort} />
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-        <div class={classes}>
-          <article>{content}</article>
-          <div class="page-listing">
-            <p>{i18n(cfg.locale).pages.tagContent.itemsUnderTag({ count: pages.length })}</p>
-            <div>
-              <PageList {...listProps} />
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
             </div>
           </div>
         </div>
@@ -203,14 +128,6 @@ export default ((opts?: Partial<TagContentOptions>) => {
     }
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   TagContent.css = concatenateResources(style, PageList.css)
-=======
-  TagContent.css = style + PageList.css
->>>>>>> 02f2423 (Initial commit)
-=======
-  TagContent.css = style + PageList.css
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   return TagContent
 }) satisfies QuartzComponentConstructor

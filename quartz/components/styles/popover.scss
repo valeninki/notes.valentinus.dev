@@ -16,24 +16,12 @@
 
 .popover {
   z-index: 999;
-<<<<<<< HEAD
-<<<<<<< HEAD
   position: fixed;
   overflow: visible;
   padding: 1rem;
   left: 0;
   top: 0;
   will-change: transform;
-=======
-  position: absolute;
-  overflow: visible;
-  padding: 1rem;
->>>>>>> 02f2423 (Initial commit)
-=======
-  position: absolute;
-  overflow: visible;
-  padding: 1rem;
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
   & > .popover-inner {
     position: relative;
@@ -50,18 +38,10 @@
     border-radius: 5px;
     box-shadow: 6px 6px 36px 0 rgba(0, 0, 0, 0.25);
     overflow: auto;
-<<<<<<< HEAD
-<<<<<<< HEAD
     overscroll-behavior: contain;
     white-space: normal;
     user-select: none;
     cursor: default;
-=======
-    white-space: normal;
->>>>>>> 02f2423 (Initial commit)
-=======
-    white-space: normal;
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 
   & > .popover-inner[data-content-type] {
@@ -96,28 +76,12 @@
     opacity 0.3s ease,
     visibility 0.3s ease;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   @media all and ($mobile) {
-=======
-  @media all and (max-width: $mobileBreakpoint) {
->>>>>>> 02f2423 (Initial commit)
-=======
-  @media all and (max-width: $mobileBreakpoint) {
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     display: none !important;
   }
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .active-popover,
-=======
-a:hover .popover,
->>>>>>> 02f2423 (Initial commit)
-=======
-a:hover .popover,
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 .popover:hover {
   animation: dropin 0.3s ease;
   animation-fill-mode: forwards;

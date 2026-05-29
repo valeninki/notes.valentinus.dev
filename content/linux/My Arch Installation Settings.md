@@ -1,3 +1,7 @@
+---
+date: 2025-01-18
+aliases: [notes/linux/My Arch Installation Settings, notes/My Arch Installation Settings]
+---
 ## Set a password and start ssh daemon
 
 **Set password**

@@ -1,3 +1,7 @@
+---
+date: 2025-01-18
+aliases: [notes/linux/Using systemd-boot on Debian, notes/Using systemd-boot on Debian]
+---
 ```bash
 # Everything in this tutorial should be done as root:
 sudo -i

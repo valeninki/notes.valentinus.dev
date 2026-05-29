@@ -1,4 +1,6 @@
 import { QuartzTransformerPlugin } from "../types"
+import rehypeRaw from "rehype-raw"
+import { PluggableList } from "unified"
 
 export interface Options {
   /** Replace {{ relref }} with quartz wikilinks []() */
@@ -54,15 +56,7 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> 
     textTransform(_ctx, src) {
       if (opts.wikilinks) {
         src = src.toString()
-<<<<<<< HEAD
-<<<<<<< HEAD
         src = src.replaceAll(relrefRegex, (_value, ...capture) => {
-=======
-        src = src.replaceAll(relrefRegex, (value, ...capture) => {
->>>>>>> 02f2423 (Initial commit)
-=======
-        src = src.replaceAll(relrefRegex, (value, ...capture) => {
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
           const [text, link] = capture
           return `[${text}](${link})`
         })
@@ -70,15 +64,7 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> 
 
       if (opts.removePredefinedAnchor) {
         src = src.toString()
-<<<<<<< HEAD
-<<<<<<< HEAD
         src = src.replaceAll(predefinedHeadingIdRegex, (_value, ...capture) => {
-=======
-        src = src.replaceAll(predefinedHeadingIdRegex, (value, ...capture) => {
->>>>>>> 02f2423 (Initial commit)
-=======
-        src = src.replaceAll(predefinedHeadingIdRegex, (value, ...capture) => {
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
           const [headingText] = capture
           return headingText
         })
@@ -86,15 +72,7 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> 
 
       if (opts.removeHugoShortcode) {
         src = src.toString()
-<<<<<<< HEAD
-<<<<<<< HEAD
         src = src.replaceAll(hugoShortcodeRegex, (_value, ...capture) => {
-=======
-        src = src.replaceAll(hugoShortcodeRegex, (value, ...capture) => {
->>>>>>> 02f2423 (Initial commit)
-=======
-        src = src.replaceAll(hugoShortcodeRegex, (value, ...capture) => {
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
           const [scContent] = capture
           return scContent
         })
@@ -102,15 +80,7 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> 
 
       if (opts.replaceFigureWithMdImg) {
         src = src.toString()
-<<<<<<< HEAD
-<<<<<<< HEAD
         src = src.replaceAll(figureTagRegex, (_value, ...capture) => {
-=======
-        src = src.replaceAll(figureTagRegex, (value, ...capture) => {
->>>>>>> 02f2423 (Initial commit)
-=======
-        src = src.replaceAll(figureTagRegex, (value, ...capture) => {
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
           const [src] = capture
           return `![](${src})`
         })
@@ -118,25 +88,11 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> 
 
       if (opts.replaceOrgLatex) {
         src = src.toString()
-<<<<<<< HEAD
-<<<<<<< HEAD
         src = src.replaceAll(inlineLatexRegex, (_value, ...capture) => {
           const [eqn] = capture
           return `$${eqn}$`
         })
         src = src.replaceAll(blockLatexRegex, (_value, ...capture) => {
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-        src = src.replaceAll(inlineLatexRegex, (value, ...capture) => {
-          const [eqn] = capture
-          return `$${eqn}$`
-        })
-        src = src.replaceAll(blockLatexRegex, (value, ...capture) => {
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
           const [eqn] = capture
           return `$$${eqn}$$`
         })
@@ -147,6 +103,10 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> 
         })
       }
       return src
+    },
+    htmlPlugins() {
+      const plugins: PluggableList = [rehypeRaw]
+      return plugins
     },
   }
 }

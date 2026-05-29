@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { FullSlug, joinSegments } from "../../util/path"
-=======
-import { FilePath, FullSlug, joinSegments } from "../../util/path"
->>>>>>> 02f2423 (Initial commit)
-=======
-import { FilePath, FullSlug, joinSegments } from "../../util/path"
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { QuartzEmitterPlugin } from "../types"
 
 // @ts-ignore
@@ -17,8 +9,6 @@ import styles from "../../styles/custom.scss"
 import popoverStyle from "../../components/styles/popover.scss"
 import { BuildCtx } from "../../util/ctx"
 import { QuartzComponent } from "../../components/types"
-<<<<<<< HEAD
-<<<<<<< HEAD
 import {
   googleFontHref,
   googleFontSubsetHref,
@@ -28,18 +18,6 @@ import {
 import { Features, transform } from "lightningcss"
 import { transform as transpile } from "esbuild"
 import { write } from "./helpers"
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-import { googleFontHref, joinStyles } from "../../util/theme"
-import { Features, transform } from "lightningcss"
-import { transform as transpile } from "esbuild"
-import { write } from "./helpers"
-import DepGraph from "../../depgraph"
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 
 type ComponentResources = {
   css: string[]
@@ -50,15 +28,7 @@ type ComponentResources = {
 function getComponentResources(ctx: BuildCtx): ComponentResources {
   const allComponents: Set<QuartzComponent> = new Set()
   for (const emitter of ctx.cfg.plugins.emitters) {
-<<<<<<< HEAD
-<<<<<<< HEAD
     const components = emitter.getQuartzComponents?.(ctx) ?? []
-=======
-    const components = emitter.getQuartzComponents(ctx)
->>>>>>> 02f2423 (Initial commit)
-=======
-    const components = emitter.getQuartzComponents(ctx)
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     for (const component of components) {
       allComponents.add(component)
     }
@@ -70,8 +40,6 @@ function getComponentResources(ctx: BuildCtx): ComponentResources {
     afterDOMLoaded: new Set<string>(),
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   function normalizeResource(resource: string | string[] | undefined): string[] {
     if (!resource) return []
     if (Array.isArray(resource)) return resource
@@ -87,24 +55,6 @@ function getComponentResources(ctx: BuildCtx): ComponentResources {
     normalizedCss.forEach((c) => componentResources.css.add(c))
     normalizedBeforeDOMLoaded.forEach((b) => componentResources.beforeDOMLoaded.add(b))
     normalizedAfterDOMLoaded.forEach((a) => componentResources.afterDOMLoaded.add(a))
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-  for (const component of allComponents) {
-    const { css, beforeDOMLoaded, afterDOMLoaded } = component
-    if (css) {
-      componentResources.css.add(css)
-    }
-    if (beforeDOMLoaded) {
-      componentResources.beforeDOMLoaded.add(beforeDOMLoaded)
-    }
-    if (afterDOMLoaded) {
-      componentResources.afterDOMLoaded.add(afterDOMLoaded)
-    }
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 
   return {
@@ -138,8 +88,6 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
   if (cfg.analytics?.provider === "google") {
     const tagId = cfg.analytics.tagId
     componentResources.afterDOMLoaded.push(`
-<<<<<<< HEAD
-<<<<<<< HEAD
       const gtagScript = document.createElement('script');
       gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=${tagId}';
       gtagScript.defer = true;
@@ -221,74 +169,10 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
       })\`
 
       document.head.appendChild(posthogScript);
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-      const gtagScript = document.createElement("script")
-      gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=${tagId}"
-      gtagScript.async = true
-      document.head.appendChild(gtagScript)
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag("js", new Date());
-      gtag("config", "${tagId}", { send_page_view: false });
-
-      document.addEventListener("nav", () => {
-        gtag("event", "page_view", {
-          page_title: document.title,
-          page_location: location.href,
-        });
-      });`)
-  } else if (cfg.analytics?.provider === "plausible") {
-    const plausibleHost = cfg.analytics.host ?? "https://plausible.io"
-    componentResources.afterDOMLoaded.push(`
-      const plausibleScript = document.createElement("script")
-      plausibleScript.src = "${plausibleHost}/js/script.manual.js"
-      plausibleScript.setAttribute("data-domain", location.hostname)
-      plausibleScript.defer = true
-      document.head.appendChild(plausibleScript)
-
-      window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
-
-      document.addEventListener("nav", () => {
-        plausible("pageview")
-      })
-    `)
-  } else if (cfg.analytics?.provider === "umami") {
-    componentResources.afterDOMLoaded.push(`
-      const umamiScript = document.createElement("script")
-      umamiScript.src = "${cfg.analytics.host ?? "https://analytics.umami.is"}/script.js"
-      umamiScript.setAttribute("data-website-id", "${cfg.analytics.websiteId}")
-      umamiScript.async = true
-
-      document.head.appendChild(umamiScript)
-    `)
-  } else if (cfg.analytics?.provider === "goatcounter") {
-    componentResources.afterDOMLoaded.push(`
-      const goatcounterScript = document.createElement("script")
-      goatcounterScript.src = "${cfg.analytics.scriptSrc ?? "https://gc.zgo.at/count.js"}"
-      goatcounterScript.async = true
-      goatcounterScript.setAttribute("data-goatcounter",
-        "https://${cfg.analytics.websiteId}.${cfg.analytics.host ?? "goatcounter.com"}/count")
-      document.head.appendChild(goatcounterScript)
-    `)
-  } else if (cfg.analytics?.provider === "posthog") {
-    componentResources.afterDOMLoaded.push(`
-      const posthogScript = document.createElement("script")
-      posthogScript.innerHTML= \`!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-      posthog.init('${cfg.analytics.apiKey}',{api_host:'${cfg.analytics.host ?? "https://app.posthog.com"}'})\`
-      document.head.appendChild(posthogScript)
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     `)
   } else if (cfg.analytics?.provider === "tinylytics") {
     const siteId = cfg.analytics.siteId
     componentResources.afterDOMLoaded.push(`
-<<<<<<< HEAD
-<<<<<<< HEAD
       const tinylyticsScript = document.createElement('script');
       tinylyticsScript.src = 'https://tinylytics.app/embed/${siteId}.js?spa';
       tinylyticsScript.defer = true;
@@ -300,23 +184,10 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
       };
       
       document.head.appendChild(tinylyticsScript);
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-      const tinylyticsScript = document.createElement("script")
-      tinylyticsScript.src = "https://tinylytics.app/embed/${siteId}.js"
-      tinylyticsScript.defer = true
-      document.head.appendChild(tinylyticsScript)
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     `)
   } else if (cfg.analytics?.provider === "cabin") {
     componentResources.afterDOMLoaded.push(`
       const cabinScript = document.createElement("script")
-<<<<<<< HEAD
-<<<<<<< HEAD
       cabinScript.src = "${cfg.analytics.host ?? "https://scripts.withcabin.com"}/hello.js"
       cabinScript.defer = true
       document.head.appendChild(cabinScript)
@@ -370,18 +241,16 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
       vercelInsightsScript.defer = true
       document.head.appendChild(vercelInsightsScript)
     `)
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-      cabinScript.src = "${cfg.analytics.host ?? "https://scripts.cabin.dev"}/cabin.js"
-      cabinScript.defer = true
-      cabinScript.async = true
-      document.head.appendChild(cabinScript)
+  } else if (cfg.analytics?.provider === "rybbit") {
+    componentResources.afterDOMLoaded.push(`
+      const rybbitScript = document.createElement("script");
+      rybbitScript.src = "${cfg.analytics.host ?? "https://app.rybbit.io"}/api/script.js";
+      rybbitScript.setAttribute("data-site-id", "${cfg.analytics.siteId}");
+      rybbitScript.async = true;
+      rybbitScript.defer = true;
+
+      document.head.appendChild(rybbitScript);
     `)
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 
   if (cfg.enableSPA) {
@@ -401,24 +270,7 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
 export const ComponentResources: QuartzEmitterPlugin = () => {
   return {
     name: "ComponentResources",
-<<<<<<< HEAD
-<<<<<<< HEAD
     async *emit(ctx, _content, _resources) {
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-    getQuartzComponents() {
-      return []
-    },
-    async getDependencyGraph(_ctx, _content, _resources) {
-      return new DepGraph<FilePath>()
-    },
-    async emit(ctx, _content, _resources): Promise<FilePath[]> {
-      const promises: Promise<FilePath>[] = []
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       const cfg = ctx.cfg.configuration
       // component specific scripts and styles
       const componentResources = getComponentResources(ctx)
@@ -427,8 +279,6 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
         // let the user do it themselves in css
       } else if (cfg.theme.fontOrigin === "googleFonts" && !cfg.theme.cdnCaching) {
         // when cdnCaching is true, we link to google fonts in Head.tsx
-<<<<<<< HEAD
-<<<<<<< HEAD
         const theme = ctx.cfg.configuration.theme
         const response = await fetch(googleFontHref(theme))
         googleFontsStyleSheet = await response.text()
@@ -465,49 +315,6 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
             ext: `.${fontFile.extension}`,
             content: Buffer.from(buf),
           })
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-        let match
-
-        const fontSourceRegex = /url\((https:\/\/fonts.gstatic.com\/s\/[^)]+\.(woff2|ttf))\)/g
-
-        googleFontsStyleSheet = await (
-          await fetch(googleFontHref(ctx.cfg.configuration.theme))
-        ).text()
-
-        while ((match = fontSourceRegex.exec(googleFontsStyleSheet)) !== null) {
-          // match[0] is the `url(path)`, match[1] is the `path`
-          const url = match[1]
-          // the static name of this file.
-          const [filename, ext] = url.split("/").pop()!.split(".")
-
-          googleFontsStyleSheet = googleFontsStyleSheet.replace(
-            url,
-            `https://${cfg.baseUrl}/static/fonts/${filename}.ttf`,
-          )
-
-          promises.push(
-            fetch(url)
-              .then((res) => {
-                if (!res.ok) {
-                  throw new Error(`Failed to fetch font`)
-                }
-                return res.arrayBuffer()
-              })
-              .then((buf) =>
-                write({
-                  ctx,
-                  slug: joinSegments("static", "fonts", filename) as FullSlug,
-                  ext: `.${ext}`,
-                  content: Buffer.from(buf),
-                }),
-              ),
-          )
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
         }
       }
 
@@ -522,20 +329,12 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
         ...componentResources.css,
         styles,
       )
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
       const [prescript, postscript] = await Promise.all([
         joinScripts(componentResources.beforeDOMLoaded),
         joinScripts(componentResources.afterDOMLoaded),
       ])
 
-<<<<<<< HEAD
-<<<<<<< HEAD
       yield write({
         ctx,
         slug: "index" as FullSlug,
@@ -570,47 +369,5 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
       })
     },
     async *partialEmit() {},
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-      promises.push(
-        write({
-          ctx,
-          slug: "index" as FullSlug,
-          ext: ".css",
-          content: transform({
-            filename: "index.css",
-            code: Buffer.from(stylesheet),
-            minify: true,
-            targets: {
-              safari: (15 << 16) | (6 << 8), // 15.6
-              ios_saf: (15 << 16) | (6 << 8), // 15.6
-              edge: 115 << 16,
-              firefox: 102 << 16,
-              chrome: 109 << 16,
-            },
-            include: Features.MediaQueries,
-          }).code.toString(),
-        }),
-        write({
-          ctx,
-          slug: "prescript" as FullSlug,
-          ext: ".js",
-          content: prescript,
-        }),
-        write({
-          ctx,
-          slug: "postscript" as FullSlug,
-          ext: ".js",
-          content: postscript,
-        }),
-      )
-
-      return await Promise.all(promises)
-    },
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   }
 }

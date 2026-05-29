@@ -71,23 +71,10 @@ export const BuildArgv = {
     default: false,
     describe: "run a local server to live-preview your Quartz",
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
   watch: {
     boolean: true,
     default: false,
     describe: "watch for changes and rebuild automatically",
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-  fastRebuild: {
-    boolean: true,
-    default: false,
-    describe: "[experimental] rebuild only the changed files",
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   },
   baseDir: {
     string: true,

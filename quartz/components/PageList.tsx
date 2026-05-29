@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { FullSlug, isFolderPath, resolveRelative } from "../util/path"
-=======
-import { FullSlug, resolveRelative } from "../util/path"
->>>>>>> 02f2423 (Initial commit)
-=======
-import { FullSlug, resolveRelative } from "../util/path"
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
 import { QuartzPluginData } from "../plugins/vfile"
 import { Date, getDate } from "./Date"
 import { QuartzComponent, QuartzComponentProps } from "./types"
@@ -16,8 +8,6 @@ export type SortFn = (f1: QuartzPluginData, f2: QuartzPluginData) => number
 
 export function byDateAndAlphabetical(cfg: GlobalConfiguration): SortFn {
   return (f1, f2) => {
-<<<<<<< HEAD
-<<<<<<< HEAD
     // Sort by date/alphabetical
     if (f1.dates && f2.dates) {
       // sort descending
@@ -45,10 +35,6 @@ export function byDateAndAlphabeticalFolderFirst(cfg: GlobalConfiguration): Sort
     if (!f1IsFolder && f2IsFolder) return 1
 
     // If both are folders or both are files, sort by date/alphabetical
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     if (f1.dates && f2.dates) {
       // sort descending
       return getDate(cfg, f2)!.getTime() - getDate(cfg, f1)!.getTime()
@@ -72,15 +58,7 @@ type Props = {
 } & QuartzComponentProps
 
 export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort }: Props) => {
-<<<<<<< HEAD
-<<<<<<< HEAD
   const sorter = sort ?? byDateAndAlphabeticalFolderFirst(cfg)
-=======
-  const sorter = sort ?? byDateAndAlphabetical(cfg)
->>>>>>> 02f2423 (Initial commit)
-=======
-  const sorter = sort ?? byDateAndAlphabetical(cfg)
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   let list = allFiles.sort(sorter)
   if (limit) {
     list = list.slice(0, limit)
@@ -95,25 +73,9 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
         return (
           <li class="section-li">
             <div class="section">
-<<<<<<< HEAD
-<<<<<<< HEAD
               <p class="meta">
                 {page.dates && <Date date={getDate(cfg, page)!} locale={cfg.locale} />}
               </p>
-=======
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
-              <div>
-                {page.dates && (
-                  <p class="meta">
-                    <Date date={getDate(cfg, page)!} locale={cfg.locale} />
-                  </p>
-                )}
-              </div>
-<<<<<<< HEAD
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
               <div class="desc">
                 <h3>
                   <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">

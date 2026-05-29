@@ -1,3 +1,7 @@
+---
+date: 2024-12-25
+aliases: [notes/security/System Hardening, notes/System Hardening]
+---
 Greetings, in this article I will list and explain as best I can some of the things that can make it difficult to connect to Home and Server systems from the outside. Have a good read.
 
 # 1) Locking Root Account

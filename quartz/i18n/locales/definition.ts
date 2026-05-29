@@ -21,13 +21,7 @@ export interface Translation {
     title: string
     description: string
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
   direction?: "ltr" | "rtl"
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
   components: {
     callout: CalloutTranslation
     backlinks: {
@@ -38,15 +32,9 @@ export interface Translation {
       lightMode: string
       darkMode: string
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
     readerMode: {
       title: string
     }
-=======
->>>>>>> 02f2423 (Initial commit)
-=======
->>>>>>> 18d4681c3fa99dd2d68f2b95767544223dcd8dfb
     explorer: {
       title: string
     }
