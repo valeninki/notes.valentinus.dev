@@ -19,6 +19,4 @@ Output goes to `public/`.
 
 ## Deploy
 
-```bash
-npx quartz sync
-```
+Push to `v5` branch -> GitHub Actions builds and deploys to GitHub Pages automatically.
