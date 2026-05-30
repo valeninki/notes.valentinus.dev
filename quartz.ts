@@ -3,7 +3,7 @@ import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/conf
 import * as ExternalPlugin from "./.quartz/plugins"
 
 ExternalPlugin.Explorer({
-  filterFn: (node: { slugSegment?: string }) => node.slugSegment !== "topics",
+  filterFn: (node: { slugSegment?: string }) => node.slugSegment !== "topics" && node.slugSegment !== "tags",
 })
 
 ExternalPlugin.RecentNotes({
