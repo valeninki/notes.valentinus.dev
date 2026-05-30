@@ -1,0 +1,47 @@
+name: Update Quartz plugins
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - run: npm ci
+
+      - name: Install latest plugins
+        run: npx quartz plugin install --latest
+
+      - name: Check for changes
+        id: check
+        run: |
+          if ! git diff --quiet -- quartz.lock.json; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create PR
+        if: steps.check.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: plugin-updates
+          title: "chore: update quartz plugins"
+          commit-message: "chore: update quartz plugins"
+          body: |
+            Automated update of Quartz community plugins via `npx quartz plugin install --latest`.
+          delete-branch: true
