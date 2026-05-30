@@ -24,8 +24,19 @@ jobs:
 
       - run: npm ci
 
+      - name: Cache Quartz plugins
+        uses: actions/cache@v5
+        with:
+          path: .quartz/plugins
+          key: ${{ runner.os }}-plugins-${{ hashFiles('quartz.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-plugins-
+
       - name: Install latest plugins
         run: npx quartz plugin install --latest
+
+      - name: Build check
+        run: npx quartz build
 
       - name: Check for changes
         id: check
@@ -44,4 +55,6 @@ jobs:
           commit-message: "chore: update quartz plugins"
           body: |
             Automated update of Quartz community plugins via `npx quartz plugin install --latest`.
+
+            Build verified successfully.
           delete-branch: true
