@@ -48,7 +48,7 @@
     "github-slugger": "^2.0.0",
     "globby": "^16.2.3",
     "hast-util-to-jsx-runtime": "^2.3.6",
-    "isomorphic-git": "^1.40.4",
+    "isomorphic-git": "^1.41.4",
     "lightningcss": "^1.33.0",
     "micromorph": "^0.4.5",
     "minimatch": "^10.2.6",
@@ -80,10 +80,10 @@
     "@types/source-map-support": "^0.5.10",
     "@types/ws": "^8.18.1",
     "@types/yargs": "^17.0.35",
-    "esbuild": "^0.28.1",
+    "esbuild": "^0.28.2",
     "prettier": "^3.9.6",
     "satori": "^0.29.0",
-    "tsx": "^4.23.11",
+    "tsx": "^4.23.12",
     "typescript": "^7.0.2"
   }
 }
